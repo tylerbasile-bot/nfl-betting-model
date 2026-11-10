@@ -13,7 +13,7 @@ This checklist tracks evidence for the prospective Model 13 program. A checkbox 
 ## Phase B — Collect genuine forward evidence
 
 - [ ] **Record outcomes for the first completed Model 13 games.** Both frozen candidates are scheduled for Nov. 15 at 18:00 UTC (1:00 p.m. ET), so outcomes cannot yet be verified. Keep the automated exact-team/kickoff matching and do not fill results early.
-- [ ] **Reach 25 naturally occurring prospective selections.** Current frozen count: **2**. Do not loosen the selection rule or backfill historical picks to reach the target.
+- [ ] **Reach 25 naturally occurring prospective selections.** Current Model 13 frozen count: **2**. Separately, Model 10 already has **14** frozen market-derived forecasts for games Nov. 13–17; those broaden the all-game evaluation cohort, but they are not extra Model 13 selections or independent model predictions. Do not loosen the Model 13 rule or backfill historical picks to reach the target.
 - [ ] **Reach 50 selections.** Current frozen count: **2**. Review calibration and price movement only after the corresponding outcomes and valid follow-up observations accrue.
 - [ ] **Reach 100 selections.** Current frozen count: **2**. The count is a review milestone, not a guarantee of adequate statistical power.
 
