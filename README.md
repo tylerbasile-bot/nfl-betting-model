@@ -129,3 +129,29 @@ The audit compares theoretical EV (based on the independent probability), later 
 Note: The final-score endpoint is unofficial and subject to change. Inspect failed or unmatched results before trusting the outcome ledger. The new results file will be visible publicly while this GitHub repository is public; do not store private betting-account information here.
 
 **Activate:** GitHub → Actions → Capture NFL pregame moneylines → Run workflow. New reports appear only after a successful updated workflow run.
+
+## Model 12 — Independent football-only model (offline candidate)
+
+The [candidate training script](scripts/train_independent_candidate.py) is deliberately independent of bookmaker prices as training inputs. It uses only rolling prior-five-game form and team passing/rushing EPA where available, with chronological training/test seasons 2022–2025. Market odds are used only as a **held-out comparator**. Previous models failed to beat the market reliably, so this model is not automatically promoted to Model 11.
+
+Run in Google Colab with existing private Drive files:
+
+```python
+from google.colab import drive
+drive.mount("/content/drive")
+!pip -q install numpy scipy pandas pyarrow
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/train_nflverse.py -o /content/train_nflverse.py
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/train_independent_candidate.py -o /content/train_independent_candidate.py
+!python /content/train_independent_candidate.py
+```
+
+Results are saved privately to `NFL_Betting_Data/model12_independent_candidate/`:
+- `heldout_metrics.csv` — year-by-year proper scoring, winner accuracy
+- `heldout_predictions.csv` — each held-out game, independent probability, market comparator
+- `validation_gate.json` — predeclared research gate and explanations
+
+The gate requires at least 800 held-out games, lower Brier in at least 3 of 4 years, pooled Brier improvement of at least 0.002, and lower pooled log loss. Passing **would not** independently verify a betting edge because 2025 has already been examined during previous development. An untouched prospective evaluation is still necessary. The script never sends probabilities to Model 11, creates no paper bets, and never reads a personal sportsbook account.
+
+### QB and offensive-line availability — timestamping comes first
+
+Do not use retrospective injury status fields as pregame features: many injury tables are revised after kickoff. Future expansion requires (a) source, (b) exact status-as-of timestamp, (c) team/player identity, (d) known-at-forecast confirmation, and (e) validation that missing statuses are handled without leakage. No credible historical injury dataset is connected yet, so it is intentionally excluded from this candidate.
