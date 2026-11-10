@@ -19,6 +19,11 @@ COLUMNS = [
     "sportsbook_key", "sportsbook", "book_last_update", "home_moneyline",
     "away_moneyline", "home_no_vig"
 ]
+USAGE_PATH = Path("data/odds/api_usage.csv")
+USAGE_COLUMNS = [
+    "captured_utc", "workflow_run_id", "workflow_run_attempt",
+    "requests_used", "requests_remaining", "request_cost", "event_count", "quote_count"
+]
 
 def implied_probability(american):
     price = float(american)
@@ -46,7 +51,11 @@ def capture():
     try:
         with urlopen(request, timeout=40) as response:
             payload = json.load(response)
-            remaining = response.headers.get("x-requests-remaining", "unknown")
+            quota = {
+                "requests_used": response.headers.get("x-requests-used", ""),
+                "requests_remaining": response.headers.get("x-requests-remaining", ""),
+                "request_cost": response.headers.get("x-requests-last", ""),
+            }
     except (HTTPError, URLError) as exc:
         raise SystemExit(f"Odds API request failed: {type(exc).__name__}") from None
 
@@ -88,6 +97,22 @@ def capture():
                     "away_moneyline": outcomes[away],
                     "home_no_vig": round(hp / (hp + ap), 8),
                 })
+    # Persist non-secret quota metadata so API usage can be audited later.
+    USAGE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    usage_exists = USAGE_PATH.exists()
+    with USAGE_PATH.open("a", encoding="utf-8", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=USAGE_COLUMNS)
+        if not usage_exists:
+            writer.writeheader()
+        writer.writerow({
+            "captured_utc": timestamp,
+            "workflow_run_id": os.environ.get("GITHUB_RUN_ID", ""),
+            "workflow_run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT", ""),
+            **quota,
+            "event_count": len({x["event_id"] for x in records}),
+            "quote_count": len(records),
+        })
+
     # A new dated CSV per UTC day avoids one continuously growing file.
     path = Path("data/odds") / f"{now:%Y-%m-%d}.csv"
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -100,7 +125,13 @@ def capture():
     print(f"Pregame games: {len(set(x['event_id'] for x in records))}")
     print(f"Bookmaker quotes saved: {len(records)}")
     print(f"Path: {path}")
-    print(f"API requests remaining (reported): {remaining}")
+    print(
+        "API quota (reported): "
+        f"used={quota['requests_used'] or 'unknown'}, "
+        f"remaining={quota['requests_remaining'] or 'unknown'}, "
+        f"last_request_cost={quota['request_cost'] or 'unknown'}"
+    )
+    print(f"Quota metadata: {USAGE_PATH}")
 
 if __name__ == "__main__":
     capture()
