@@ -2,7 +2,8 @@ name: Capture NFL pregame moneylines
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    # Run off the top of the hour to reduce schedule congestion.
+    - cron: '17 */2 * * *'
   workflow_dispatch:
 
 permissions:
