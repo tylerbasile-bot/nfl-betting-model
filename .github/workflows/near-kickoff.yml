@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install historical test dependency
-        run: python -m pip install pandas==2.3.3
+        run: python -m pip install pandas==2.3.3 scikit-learn==1.7.2
       - name: Decide if a near-kickoff capture is needed
         id: gate
         run: python scripts/near_kickoff_gate.py
