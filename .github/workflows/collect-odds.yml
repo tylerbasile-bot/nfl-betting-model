@@ -28,11 +28,13 @@ jobs:
         run: python scripts/collect_odds.py
       - name: Build Model 9 market research dashboard
         run: python scripts/model9.py
+      - name: Build Model 10 prospective forecast ledger
+        run: python scripts/model10.py
       - name: Commit snapshot if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/odds/ reports/
+          git add data/odds/ data/model10/ reports/
           if ! git diff --cached --quiet; then
             git commit -m "Store NFL odds snapshot"
             # The branch might have advanced since checkout.
