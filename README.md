@@ -101,3 +101,31 @@ Files:
 **Important:** The sportsbook-only baseline does not include independent injury information, NFLverse features or quarterback projections yet. The previous NFLverse-augmented Model 9B did not improve pooled Brier/log loss; it is deliberately not promoted to a real-money betting signal. We need forward outcomes before evaluating any proposed non-market model.
 
 **Start it:** open **Actions → Capture NFL pregame moneylines → Run workflow**, and verify the Model 10 test and generation steps succeed. GitHub Actions scheduled runs are not guaranteed at exact clock times. Data in this repository is currently public unless repository visibility is changed. Monitor API usage.
+
+## Model 11 — Forward positive-EV research and verified outcomes
+
+After each scheduled moneyline capture, the GitHub workflow now:
+1. Runs offline integrity tests (no API credits).
+2. Retrieves odds.
+3. Attempts to verify **completed games** using ESPN's publicly accessible, **unofficial** NFL scoreboard JSON endpoint. Final results must match locked Model 10 game identities, home/away sides, and kickoff within six hours; ties and ambiguous results are excluded. Unavailable feeds do not create guessed results.
+4. Regenerates Model 9 and Model 10 benchmarks and outcome scoring.
+5. Regenerates **[Model 11 research dashboard](reports/model11_dashboard.md)** and **[Model 11 forward audit](reports/model11_audit.csv)**.
+6. Commits time-stamped snapshots, results, and research reports.
+
+### Model 11 and positive EV
+
+Model 11 does **not** claim that a sportsbook discrepancy is positive EV. Historical NFLverse Models 6/9B did not improve pooled proper probability scoring beyond the sportsbook baseline; no independent probability engine is currently promoted.
+
+For a properly validated model you independently develop, the optional input is `data/model11/independent_forecasts_inbox.csv` containing exactly these headers:
+
+```csv
+event_id,forecast_utc,trained_through_utc,model_id,model_version,home_probability
+```
+
+The input must be created in advance, not backfilled; its forecast timestamp must be no more than 15 minutes old at workflow execution, and the matchup must be locked in Model 10 with at least 12 hours before kickoff. An appropriate recent odds snapshot must also be present. The first accepted model forecast and best quoted offered price are frozen in `data/model11/locked_independent_forecasts.csv`. **Never invent those probabilities or times.** The script does not train a model.
+
+The audit compares theoretical EV (based on the independent probability), later market probabilities, a near-kickoff CLV proxy, and hypothetical 1-unit paper results after final scores are confirmed. It does **not** place bets. The dashboard shows `NO VERIFIED POSITIVE EV` until a truly independent model has accumulated sufficient unseen prospective evidence, including calibration and realistic execution conditions. A theoretical 2% or 5% EV estimate alone is not proof of profitability.
+
+Note: The final-score endpoint is unofficial and subject to change. Inspect failed or unmatched results before trusting the outcome ledger. The new results file will be visible publicly while this GitHub repository is public; do not store private betting-account information here.
+
+**Activate:** GitHub → Actions → Capture NFL pregame moneylines → Run workflow. New reports appear only after a successful updated workflow run.
