@@ -1,24 +1,59 @@
 # Model 13 — Phase 2 Prospective Validation
 
-> **INITIALIZATION ONLY — NOT A LIVE GENERATED REPORT.** This file was created to establish the dashboard link before its first successful report-generation workflow. Do not treat any unobserved comparison as zero or as negative evidence.
+Generated UTC: `2026-11-10T16:26:35.235996+00:00`
 
-## Verified starting state (November 10, 2026)
+> **NO VERIFIED POSITIVE EV. PAPER RESEARCH ONLY.** No bets are placed by this workflow.
 
-- Frozen prospective selections already recorded in `data/model13/frozen_price_candidates.csv`: **2**.
-- Planning observation target: **100 prospective selections**; not a guarantee of statistical significance.
-- Games currently recorded: **Buffalo Bills @ New York Jets** and **Jacksonville Jaguars @ Tennessee Titans**, both scheduled for November 15, 2026.
-- Results and post-freeze market comparisons: **not re-evaluated in this initialization file**.
-- Evidence of positive expected value: **not established**.
+## 1. Sample accrual (no forced picks)
 
-## Publish the actual current metrics
+- Frozen prospective selections: **2/100** (planning target, not a sufficient statistical sample guarantee).
+- Independently verified results: **0**.
+- Games with kickoff reached: **0**; games not yet kicked off: **2**.
+- The target is an observation milestone; do not adjust selection criteria to meet it.
 
-Open **GitHub Actions → Refresh Model 13 research dashboards (no odds API) → Run workflow**.
+## 2. Market validation coverage
 
-The workflow executes the read-only `scripts/model13_market_validation.py`
-and `scripts/model13_phase2_validation.py` against committed data and replaces
-this bootstrap page with the calculated report. No paid odds API call is made.
+- Later five-book market references: **2/2**.
+- Later selected-book quotes: **2/2**.
+- Near-kickoff (<=3h) five-book references: **0/2**.
+- Near-kickoff selected-book quotes: **0/2**.
+- Matured games missing a near-kickoff market quote: **0/0**.
+- Observed near-kickoff market shift: **not yet measurable**.
+- Same-book near-kickoff shift: **not yet measurable**.
+- These measures are market-price movement proxies, **not** certified closing-line value.
 
-The scheduled collector also regenerates the report when a successful odds
-run completes.
+## 3. Execution/availability evidence
 
-**No historical records, original frozen picks, or selection thresholds were modified by this initialization.**
+- ACCOUNT_RESTRICTED: **0**.
+- LIMITED_LIQUIDITY: **0**.
+- PRICE_CONFIRMED: **0**.
+- PRICE_UNAVAILABLE: **0**.
+- REGION_RESTRICTED: **0**.
+- UNKNOWN: **0**.
+- UNREVIEWED: **2**.
+
+Prices from the odds feed are **not proof of fillability**. The optional manual CSV
+`data/model13/execution_observations.csv` can document independently checked
+availability, stake limits, fees and evidence references. Never store credentials,
+personal financial data, or identifying screenshots in the repository.
+
+## 4. Probability calibration, selected-side reference only
+
+- No independently verified settled selections. **No Brier score, log loss, or calibration claims yet.**
+
+### Interpretation requirements
+
+- The probability used here is the other-books' median no-vig *market estimate*, NOT an independently trained probability model.
+- This is a *selected-only* cohort and may be biased by selecting cross-book discrepancies. Do not extrapolate calibration to all NFL games.
+- No candidate is added retroactively, and all evaluation timestamps follow the original freeze.
+- Outcomes are sourced only from independently matched Model 13 final-score observations.
+- Missing prices and finals remain missing, never interpreted as losses or zero movement.
+
+## 5. Data-quality / pending work
+
+- Candidates with audit warnings: **0**.
+- Candidates awaiting verified finals: **2**.
+- Candidates missing near-kickoff market observations: **2**.
+- Candidates without independent execution confirmation: **2**.
+
+The live Model 13 selection rule remains unchanged. Do not use this dashboard as a wagering signal.
