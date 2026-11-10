@@ -82,3 +82,22 @@ Input is read directly from `/content/drive/MyDrive/NFL_Betting_Data/schedules.p
 - `walk_forward_predictions.csv`: matchup, market baseline, model prediction and result.
 
 **Interpretation:** schedules moneylines may be closing prices (unknown at earlier prediction time), so this is NOT a tradable profit backtest. The objective is to see whether NFLverse form adds out-of-sample information beyond the market. Score leakage is prevented by computing lagged features before incorporating each game result; statistics from the game being predicted are not inputs. The 2026 season is excluded from training and validation to avoid contamination with games still in progress. If the augmented model's pooled Brier and log loss do not improve, the correct decision is to keep the sportsbook market baseline.
+
+## Model 10 — Prospective, locked-ahead market testing
+
+Model 10 is integrated into the existing scheduled GitHub Actions collector. The workflow now runs integrity tests before API calls, records moneylines, refreshes Model 9, and generates the Model 10 reports.
+
+Files:
+- [Prospective forecast ledger](data/model10/prospective_forecasts.csv) — created on the first successful Model 10 run. One immutable prediction per Odds API event ID.
+- [Model 10 dashboard](reports/model10_dashboard.md) — generated after each collector run.
+- [Model 10 evaluation](reports/model10_evaluation.csv) — individual frozen predictions, subsequent movement, near-kickoff price proxies, and verified outcome scores.
+
+**Prospective constraint:** new forecasts are only created if the most recent qualifying odds snapshot was collected in the previous 15 minutes, contains at least four fresh books, and kickoff is at least 12 hours away. Old CSV history is **not backfilled** as prospective. A game's frozen initial probability and prices never change even after future odds updates. New snapshots only update the separate evaluation report.
+
+**Market baseline:** the median of each bookmaker's de-vigged home-win probability. This is a benchmark, not a trained proprietary probability model or evidence of positive EV. No bets are recommended.
+
+**After kickoff:** when a quote is captured within three hours of kickoff, the evaluation labels it *near kickoff*, never as the true closing line without verification. To score completed games, supply independently checked `data/results.csv` containing `event_id,status,winner`, using `final` and the exact winning team name. No scores are fabricated or inferred from moneylines. Results cannot be scored before kickoff.
+
+**Important:** The sportsbook-only baseline does not include independent injury information, NFLverse features or quarterback projections yet. The previous NFLverse-augmented Model 9B did not improve pooled Brier/log loss; it is deliberately not promoted to a real-money betting signal. We need forward outcomes before evaluating any proposed non-market model.
+
+**Start it:** open **Actions → Capture NFL pregame moneylines → Run workflow**, and verify the Model 10 test and generation steps succeed. GitHub Actions scheduled runs are not guaranteed at exact clock times. Data in this repository is currently public unless repository visibility is changed. Monitor API usage.
