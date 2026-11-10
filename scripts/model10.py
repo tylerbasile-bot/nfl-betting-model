@@ -115,7 +115,8 @@ def evaluate(quotes, results, frozen, now):
         near = [item for item in later if kickoff - item[0] <= CLOSING_HORIZON]
         near = near[-1] if near else None
 
-        # Never score outcomes until the scheduled kickoff has passed.\n        winner = results.get(event) if now >= kickoff else None
+        # Never score outcomes until the scheduled kickoff has passed.
+        winner = results.get(event) if now >= kickoff else None
         if winner == row["home_team"]:
             y=1
         elif winner == row["away_team"]:
