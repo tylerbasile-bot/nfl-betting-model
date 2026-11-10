@@ -1,13 +1,13 @@
 # Model 9 — NFL Market Intelligence
 
-Generated: `2026-11-10T08:56:48+00:00`
+Generated: `2026-11-10T14:34:10+00:00`
 
 > **Research only — NO VERIFIED EDGE.** Prices and market consensus are not independently validated win probabilities.
 
 ## Pipeline summary
 
 - Odds files read: **1**
-- Pregame games with at least 4 fresh books: **12**
+- Pregame games with at least 4 fresh books: **14**
 - Quotes rejected due to malformed fields or prices: **0**
 - Games with an observed quote within 3 hours of kickoff after the initial snapshot: **0**
 - Games with verified results supplied: **0**
@@ -16,17 +16,19 @@ Generated: `2026-11-10T08:56:48+00:00`
 
 | Game | Kickoff (UTC) | First market home % | Latest home % | Change (pp) | Best first home | Best first away | Near kickoff? |
 |---|---|---:|---:|---:|---|---|---|
-| Washington Commanders @ New York Giants | 2026-11-13T01:15 | 53.79% | 55.07% | +1.279 | FanDuel (-124) | BetOnline.ag (+115) | NO |
-| New England Patriots @ Detroit Lions | 2026-11-15T14:30 | 57.98% | 58.14% | +0.156 | BetUS (-150) | DraftKings (+130) | NO |
-| Jacksonville Jaguars @ Tennessee Titans | 2026-11-15T18:00 | 19.35% | 18.77% | -0.587 | FanDuel (+440) | BetUS (-500) | NO |
-| Kansas City Chiefs @ Atlanta Falcons | 2026-11-15T18:00 | 37.89% | 37.80% | -0.092 | Bovada (+160) | FanDuel (-178) | NO |
-| Miami Dolphins @ Indianapolis Colts | 2026-11-15T18:00 | 55.26% | 55.36% | +0.096 | BetOnline.ag (-133) | Bovada (+122) | NO |
-| Houston Texans @ Cleveland Browns | 2026-11-15T18:00 | 32.95% | 32.95% | +0.000 | BetUS (+195) | BetRivers (-205) | NO |
-| Carolina Panthers @ New Orleans Saints | 2026-11-15T18:00 | 51.71% | 51.74% | +0.024 | FanDuel (-112) | DraftKings (+100) | NO |
-| Seattle Seahawks @ Las Vegas Raiders | 2026-11-15T21:05 | 38.13% | 37.99% | -0.141 | Bovada (+158) | DraftKings (-175) | NO |
-| Los Angeles Rams @ Arizona Cardinals | 2026-11-15T21:05 | 20.99% | 21.34% | +0.350 | DraftKings (+360) | BetUS (-440) | NO |
-| San Francisco 49ers @ Dallas Cowboys | 2026-11-15T21:25 | 34.52% | 34.52% | +0.000 | FanDuel (+180) | DraftKings (-205) | NO |
-| Pittsburgh Steelers @ Cincinnati Bengals | 2026-11-16T01:20 | 63.83% | 63.83% | +0.000 | DraftKings (-180) | LowVig.ag (+171) | NO |
+| Washington Commanders @ New York Giants | 2026-11-13T01:15 | 53.79% | 54.27% | +0.487 | FanDuel (-124) | BetOnline.ag (+115) | NO |
+| New England Patriots @ Detroit Lions | 2026-11-15T14:30 | 57.98% | 58.72% | +0.735 | BetUS (-150) | DraftKings (+130) | NO |
+| Buffalo Bills @ New York Jets | 2026-11-15T18:00 | 21.34% | 21.34% | +0.000 | DraftKings (+390) | BetOnline.ag (-440) | NO |
+| Jacksonville Jaguars @ Tennessee Titans | 2026-11-15T18:00 | 19.35% | 18.37% | -0.980 | FanDuel (+440) | BetUS (-500) | NO |
+| Kansas City Chiefs @ Atlanta Falcons | 2026-11-15T18:00 | 37.89% | 37.89% | +0.000 | Bovada (+160) | FanDuel (-178) | NO |
+| Minnesota Vikings @ Green Bay Packers | 2026-11-15T18:00 | 65.73% | 65.73% | +0.000 | DraftKings (-205) | BetOnline.ag (+186) | NO |
+| Miami Dolphins @ Indianapolis Colts | 2026-11-15T18:00 | 55.26% | 55.26% | +0.000 | BetOnline.ag (-133) | Bovada (+122) | NO |
+| Houston Texans @ Cleveland Browns | 2026-11-15T18:00 | 32.95% | 33.08% | +0.134 | BetUS (+195) | BetRivers (-205) | NO |
+| Carolina Panthers @ New Orleans Saints | 2026-11-15T18:00 | 51.71% | 51.71% | +0.000 | FanDuel (-112) | DraftKings (+100) | NO |
+| Seattle Seahawks @ Las Vegas Raiders | 2026-11-15T21:05 | 38.13% | 38.13% | +0.000 | Bovada (+158) | DraftKings (-175) | NO |
+| Los Angeles Rams @ Arizona Cardinals | 2026-11-15T21:05 | 20.99% | 21.36% | +0.367 | DraftKings (+360) | BetUS (-440) | NO |
+| San Francisco 49ers @ Dallas Cowboys | 2026-11-15T21:25 | 34.52% | 34.25% | -0.269 | FanDuel (+180) | DraftKings (-205) | NO |
+| Pittsburgh Steelers @ Cincinnati Bengals | 2026-11-16T01:20 | 63.83% | 63.41% | -0.418 | DraftKings (-180) | LowVig.ag (+171) | NO |
 | Los Angeles Chargers @ Baltimore Ravens | 2026-11-17T01:15 | 67.42% | 67.42% | +0.000 | DraftKings (-225) | BetUS (+200) | NO |
 
 ## Outcome validation
