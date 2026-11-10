@@ -30,6 +30,8 @@ jobs:
         run: python scripts/collect_odds.py
       - name: Record daily QB and OL injury observations
         run: python scripts/collect_injuries.py
+      - name: Build QB and OL injury watchboard
+        run: python scripts/injury_watch.py
       - name: Match verified NFL final scores
         run: python scripts/collect_results.py
       - name: Build Model 9 market research dashboard
