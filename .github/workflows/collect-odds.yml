@@ -33,7 +33,19 @@ jobs:
           git add data/odds/
           if ! git diff --cached --quiet; then
             git commit -m "Store NFL odds snapshot"
-            git push
+            # The branch might have advanced since checkout.
+            # Rebase our data commit on the latest main before pushing.
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                echo "Snapshot committed and pushed."
+                exit 0
+              fi
+              echo "Push raced with another commit; retrying..."
+            done
+            echo "Could not push after three attempts." >&2
+            exit 1
           else
             echo "No new snapshot changes."
           fi
