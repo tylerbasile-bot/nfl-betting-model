@@ -85,19 +85,40 @@ def build(frozen,validation,finals,manual):
         issues=[]
         if p is None or not 0<p<1:issues.append("INVALID_FROZEN_REFERENCE")
         if not v:issues.append("NO_MARKET_VALIDATION_ROW")
-        if status=="PRICE_CONFIRMED" and not evidence:issues.append("NO_EXECUTION_EVIDENCE_REFERENCE")
-        if status=="PRICE_CONFIRMED" and manualrow:
-            checked_odds=number(manualrow.get("offered_odds_checked"))
-            if checked_odds is None or checked_odds!=number(pick.get("offered_odds")):
-                issues.append("MANUAL_PRICE_DOES_NOT_MATCH_FROZEN_OFFER")
+        documented_statuses={"PRICE_CONFIRMED","PRICE_UNAVAILABLE","REGION_RESTRICTED",
+                             "LIMITED_LIQUIDITY","ACCOUNT_RESTRICTED"}
+        if status in documented_statuses and not evidence:
+            issues.append("NO_EXECUTION_EVIDENCE_REFERENCE")
         if status=="PRICE_CONFIRMED" and manualrow:
             checked=manualrow.get("checked_utc","")
             try:
                 check_time=datetime.fromisoformat(checked.replace("Z","+00:00"))
                 selection=datetime.fromisoformat(pick["selection_utc"].replace("Z","+00:00"))
-                # Evidence must pertain to the frozen observed price, not days later.
-                if abs((check_time-selection).total_seconds())>900:
-                    issues.append("PRICE_CHECK_OUTSIDE_15_MINUTES")
+                kickoff=datetime.fromisoformat(pick["kickoff_utc"].replace("Z","+00:00"))
+                if not selection<=check_time<kickoff:
+                    issues.append("PRICE_CHECK_OUTSIDE_EVENT_WINDOW")
+
+                # Check availability against a same-book quote captured near the
+                # manual check, including later near-kickoff quotes. Do not force
+                # a check days later to match the original frozen price.
+                quote_refs=[(selection,number(pick.get("offered_odds")))]
+                for time_field,odds_field in (
+                    ("latest_same_book_utc","latest_same_book_odds"),
+                    ("near_kickoff_same_book_utc","near_kickoff_same_book_odds"),
+                ):
+                    stamp=v.get(time_field,"")
+                    price=number(v.get(odds_field))
+                    if stamp and price is not None:
+                        quote_time=datetime.fromisoformat(stamp.replace("Z","+00:00"))
+                        quote_refs.append((quote_time,price))
+                reference_time,reference_price=min(
+                    quote_refs,key=lambda item:abs((item[0]-check_time).total_seconds())
+                )
+                if abs((reference_time-check_time).total_seconds())>900:
+                    issues.append("PRICE_CHECK_OUTSIDE_15_MINUTES_OF_BOOK_QUOTE")
+                checked_odds=number(manualrow.get("offered_odds_checked"))
+                if checked_odds is None or checked_odds!=reference_price:
+                    issues.append("MANUAL_PRICE_DOES_NOT_MATCH_NEARBY_BOOK_QUOTE")
             except (TypeError,ValueError):
                 issues.append("INVALID_PRICE_CHECK_TIMESTAMP")
         detail.append({
