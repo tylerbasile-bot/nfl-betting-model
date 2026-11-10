@@ -17,8 +17,9 @@ AUDIT=Path("reports/model13_audit.csv")
 FIELDS=["event_id","kickoff_utc","home_team","away_team","selected_side","book","book_key",
         "offered_odds","selection_utc","reference_prob","break_even_prob",
         "apparent_ev","reference_books","research_status"]
-EXTRA=["near_kickoff_utc","near_kickoff_prob","market_shift_pp","result",
-       "paper_profit_per_unit","candidate_won"]
+EXTRA=["near_kickoff_utc","near_kickoff_prob","market_shift_pp",
+       "same_book_near_kickoff_odds","same_book_near_kickoff_utc",
+       "same_book_implied_shift_pp","result","paper_profit_per_unit","candidate_won"]
 MIN_OTHER_BOOKS=4
 MIN_INDICATIVE_EV=.02
 MIN_LEAD=timedelta(hours=12)
@@ -90,7 +91,20 @@ def evaluate(locked,quotes,results,now):
         candidates=[t for t in qualified_snapshots(quotes.get(event,{}))
                     if frozen<t[0]<kickoff and kickoff-t[0]<=NEAR_KICKOFF]
         close=candidates[-1] if candidates else None
+        # Separate same-sportsbook comparison: a meaningful pricing benchmark
+        # requires the same selection at the same bookmaker near kickoff.
+        key=row["book_key"]
+        book_snapshots=[t for t in candidates if key in t[2]]
+        same_book=book_snapshots[-1] if book_snapshots else None
         side=row["selected_side"]
+        final_odds=(
+            same_book[2][key]["home_odds" if side=="HOME" else "away_odds"]
+            if same_book else None
+        )
+        implied_shift=(
+            100*(implied(final_odds)-implied(row["offered_odds"]))
+            if final_odds is not None else None
+        )
         p=(close[1] if side=="HOME" else 1-close[1]) if close else None
         original=float(row["reference_prob"])
         shift=100*(p-original) if p is not None else None
@@ -102,6 +116,9 @@ def evaluate(locked,quotes,results,now):
             "near_kickoff_utc":close[0].isoformat() if close else "",
             "near_kickoff_prob":f"{p:.6f}" if p is not None else "",
             "market_shift_pp":f"{shift:+.3f}" if shift is not None else "",
+            "same_book_near_kickoff_odds":int(final_odds) if final_odds is not None else "",
+            "same_book_near_kickoff_utc":same_book[0].isoformat() if same_book else "",
+            "same_book_implied_shift_pp":f"{implied_shift:+.3f}" if implied_shift is not None else "",
             "result":"VERIFIED_FINAL" if winner else "PENDING",
             "paper_profit_per_unit":f"{profit:.4f}" if profit is not None else "",
             "candidate_won":int(won) if won is not None else ""})
@@ -115,6 +132,7 @@ def report(rows,new,now):
         writer.writerows(rows)
     settled=[r for r in rows if r["result"]=="VERIFIED_FINAL"]
     with_close=[r for r in rows if r["near_kickoff_utc"]]
+    same_book_close=[r for r in rows if r["same_book_near_kickoff_utc"]]
     lines=[
         "# Model 13 — Prospective Cross-Book Pricing Study","",
         f"Updated: `{now.isoformat()}`","",
@@ -123,21 +141,23 @@ def report(rows,new,now):
         f"- New frozen candidate observations: **{len(new)}**",
         f"- Total locked observations: **{len(rows)}**",
         f"- With near-kickoff reference: **{len(with_close)}**",
+        f"- With same-book near-kickoff price: **{len(same_book_close)}**",
         f"- With verified finals: **{len(settled)}**","",
         "## Precommitted selection rule","",
         "At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff at least 12 hours ahead, and a minimum 2% *indicative* return using the median no-vig probability of OTHER books. One candidate per event; highest apparent discrepancy wins. No backfilled picks, no post-result selection.","",
-        "| Matchup | Side | Observed odds | Market reference | Indicative return | Near-kickoff shift | Status |",
-        "|---|---|---|---:|---:|---:|---|"
+        "| Matchup | Side | Observed odds | Market reference | Indicative return | Market shift | Same-book shift | Status |",
+        "|---|---|---|---:|---:|---:|---:|---|"
     ]
     for r in rows:
         lines.append(
             f"| {r['away_team']} @ {r['home_team']} | {r['selected_side']} | "
             f"{r['book']} ({int(r['offered_odds']):+d}) | {100*float(r['reference_prob']):.2f}% | "
             f"{100*float(r['apparent_ev']):+.2f}% | "
-            f"{r['market_shift_pp']+' pp' if r['market_shift_pp'] else '—'} | {r['result']} |"
+            f"{r['market_shift_pp']+' pp' if r['market_shift_pp'] else '—'} | "
+            f"{r['same_book_implied_shift_pp']+' pp' if r['same_book_implied_shift_pp'] else '—'} | {r['result']} |"
         )
     if not rows:
-        lines.append("| No pregame candidates yet | — | — | — | — | — | — |")
+        lines.append("| No pregame candidates yet | — | — | — | — | — | — | — |")
     lines.extend(["","## Outcome evaluation",""])
     if settled:
         roi=statistics.mean(float(r["paper_profit_per_unit"]) for r in settled)
@@ -149,6 +169,7 @@ def report(rows,new,now):
         "- Bookmakers' probabilities are correlated and often share information. Apparent EV is not proof of true EV.",
         "- Prices may be stale, restricted, inaccessible, or not executable at the logged timestamp.",
         "- A near-kickoff quote is only a proxy, not confirmed closing-line value.",
+        "- Same-book shift compares implied break-even probability for the EXACT frozen bookmaker and side; a positive shift means the earlier offered price was better (not a guaranteed edge).",
         "- No money is wagered; all selections and wins/losses are hypothetical.",
         "- Results are matched against verified full-team identities and kickoff, not inferred from prices.",
         "- Injury information is recorded separately and is NOT an unvalidated betting signal.",""])
