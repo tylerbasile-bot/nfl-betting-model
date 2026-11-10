@@ -16,7 +16,7 @@ from urllib.error import HTTPError,URLError
 BASE="https://mcp.endzoneapi.com/v1/get_odds"
 
 def run(api_key,season,outdir,dry_run=False):
-    if not api_key:
+    if not api_key and not dry_run:
         raise ValueError("ENDZONEAPI_API_KEY is missing")
     outdir=Path(outdir)
     for typ in ("opening","closing"):
