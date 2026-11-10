@@ -1,0 +1,3 @@
+event_id,kickoff_utc,home_team,away_team,selected_side,book,book_key,offered_odds,selection_utc,reference_prob,break_even_prob,apparent_ev,reference_books,research_status,near_kickoff_utc,near_kickoff_prob,market_shift_pp,result,paper_profit_per_unit,candidate_won
+1057d50949844ddf483da9c8c20354be,2026-11-15T18:00:00+00:00,New York Jets,Buffalo Bills,HOME,DraftKings,draftkings,390,2026-11-10T15:03:38.328578+00:00,0.21507331,0.20408163,0.053859,6,UNVERIFIED_MARKET_DISCREPANCY_ONLY,,,,PENDING,,
+28800df7e768ecec14f116454d560f9b,2026-11-15T18:00:00+00:00,Tennessee Titans,Jacksonville Jaguars,HOME,BetRivers,betrivers,480,2026-11-10T15:03:38.328578+00:00,0.18519655,0.17241379,0.074140,8,UNVERIFIED_MARKET_DISCREPANCY_ONLY,,,,PENDING,,
