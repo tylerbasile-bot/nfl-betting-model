@@ -52,7 +52,7 @@ class Phase2Tests(unittest.TestCase):
                   "execution_status":"PRICE_CONFIRMED","checked_utc":"2026-11-11T15:00:00Z",
                   "evidence_reference":"private-log-1"}
         d=phase2.build([self.pick],[],[],[evidence])
-        self.assertIn("PRICE_CHECK_OUTSIDE_15_MINUTES",d[0]["data_quality_warning"])
+        self.assertIn("PRICE_CHECK_OUTSIDE_15_MINUTES_OF_BOOK_QUOTE",d[0]["data_quality_warning"])
 
     def test_confirmed_price_must_match_frozen_moneyline(self):
         evidence={"event_id":"g","book_key":"draftkings","selected_side":"HOME",
@@ -60,6 +60,16 @@ class Phase2Tests(unittest.TestCase):
                   "offered_odds_checked":"350","evidence_reference":"private-check"}
         d=phase2.build([self.pick],[],[],[evidence])
         self.assertIn("MANUAL_PRICE_DOES_NOT_MATCH_FROZEN_OFFER",d[0]["data_quality_warning"])
+
+    def test_near_kickoff_check_matches_nearby_selected_book_quote(self):
+        v={**self.v,"near_kickoff_same_book_utc":"2026-11-15T17:58:00Z",
+           "near_kickoff_same_book_odds":"380"}
+        evidence={"event_id":"g","book_key":"draftkings","selected_side":"HOME",
+                  "execution_status":"PRICE_CONFIRMED","checked_utc":"2026-11-15T17:59:00Z",
+                  "offered_odds_checked":"380","evidence_reference":"private-check"}
+        d=phase2.build([self.pick],[v],[],[evidence])
+        self.assertEqual(d[0]["manual_execution_status"],"PRICE_CONFIRMED")
+        self.assertEqual(d[0]["data_quality_warning"],"NONE")
 
     def test_negative_results_score_correctly(self):
         lost={**self.final,"winner":"Away"}
