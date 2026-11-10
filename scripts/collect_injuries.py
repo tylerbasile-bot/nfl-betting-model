@@ -22,6 +22,10 @@ FIELDS=[
     "source_date_modified","source_url"
 ]
 
+def decode_injury_csv(content):
+    """Decode UTF-8 CSVs, including files prefixed with a BOM."""
+    return content.decode("utf-8-sig")
+
 def select_rows(data,observed,source):
     chosen=[]
     for row in csv.DictReader(io.StringIO(data)):
@@ -54,7 +58,7 @@ def main(now=None):
             if len(content)>4_000_000:
                 print("Injury file exceeds safety limit; skipping.")
                 return
-            text=content.decode("utf-8-sig")
+            text=decode_injury_csv(content)
         records=select_rows(text,now.isoformat(),url)
     except (HTTPError,URLError,TimeoutError,UnicodeDecodeError) as exc:
         print(f"Injury feed unavailable: {type(exc).__name__}; skipping without guesses.")
