@@ -133,13 +133,12 @@ def summarize(results):
         g=results[results["split"]==name]
         if len(g)==0:continue
         market=g["market_brier"].notna()
+        market_brier=f"{g.loc[market,'market_brier'].mean():.5f}" if market.any() else "N/A"
+        market_loss=f"{g.loc[market,'market_logloss'].mean():.5f}" if market.any() else "N/A"
         lines.append(f"| {name} | {len(g)} | {g['football_brier'].mean():.5f} | "
-                     f"{g.loc[market,'market_brier'].mean():.5f} (n={market.sum()})" if False else "")
-        # Keep formatting separate to prevent report creation edge cases.
-        lines[-1]=(f"| {name} | {len(g)} | {g['football_brier'].mean():.5f} | "
-                  f"{g.loc[market,'market_brier'].mean():.5f} (n={int(market.sum())}) | "
-                  f"{g['constant_brier'].mean():.5f} | {g['football_logloss'].mean():.5f} | "
-                  f"{g.loc[market,'market_logloss'].mean():.5f} |")
+                     f"{market_brier} (n={int(market.sum())}) | "
+                     f"{g['constant_brier'].mean():.5f} | "
+                     f"{g['football_logloss'].mean():.5f} | {market_loss} |")
     lines+=["",
         "## Interpretation","",
         "- Lower Brier/log loss is better. Compare held-out rows only; the training score is not performance evidence.",
