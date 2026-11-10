@@ -226,3 +226,31 @@ drive.mount("/content/drive")
 The historical bookmaker opening and closing observations are **not** dense synchronized five-minute snapshots. Do not simply apply Model 13's existing 2%-EV screen to prices captured at widely different times: it could manufacture fake discrepancies. A valid historical study must check capture timestamps, sportsbook matchups, missing books, and only evaluate common observation windows. If insufficient simultaneous books exist, record **INSUFFICIENT DATA**, not a simulated win. Do not backfill these historical observations into Model 13's separate, already-frozen prospective data.
 
 Data provider schemas and historical access terms can change; inspect the first saved raw JSON before writing a normalized backtester. The free archive may only support opening/closing analysis, not the full intraday selection rule.
+
+## Historical Model 13 free Odds Gap sample audit
+
+The free sample downloaded from `https://theoddsgap.com/api/odds-export.csv?sport=all`
+was reported as 1,248,139 rows (240 MB) with columns:
+`snapshot_ts,sport,away,home,commence_time,market,side,line,book,american_odds,devig_fair_prob,best_price_flag,game_id`.
+Most rows are NOT NFL moneylines. Audit before extrapolating.
+
+The independent historical replay lives in `scripts/backtest_free_odds_gap.py`.
+It **does not read or modify** Model 13's prospective ledger. It:
+- Streams the CSV and filters for `americanfootball_nfl` and `ml` prices only.
+- Requires matching home and away moneyline quotes at the *same captured timestamp* from each bookmaker.
+- Evaluates only instants with >=5 books and >=12 hours remaining to kickoff.
+- Recomputes each bookmaker's no-vig probability from BOTH moneylines (does not trust the provided fair probability).
+- Freezes at most one **earliest qualifying** candidate per game if indicative EV >=2%, using the other bookmakers' median and selecting the highest discrepancy.
+- Reports historical near-kickoff (within 3 hours) market and exact-sportsbook price movement where available, not an official close.
+- Does not infer outcome, ROI, or make positive-EV claims without verified results and a suitable evaluation sample.
+
+In the existing Google Colab notebook with Drive mounted:
+```python
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/backtest_free_odds_gap.py -o /content/backtest_free_odds_gap.py
+!python /content/backtest_free_odds_gap.py --input "/content/drive/MyDrive/NFL_Betting_Data/free_historical_odds/odds_gap_free_sample.csv"
+```
+The script writes `historical_model13_sample_audit.md` and
+`historical_model13_sample_candidates.csv` under
+`NFL_Betting_Data/free_historical_odds/model13_sample/`.
+If there are **no NFL games or no synchronized five-book captures**, the correct
+finding is *insufficient data*, not zero profitability or a made-up backtest.
