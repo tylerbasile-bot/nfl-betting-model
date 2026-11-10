@@ -97,7 +97,7 @@ def capture_new_forecasts(quotes, now):
             writer.writerows(created)
     return created
 
-def evaluate(quotes, results, frozen):
+def evaluate(quotes, results, frozen, now):
     output = []
     for row in frozen:
         event = row["event_id"]
@@ -115,7 +115,7 @@ def evaluate(quotes, results, frozen):
         near = [item for item in later if kickoff - item[0] <= CLOSING_HORIZON]
         near = near[-1] if near else None
 
-        winner = results.get(event)
+        # Never score outcomes until the scheduled kickoff has passed.\n        winner = results.get(event) if now >= kickoff else None
         if winner == row["home_team"]:
             y=1
         elif winner == row["away_team"]:
@@ -211,7 +211,7 @@ def main(now=None):
     now = now or datetime.now(timezone.utc)
     quotes,files,bad=load_quotes()
     created=capture_new_forecasts(quotes,now)
-    rows=evaluate(quotes,load_results(),read_ledger())
+    rows=evaluate(quotes,load_results(),read_ledger(),now)
     write_reports(rows,created,files,bad,now)
 
 if __name__=="__main__":
