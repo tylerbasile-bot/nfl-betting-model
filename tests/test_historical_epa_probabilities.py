@@ -41,6 +41,32 @@ class ProbabilitiesTests(unittest.TestCase):
         s.loc[0,"home_team"]="OTHER"
         with self.assertRaises(ValueError):model.normalize_data(f,s)
 
+    def test_relocated_team_aliases_match_without_changing_home_side(self):
+        f,s=self.sample()
+        f.loc[0,"home_team"]="OAK"
+        s.loc[0,"home_team"]="LV"
+        f.loc[1,"away_team"]="SD"
+        s.loc[1,"away_team"]="LAC"
+        f.loc[2,"home_team"]="STL"
+        s.loc[2,"home_team"]="LA"
+        df=model.normalize_data(f,s)
+        self.assertEqual(len(df),44)
+
+    def test_swapped_home_away_rejected_even_with_aliases(self):
+        f,s=self.sample()
+        f.loc[0,"home_team"]="OAK"
+        f.loc[0,"away_team"]="SD"
+        s.loc[0,"home_team"]="LAC"
+        s.loc[0,"away_team"]="LV"
+        with self.assertRaises(ValueError):
+            model.normalize_data(f,s)
+
+    def test_unknown_franchise_mismatch_rejected(self):
+        f,s=self.sample()
+        f.loc[0,"home_team"]="FAKE"
+        with self.assertRaises(ValueError):
+            model.normalize_data(f,s)
+
     def test_no_future_tuning_in_training_split(self):
         f,s=self.sample()
         df=model.normalize_data(f,s)
