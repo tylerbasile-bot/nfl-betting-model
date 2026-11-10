@@ -176,3 +176,23 @@ nflverse documents the `date_modified`, `position`, `report_status`, and `practi
 **Future QB/OL research plan:** Build per-player as-of histories using the observation timestamps accumulated from now onward, verify depth chart/starting role as of that same time, compare injury availability changes to market movement, then freeze and test separate pregame predictions on unseen games. Data quality and temporal correctness must be established before the feature is added to any active probability model.
 
 New scripts are committed but require a fresh successful **Actions → Capture NFL pregame moneylines → Run workflow** execution for the first Model 13 and injury dashboard outputs.
+
+## Upgrade — Injury status changes and near-kickoff price collection (November 2026)
+
+### Injury change audit
+Each existing two-hour odds workflow run also regenerates:
+- [Injury status change report](reports/injury_changes.md)
+- `reports/injury_changes.csv` — previous/current **observed UTC** times, player ID, team, season/week, original/new practice and report statuses, source modification date, and change type.
+
+`scripts/injury_changes.py` compares **the last two daily injury snapshots** of identical season/week/player/team identifiers. It marks first-seen entries separately and records changed report/practice statuses. If a player disappears from the feed, that **does not** count as recovery. This report becomes informative only after the second dated observation is available. It does not verify starting roles or independently predict injury impact.
+
+### Quota-aware near-kickoff collection
+[Near-kickoff workflow](.github/workflows/near-kickoff.yml) checks tracked game start times on a UTC hourly schedule at minute 35 on NFL game days (Sun/Mon/Tue/Thu/Fri UTC). It first runs a **local API-free gate**, `scripts/near_kickoff_gate.py`, and **skips API collection** unless an already-tracked game will start in 10–70 minutes, with no sportsbook snapshot in the preceding 25 minutes. The intent is to collect a later, more useful *pregame* quote without exhausting The Odds API quota. Schedule timing is best-effort; GitHub may delay or miss scheduled runs and some games will lack a near-kickoff snapshot.
+
+Model 13's original frozen paper observations and selection thresholds remain **unchanged**. Its [audit CSV](reports/model13_audit.csv) now contains *additional* columns:
+- `same_book_near_kickoff_odds` / `same_book_near_kickoff_utc`
+- `same_book_implied_shift_pp` — closing *proxy* implied break-even probability minus initially offered break-even probability, for the **exact same sportsbook and side**. A positive number indicates that the original quote was better relative to the later quote. This is not proof of positive expected value or a genuine official closing line.
+
+No account-specific odds availability or actual bet execution is recorded. Both the ordinary and near-kickoff workflows share one GitHub Actions concurrency group to avoid overlapping collectors, and a separate [research integrity workflow](.github/workflows/ci.yml) tests code changes without spending API credits.
+
+**To verify after deploying:** check the GitHub Actions **Research code integrity tests** workflow, then run **Capture NFL pregame moneylines** once to generate the new injury and Model 13 report columns. The near-kickoff workflow only makes an additional call when a tracked game is genuinely near kickoff, regardless of how often you manually dispatch it.
