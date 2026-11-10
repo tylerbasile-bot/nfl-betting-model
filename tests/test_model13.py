@@ -55,6 +55,14 @@ class Model13Tests(unittest.TestCase):
         self.assertEqual(after[0]["result"],"VERIFIED_FINAL")
         self.assertEqual(after[0]["candidate_won"],1)
 
+    def test_injury_bom_decode(self):
+        source = b"\\xef\\xbb\\xbfseason,week,team,position\\n2026,10,NYG,QB\\n"
+        decoded = collect_injuries.decode_injury_csv(source)
+        self.assertTrue(decoded.startswith("season,week"))
+        self.assertEqual(len(collect_injuries.select_rows(
+            decoded, self.now.isoformat(), "test-source"
+        )), 1)
+
     def test_injury_filter_and_provenance(self):
         raw="season,week,team,gsis_id,full_name,position,report_primary_injury,report_status,practice_status,date_modified\n2026,10,NYG,a,Player One,QB,Knee,Questionable,Limited,2026-11-10T00:00:00Z\n2026,10,NYG,b,Player Two,C,Ankle,Out,DNP,2026-11-10T00:00:00Z\n2026,10,NYG,c,Player Three,WR,Ankle,Out,DNP,2026-11-10T00:00:00Z\n"
         rows=collect_injuries.select_rows(raw,self.now.isoformat(),"https://example.com")
