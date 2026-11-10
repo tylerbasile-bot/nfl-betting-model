@@ -1,6 +1,6 @@
 # Model 9 — NFL Market Intelligence
 
-Generated: `2026-11-10T14:34:10+00:00`
+Generated: `2026-11-10T14:44:48+00:00`
 
 > **Research only — NO VERIFIED EDGE.** Prices and market consensus are not independently validated win probabilities.
 
@@ -21,7 +21,7 @@ Generated: `2026-11-10T14:34:10+00:00`
 | Buffalo Bills @ New York Jets | 2026-11-15T18:00 | 21.34% | 21.34% | +0.000 | DraftKings (+390) | BetOnline.ag (-440) | NO |
 | Jacksonville Jaguars @ Tennessee Titans | 2026-11-15T18:00 | 19.35% | 18.37% | -0.980 | FanDuel (+440) | BetUS (-500) | NO |
 | Kansas City Chiefs @ Atlanta Falcons | 2026-11-15T18:00 | 37.89% | 37.89% | +0.000 | Bovada (+160) | FanDuel (-178) | NO |
-| Minnesota Vikings @ Green Bay Packers | 2026-11-15T18:00 | 65.73% | 65.73% | +0.000 | DraftKings (-205) | BetOnline.ag (+186) | NO |
+| Minnesota Vikings @ Green Bay Packers | 2026-11-15T18:00 | 65.73% | 65.32% | -0.412 | DraftKings (-205) | BetOnline.ag (+186) | NO |
 | Miami Dolphins @ Indianapolis Colts | 2026-11-15T18:00 | 55.26% | 55.26% | +0.000 | BetOnline.ag (-133) | Bovada (+122) | NO |
 | Houston Texans @ Cleveland Browns | 2026-11-15T18:00 | 32.95% | 33.08% | +0.134 | BetUS (+195) | BetRivers (-205) | NO |
 | Carolina Panthers @ New Orleans Saints | 2026-11-15T18:00 | 51.71% | 51.71% | +0.000 | FanDuel (-112) | DraftKings (+100) | NO |
