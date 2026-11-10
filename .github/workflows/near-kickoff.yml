@@ -47,6 +47,10 @@ jobs:
       - name: Refresh Model 13 paper study and same-book price movement
         if: steps.gate.outputs.collect == 'true'
         run: python scripts/model13.py
+      - name: Verify prospective Model 13 final scores independently
+        run: python scripts/collect_model13_results.py
+      - name: Build Model 13 prospective market-validation dashboard
+        run: python scripts/model13_market_validation.py
       - name: Commit observed snapshots and reports
         if: steps.gate.outputs.collect == 'true'
         run: |
