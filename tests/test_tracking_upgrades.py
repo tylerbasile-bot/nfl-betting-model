@@ -60,7 +60,9 @@ class TrackingUpgradeTests(unittest.TestCase):
             "kickoff":kickoff,"home_team":"Home","away_team":"Away"
         }
         def books(changed):
+            capture_time = kickoff-timedelta(minutes=40) if changed else earlier
             return {f"b{i}":dict(q,home_odds=(300 if changed and i==0 else 390),
+                               captured=capture_time,
                                book_name=f"Book {i}") for i in range(5)}
         odds={
             "ev":{
