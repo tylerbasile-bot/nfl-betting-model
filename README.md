@@ -254,3 +254,22 @@ The script writes `historical_model13_sample_audit.md` and
 `NFL_Betting_Data/free_historical_odds/model13_sample/`.
 If there are **no NFL games or no synchronized five-book captures**, the correct
 finding is *insufficient data*, not zero profitability or a made-up backtest.
+
+### Evaluate historical sample paper outcomes (after the separate market replay)
+
+Historical replay audit observed **29 NFL games, 13 retrospective candidates, and just 1 near-kickoff comparison** in the October 19–25, 2026 free sample. These figures do **not** establish an edge. A high number of price discrepancies with sparse close data could represent stale/asynchronous quotes.
+
+`scripts/evaluate_free_historical_odds.py` independently validates the **already selected** candidates against the public ESPN scoreboard, accepting only completed non-tie games, exact team matches, and kickoff within six hours; future and unmatched games are excluded. It produces a *descriptive* paper win rate and hypothetical flat-unit ROI on only matched finals, plus a per-candidate audit. The evaluation does not read or alter Model 13's prospective frozen ledger.
+
+From Colab:
+```python
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/evaluate_free_historical_odds.py -o /content/evaluate_free_historical_odds.py
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/collect_results.py -o /content/collect_results.py
+!python /content/evaluate_free_historical_odds.py
+```
+
+Outputs under `NFL_Betting_Data/free_historical_odds/model13_sample/`:
+`historical_model13_outcomes.md` and `historical_model13_outcomes.csv`.
+If the 13 candidate games include future games, do not report their return as 0; leave them pending.
+
+**Caveat:** historical replay selects the first eligible discrepancy by snapshot time, whereas the *real prospective* system only captures whatever two-hour run first sees. Those are distinct sampling processes; historical selection can reveal a market-price hypothesis but is not a faithful executable ROI estimate.
