@@ -1,6 +1,6 @@
 # Model 10 — Prospective NFL Market Validation
 
-Updated: `2026-11-10T15:03:38.776452+00:00`
+Updated: `2026-11-10T15:17:47.079896+00:00`
 
 > **NO VERIFIED EDGE — RESEARCH ONLY.** This is a frozen market-derived baseline, not an independently validated predictive betting model.
 
@@ -29,7 +29,7 @@ Updated: `2026-11-10T15:03:38.776452+00:00`
 | Seattle Seahawks @ Las Vegas Raiders | 2026-11-15T21:05 | 2026-11-10T14:34 | 38.13% | Bovada (+158) | FanDuel (-178) | 0.000 | NO | AWAITING_VERIFIED_RESULT |
 | Los Angeles Rams @ Arizona Cardinals | 2026-11-15T21:05 | 2026-11-10T14:34 | 21.36% | MyBookie.ag (+370) | BetUS (-450) | 0.000 | NO | AWAITING_VERIFIED_RESULT |
 | San Francisco 49ers @ Dallas Cowboys | 2026-11-15T21:25 | 2026-11-10T14:34 | 34.25% | BetUS (+183) | BetRivers (-210) | 0.000 | NO | AWAITING_VERIFIED_RESULT |
-| Pittsburgh Steelers @ Cincinnati Bengals | 2026-11-16T01:20 | 2026-11-10T14:34 | 63.41% | DraftKings (-180) | LowVig.ag (+170) | 0.000 | NO | AWAITING_VERIFIED_RESULT |
+| Pittsburgh Steelers @ Cincinnati Bengals | 2026-11-16T01:20 | 2026-11-10T14:34 | 63.41% | DraftKings (-180) | LowVig.ag (+170) | -0.223 | NO | AWAITING_VERIFIED_RESULT |
 | Los Angeles Chargers @ Baltimore Ravens | 2026-11-17T01:15 | 2026-11-10T14:34 | 67.42% | DraftKings (-218) | BetUS (+200) | 0.000 | NO | AWAITING_VERIFIED_RESULT |
 
 ## Future outcome scoring

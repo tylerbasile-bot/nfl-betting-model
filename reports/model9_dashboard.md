@@ -1,6 +1,6 @@
 # Model 9 — NFL Market Intelligence
 
-Generated: `2026-11-10T15:03:38+00:00`
+Generated: `2026-11-10T15:17:47+00:00`
 
 > **Research only — NO VERIFIED EDGE.** Prices and market consensus are not independently validated win probabilities.
 
@@ -28,7 +28,7 @@ Generated: `2026-11-10T15:03:38+00:00`
 | Seattle Seahawks @ Las Vegas Raiders | 2026-11-15T21:05 | 38.13% | 38.13% | +0.000 | Bovada (+158) | DraftKings (-175) | NO |
 | Los Angeles Rams @ Arizona Cardinals | 2026-11-15T21:05 | 20.99% | 21.36% | +0.367 | DraftKings (+360) | BetUS (-440) | NO |
 | San Francisco 49ers @ Dallas Cowboys | 2026-11-15T21:25 | 34.52% | 34.25% | -0.269 | FanDuel (+180) | DraftKings (-205) | NO |
-| Pittsburgh Steelers @ Cincinnati Bengals | 2026-11-16T01:20 | 63.83% | 63.41% | -0.418 | DraftKings (-180) | LowVig.ag (+171) | NO |
+| Pittsburgh Steelers @ Cincinnati Bengals | 2026-11-16T01:20 | 63.83% | 63.19% | -0.640 | DraftKings (-180) | LowVig.ag (+171) | NO |
 | Los Angeles Chargers @ Baltimore Ravens | 2026-11-17T01:15 | 67.42% | 67.42% | +0.000 | DraftKings (-225) | BetUS (+200) | NO |
 
 ## Outcome validation
