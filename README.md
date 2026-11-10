@@ -61,3 +61,24 @@ Use the exact Odds API event ID and full winning team name shown in the forecast
 Model 9 is **not** an independent trained NFL predictive model. It does not infer game winners from the betting odds, does not have live injury/QB feeds, and does not assert positive expected value or ROI. Outcome data is not automatically fetched. A near-kickoff price within three hours is an *observed market proxy*, not a verified closing line. The pipeline is an auditable foundation for future out-of-sample model comparisons.
 
 **After this commit:** run **Actions → Capture NFL pregame moneylines → Run workflow** once to generate the first Model 9 report.
+
+## Model 9B — Train on NFLverse data in your private Google Drive
+
+This research script compares a regularized market-offset logistic model using the previous five completed games of team form and offensive EPA (when available) against the pure sportsbook baseline. Each evaluation year (2022–2025) is held out chronologically, with training exclusively on earlier years.
+
+In a new Google Colab notebook:
+
+```python
+from google.colab import drive
+drive.mount("/content/drive")
+!pip -q install pandas pyarrow numpy scipy
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/train_nflverse.py -o /content/train_nflverse.py
+!python /content/train_nflverse.py
+```
+
+Input is read directly from `/content/drive/MyDrive/NFL_Betting_Data/schedules.parquet` and `team_stats.parquet` (no public file upload). Output stays in `/content/drive/MyDrive/NFL_Betting_Data/model9_validation/`:
+
+- `walk_forward_metrics.csv`: held-out season Brier, log loss, accuracy.
+- `walk_forward_predictions.csv`: matchup, market baseline, model prediction and result.
+
+**Interpretation:** schedules moneylines may be closing prices (unknown at earlier prediction time), so this is NOT a tradable profit backtest. The objective is to see whether NFLverse form adds out-of-sample information beyond the market. Score leakage is prevented by computing lagged features before incorporating each game result; statistics from the game being predicted are not inputs. The 2026 season is excluded from training and validation to avoid contamination with games still in progress. If the augmented model's pooled Brier and log loss do not improve, the correct decision is to keep the sportsbook market baseline.
