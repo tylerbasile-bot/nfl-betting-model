@@ -1,0 +1,68 @@
+name: Capture near-kickoff NFL odds (quota-aware)
+
+on:
+  schedule:
+    # UTC: Thursday/Friday, Sunday/Monday, Monday/Tuesday NFL windows.
+    # Runs a cheap local gate first. Most runs do NOT call the Odds API.
+    - cron: '35 * * * 0,1,2,4,5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: odds-collector
+  cancel-in-progress: false
+
+jobs:
+  near_kickoff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Decide if a near-kickoff capture is needed
+        id: gate
+        run: python scripts/near_kickoff_gate.py
+      - name: Run offline research integrity checks
+        if: steps.gate.outputs.collect == 'true'
+        run: python -m unittest discover -s tests -v
+      - name: Capture additional pregame prices
+        if: steps.gate.outputs.collect == 'true'
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python scripts/collect_odds.py
+      - name: Refresh market benchmark
+        if: steps.gate.outputs.collect == 'true'
+        run: python scripts/model9.py
+      - name: Refresh locked market forecasts
+        if: steps.gate.outputs.collect == 'true'
+        run: python scripts/model10.py
+      - name: Refresh independent prediction audit
+        if: steps.gate.outputs.collect == 'true'
+        run: python scripts/model11.py
+      - name: Refresh Model 13 paper study and same-book price movement
+        if: steps.gate.outputs.collect == 'true'
+        run: python scripts/model13.py
+      - name: Commit observed snapshots and reports
+        if: steps.gate.outputs.collect == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/odds/ reports/
+          if [ -d data/model10 ]; then git add data/model10/; fi
+          if [ -d data/model11 ]; then git add data/model11/; fi
+          if [ -d data/model13 ]; then git add data/model13/; fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Store near-kickoff NFL odds research snapshot"
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then exit 0; fi
+              echo "Push raced with another commit; retrying..."
+            done
+            exit 1
+          else
+            echo "Nothing to commit."
+          fi
