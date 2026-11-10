@@ -474,3 +474,31 @@ Outputs in private Drive `historical_matchups/`:
 [Complete methodology and constraints](docs/nflverse_epa_win_probability.md).
 
 **No change to live Model 13. No verified EV, no real-money predictions.**
+
+## Model 14 — Historical closing-market + pre-week EPA experiment
+
+`scripts/evaluate_model14_market_plus_epa.py` assesses whether a fixed
+football-feature model improves on **both** raw no-vig market closing
+probabilities and a market-only calibrated baseline, all on the same games.
+It uses the 2015–2025 private Drive NFLverse matchup and schedule data,
+train 2015–21, validation 2022–23, later historical test 2024–25.
+
+**Run in the existing Google Colab session:**
+
+```python
+!pip -q install "pandas>=2.0,<3" numpy "scikit-learn>=1.4,<2"
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/evaluate_historical_epa_probabilities.py -o /content/evaluate_historical_epa_probabilities.py
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/evaluate_model14_market_plus_epa.py -o /content/evaluate_model14_market_plus_epa.py
+!PYTHONPATH=/content python /content/evaluate_model14_market_plus_epa.py
+```
+
+Outputs in `MyDrive/NFL_Betting_Data/historical_matchups/`:
+`model14_market_plus_epa_predictions.csv` and
+`model14_market_plus_epa_report.md`.
+[Model 14 methodology](docs/model14_historical_market_plus_epa.md).
+
+**Essential timing caveat:** nflverse historical **closing** moneylines were
+not known at early-week selection time and cannot support a true live
+or historical *executable-bet* inference. A lower historical Brier
+or log loss does not establish an EV or ROI edge. No changes are made to
+frozen live prospective Model 13 selections.
