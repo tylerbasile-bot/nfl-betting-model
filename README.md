@@ -344,3 +344,45 @@ Outputs in Drive `NFL_Betting_Data/free_historical_odds/model13_sample/`:
 No change to original historical outcomes, Model 13's frozen prospective
 candidate file, its selection thresholds or the automatic live workflows.
 This is a small, retrospective convenience sample and not a validated edge.
+
+## Prospective Model 13 market-validation dashboard
+
+The two live odds-collection GitHub Actions workflows now run:
+
+1. `scripts/model13.py` to freeze **new pregame** market-discrepancy
+   selections using precommitted criteria.
+2. `scripts/collect_model13_results.py` to independently match finalized
+   frozen games against ESPN's public scoreboard, using exact home/away
+   full team names, kickoff within six hours, completed non-tie result.
+   Writes a **separate append-only** file:
+   `data/model13/verified_results.csv`.
+3. `scripts/model13_market_validation.py` to build
+   `reports/model13_market_validation.md` (readable dashboard) and
+   `reports/model13_market_validation.csv` (candidate-by-candidate record).
+
+The dashboard distinguishes:
+- **Last observed** later market quote vs **near kickoff** quote within 3h
+  of kickoff; these are not the same as an official closing line.
+- Matched same-book + same-side implied-price movement from the **exact
+  sportsbook selected**.
+- Independent finalized wins/losses and hypothetical flat-unit profits.
+  Nonfinal/unverified games remain pending, never scored as losses.
+
+A later market reference requires at least five complete two-sided
+book quotes with the provider's *book-specific last update* no more than
+15 minutes before the snapshot. A quote strictly after the frozen
+selection but strictly before kickoff is required. No new API calls are
+made for the dashboard itself, and it uses the already stored snapshots.
+
+Manual refresh from the repo root (no odds API key needed if snapshots
+already exist):
+```bash
+python scripts/collect_model13_results.py
+python scripts/model13_market_validation.py
+```
+
+**Integrity:** No modifications to the immutable Model 13 frozen candidate
+CSV, original historical sample work, threshold values, or live collection
+schedule. Automated regression tests cover stale/post-kickoff filtering,
+exact-sportsbook prices, and independently matched finals. Historical paper
+returns are not prospective results or evidence of verified positive EV.
