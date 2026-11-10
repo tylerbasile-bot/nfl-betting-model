@@ -59,7 +59,7 @@ class Phase2Tests(unittest.TestCase):
                   "execution_status":"PRICE_CONFIRMED","checked_utc":"2026-11-10T15:00:00Z",
                   "offered_odds_checked":"350","evidence_reference":"private-check"}
         d=phase2.build([self.pick],[],[],[evidence])
-        self.assertIn("MANUAL_PRICE_DOES_NOT_MATCH_FROZEN_OFFER",d[0]["data_quality_warning"])
+        self.assertIn("MANUAL_PRICE_DOES_NOT_MATCH_NEARBY_BOOK_QUOTE",d[0]["data_quality_warning"])
 
     def test_near_kickoff_check_matches_nearby_selected_book_quote(self):
         v={**self.v,"near_kickoff_same_book_utc":"2026-11-15T17:58:00Z",
