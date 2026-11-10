@@ -273,3 +273,38 @@ Outputs under `NFL_Betting_Data/free_historical_odds/model13_sample/`:
 If the 13 candidate games include future games, do not report their return as 0; leave them pending.
 
 **Caveat:** historical replay selects the first eligible discrepancy by snapshot time, whereas the *real prospective* system only captures whatever two-hour run first sees. Those are distinct sampling processes; historical selection can reveal a market-price hypothesis but is not a faithful executable ROI estimate.
+
+## Historical Price Reliability Audit — free Odds Gap sample
+
+After running the historical replay and ESPN result evaluation, use the
+**independent** source-quality/sensitivity audit:
+
+```python
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/audit_historical_price_reliability.py -o /content/audit_historical_price_reliability.py
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/backtest_free_odds_gap.py -o /content/backtest_free_odds_gap.py
+!python /content/audit_historical_price_reliability.py
+```
+
+The script reads the existing private Drive files and writes **new** artifacts to
+`NFL_Betting_Data/free_historical_odds/model13_sample/`:
+
+- `historical_price_reliability.md`: summary, candidate lead-time bins,
+  source quote checks, 5-percentage-point and 10-percentage-point outlier flags,
+  a post-hoc strict sportsbook-only replay, and original-outcome
+  leave-one-game-out sensitivity.
+- `historical_price_reliability.csv`: original frozen selection-by-selection
+  same-instant paired quote audit, independently recomputed leave-one-book-out
+  no-vig reference, book overround, prior-snapshot quote persistence.
+- `historical_sportsbook_only_replay.csv`: a **new exploratory re-selection**
+  restricted to a manually curated sportsbook allowlist for both offered prices
+  and reference books, with verified outcomes matched from the already obtained
+  ESPN final-score audit by event, exact teams and kickoff proximity.
+
+Novig and other prediction markets are real venues but are excluded from the
+strict sportsbook-only replay. Unrecognized venues (including some offshore
+books) are also excluded rather than silently treated as US sportsbooks.
+
+**Interpretation:** an unusually large discrepancy is not proof that a quote
+was stale or fillable. Captured scan timestamps do not prove book-specific
+quote update times. Post-hoc filtering is not independent validation. Historical
+results and the untouched prospective Model 13 should remain separate.
