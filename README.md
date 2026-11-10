@@ -423,3 +423,28 @@ reports can refresh even if the near-kickoff odds gate skips its API call.
 No real wagers, new odds API subscriptions, or artificial historical picks
 are created. Further records will depend on future NFL games and actually
 observed source quotes. The original selection logic remains frozen.
+
+## New: free nflverse historical offensive/defensive rankings (separate research)
+
+`scripts/build_nflverse_pregame_ratings.py` constructs actual **before-game**
+offensive/defensive EPA/play ratings, success rates, pass/rush splits, and
+five-game rolling form, plus season/week rankings and home-versus-away matchup
+features using official nflverse play-by-play parquet releases.
+
+No current-week or future-season statistics are used when forming a
+game's features. Run in Colab with Drive mounted:
+
+```python
+!pip -q install "pandas>=2.0,<3" pyarrow
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/build_nflverse_pregame_ratings.py -o /content/build_nflverse_pregame_ratings.py
+!python /content/build_nflverse_pregame_ratings.py --seasons 2022:2025 --download
+```
+
+Outputs: `NFL_Betting_Data/historical_matchups/pregame_team_ratings.csv`
+and `pregame_matchup_features.csv` in private Google Drive. Extend to
+`--seasons 2015:2025` once validated. Full instructions and methodological
+limits: [docs/nflverse_pregame_ratings.md](docs/nflverse_pregame_ratings.md).
+
+This builds football covariates only: **no probability model is trained,
+no independent out-of-sample edge is claimed, and prospective Model 13
+remains frozen**.
