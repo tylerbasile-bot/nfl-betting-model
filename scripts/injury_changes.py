@@ -44,8 +44,8 @@ def compare(previous,current):
         before=old.get(key)
         if before is None:
             change="FIRST_OBSERVED_IN_THIS_WEEK"
-        elif (now.get("report_status","").strip().upper()!=before.get("report_status","").strip().upper()
-           or now.get("practice_status","").strip().upper()!=before.get("practice_status","").strip().upper()):
+        elif ((now.get("report_status") or "").strip().upper()!=(before.get("report_status") or "").strip().upper()
+           or (now.get("practice_status") or "").strip().upper()!=(before.get("practice_status") or "").strip().upper()):
             change="REPORTED_STATUS_CHANGED"
         else:
             continue
