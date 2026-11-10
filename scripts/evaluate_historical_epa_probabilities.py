@@ -42,6 +42,22 @@ def moneyline_implied(x):
     if x==0:return float("nan")
     return (-x/(100-x)) if x<0 else (100/(100+x))
 
+# nflverse PBP and schedules can encode relocated franchises differently.
+# Normalize only known same-franchise aliases; preserve HOME/AWAY orientation.
+# Game ID, season and week must still agree exactly.
+FRANCHISE_ALIASES={
+    "SD":"LAC", "LAC":"LAC",
+    "STL":"LA", "LA":"LA", "LAR":"LA",
+    "OAK":"LV", "LV":"LV",
+    "JAC":"JAX", "JAX":"JAX",
+    "WSH":"WAS", "WAS":"WAS",
+}
+
+def canonical_team(team):
+    if pd.isna(team):return None
+    key=str(team).strip().upper()
+    return FRANCHISE_ALIASES.get(key,key)
+
 def normalize_data(features,schedules):
     needed=["season","week","game_id","home_team","away_team",*FEATURE_COLS]
     absent=[k for k in needed if k not in features.columns]
@@ -62,13 +78,21 @@ def normalize_data(features,schedules):
     if schedule.duplicated(["season","week","game_id"]).any():
         raise ValueError("Duplicate schedule game keys; refusing ambiguous join")
     cols=expected+[c for c in ("home_moneyline","away_moneyline") if c in schedule.columns]
-    # Validate both teams AND chronological labels, not just provider game_id.
-    merged=features[needed].merge(schedule[cols],on=["season","week","game_id","home_team","away_team"],
-                                  how="left",validate="one_to_one",indicator=True)
-    if (merged["_merge"]!="both").any():
-        failures=merged.loc[merged["_merge"]!="both",["game_id","season","week"]]
+    # Join on unequivocal game identity, then *independently* validate teams
+    # in the exact home and away positions. Relocation aliases are accepted;
+    # a mismatched opponent or swapped home/away side remains a hard failure.
+    merged=features[needed].merge(schedule[cols],on=["season","week","game_id"],
+                                  how="left",validate="one_to_one",indicator=True,
+                                  suffixes=("","_schedule"))
+    missing=merged["_merge"]!="both"
+    home_equal=merged["home_team"].map(canonical_team)==merged["home_team_schedule"].map(canonical_team)
+    away_equal=merged["away_team"].map(canonical_team)==merged["away_team_schedule"].map(canonical_team)
+    bad=missing|(~home_equal)|(~away_equal)
+    if bad.any():
+        failures=merged.loc[bad,["game_id","season","week","home_team",
+                                 "away_team","home_team_schedule","away_team_schedule"]]
         raise ValueError(f"Unmatched team/game metadata for {len(failures)} rows (e.g. {failures.head(4).to_dict('records')})")
-    merged=merged.drop(columns="_merge")
+    merged=merged.drop(columns=["_merge","home_team_schedule","away_team_schedule"])
     merged=merged[merged["season"].between(2015,2025)].copy()
     merged=merged.dropna(subset=["home_score","away_score"])
     # Ties excluded from binary binary outcome label, never silently losses.
