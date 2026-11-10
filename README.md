@@ -448,3 +448,29 @@ limits: [docs/nflverse_pregame_ratings.md](docs/nflverse_pregame_ratings.md).
 This builds football covariates only: **no probability model is trained,
 no independent out-of-sample edge is claimed, and prospective Model 13
 remains frozen**.
+
+## Historical football-only win-probability experiment (2015–2025)
+
+After generating the private Drive `historical_matchups/pregame_matchup_features.csv`
+using 2,895 historical games, run a separate fixed chronological logistic
+regression experiment with an independently verified NFLverse schedules source:
+
+```python
+!pip -q install "pandas>=2.0,<3" numpy "scikit-learn>=1.4,<2"
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/evaluate_historical_epa_probabilities.py -o /content/evaluate_historical_epa_probabilities.py
+!python /content/evaluate_historical_epa_probabilities.py --download-schedules
+```
+
+Trains only on 2015–2021, development checks 2022–2023, reports separate
+historical 2024–2025 test scores. It compares football-only probabilities
+with a **closing-moneyline no-vig market benchmark** (which is NOT an
+early-week available wager) and a training-prior constant baseline.
+Brier score and log loss are proper probabilistic scores, not ROI.
+
+Outputs in private Drive `historical_matchups/`:
+`football_win_probability_historical.csv` and
+`football_win_probability_report.md`.
+
+[Complete methodology and constraints](docs/nflverse_epa_win_probability.md).
+
+**No change to live Model 13. No verified EV, no real-money predictions.**
