@@ -50,6 +50,8 @@ jobs:
         run: python scripts/collect_model13_results.py
       - name: Build Model 13 prospective market-validation dashboard
         run: python scripts/model13_market_validation.py
+      - name: Build Phase 2 market coverage and calibration report
+        run: python scripts/model13_phase2_validation.py
       - name: Commit snapshot if changed
         run: |
           git config user.name "github-actions[bot]"
