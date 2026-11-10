@@ -56,7 +56,7 @@ class Model13Tests(unittest.TestCase):
         self.assertEqual(after[0]["candidate_won"],1)
 
     def test_injury_bom_decode(self):
-        source = b"\\xef\\xbb\\xbfseason,week,team,position\\n2026,10,NYG,QB\\n"
+        source = bytes([0xef, 0xbb, 0xbf]) + bytes([10]).join([b"season,week,team,position", b"2026,10,NYG,QB", b""])
         decoded = collect_injuries.decode_injury_csv(source)
         self.assertTrue(decoded.startswith("season,week"))
         self.assertEqual(len(collect_injuries.select_rows(
