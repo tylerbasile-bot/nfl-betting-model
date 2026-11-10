@@ -87,6 +87,10 @@ def build(frozen,validation,finals,manual):
         if not v:issues.append("NO_MARKET_VALIDATION_ROW")
         if status=="PRICE_CONFIRMED" and not evidence:issues.append("NO_EXECUTION_EVIDENCE_REFERENCE")
         if status=="PRICE_CONFIRMED" and manualrow:
+            checked_odds=number(manualrow.get("offered_odds_checked"))
+            if checked_odds is None or checked_odds!=number(pick.get("offered_odds")):
+                issues.append("MANUAL_PRICE_DOES_NOT_MATCH_FROZEN_OFFER")
+        if status=="PRICE_CONFIRMED" and manualrow:
             checked=manualrow.get("checked_utc","")
             try:
                 check_time=datetime.fromisoformat(checked.replace("Z","+00:00"))
@@ -124,6 +128,7 @@ def build(frozen,validation,finals,manual):
 
 def report(detail,manual,now):
     total=len(detail)
+    mature=[r for r in detail if datetime.fromisoformat(r["kickoff_utc"].replace("Z","+00:00"))<=now]
     settled=[r for r in detail if r["verified_final"]=="YES" and r["outcome_brier"]!=""]
     near=[r for r in detail if r["near_kickoff_reference"]=="YES"]
     same_near=[r for r in detail if r["near_same_book"]=="YES"]
@@ -139,6 +144,7 @@ def report(detail,manual,now):
         "## 1. Sample accrual (no forced picks)","",
         f"- Frozen prospective selections: **{total}/{TARGET}** (planning target, not a sufficient statistical sample guarantee).",
         f"- Independently verified results: **{len(settled)}**.",
+        f"- Games with kickoff reached: **{len(mature)}**; games not yet kicked off: **{total-len(mature)}**.",
         "- The target is an observation milestone; do not adjust selection criteria to meet it.",
         "",
         "## 2. Market validation coverage","",
@@ -146,6 +152,7 @@ def report(detail,manual,now):
         f"- Later selected-book quotes: **{sum(r['same_book_followup']=='YES' for r in detail)}/{total}**.",
         f"- Near-kickoff (<=3h) five-book references: **{len(near)}/{total}**.",
         f"- Near-kickoff selected-book quotes: **{len(same_near)}/{total}**.",
+        f"- Matured games missing a near-kickoff market quote: **{sum(r['near_kickoff_reference']=='NO' for r in mature)}/{len(mature)}**.",
         f"- Observed near-kickoff market shift mean: **{statistics.mean(shifts):+.3f} percentage points** (n={len(shifts)})." if shifts else "- Observed near-kickoff market shift: **not yet measurable**.",
         f"- Observed same-book near-kickoff implied-price shift mean: **{statistics.mean(same_shifts):+.3f} percentage points** (n={len(same_shifts)})." if same_shifts else "- Same-book near-kickoff shift: **not yet measurable**.",
         "- These measures are market-price movement proxies, **not** certified closing-line value.",
