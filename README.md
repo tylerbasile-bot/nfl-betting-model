@@ -155,3 +155,24 @@ The gate requires at least 800 held-out games, lower Brier in at least 3 of 4 ye
 ### QB and offensive-line availability — timestamping comes first
 
 Do not use retrospective injury status fields as pregame features: many injury tables are revised after kickoff. Future expansion requires (a) source, (b) exact status-as-of timestamp, (c) team/player identity, (d) known-at-forecast confirmation, and (e) validation that missing statuses are handled without leakage. No credible historical injury dataset is connected yet, so it is intentionally excluded from this candidate.
+
+## Model 13 — Cross-sportsbook paper pricing study
+
+The scheduled odds workflow now also executes [scripts/model13.py](scripts/model13.py) after the results check. It produces:
+- `reports/model13_dashboard.md` — prospective cross-book discrepancy study
+- `reports/model13_audit.csv` — frozen paper candidates, market shift, hypothetical settled result
+- `data/model13/frozen_price_candidates.csv` — append-only list of qualifying observations (file appears after the first qualifying market discrepancy)
+
+**Locked prospective selection rule:** at least five recent bookmaker quotes, at least 12 hours until kickoff, snapshot within 15 minutes of processing, reference probability from the median no-vig price of the *other* books, and an indicative discrepancy equivalent to at least 2% return. Choose only the single largest discrepancy per game, then freeze timestamp, book, odds and reference. Later quotes can affect only evaluation fields.
+
+This is **NOT positive EV confirmation**. Different bookmakers' no-vig prices are correlated estimates, not independent validated win probabilities. Paper ROI and near-kickoff market shifts measure this predeclared rule prospectively, not an executable betting strategy; sportsbook limitations, stale lines, market access and uncertainty matter. No bets are placed.
+
+## Quarterback / Offensive-line injury observations
+
+The workflow also calls [scripts/collect_injuries.py](scripts/collect_injuries.py), collecting one **daily snapshot** from the [nflverse injury release](https://github.com/nflverse/nflverse-data/releases/tag/injuries), filtering QB, C, G, T, OT and other offensive-line positions. Data is stored in `data/injury_observations/YYYY-MM-DD.csv`, with *our observed UTC timestamp* plus each report's original `date_modified`. The [injury watchboard](reports/injury_watch.md) gives descriptive latest-source-week summaries. A missing entry does not imply a healthy player and a player on the report is not necessarily a starter.
+
+nflverse documents the `date_modified`, `position`, `report_status`, and `practice_status` fields, but **historical source timestamps alone do not verify when each item was available to bettors**. We therefore do not backfill or train on retrospectively revised injury status, infer starting QBs, treat questionable as out, or use injury observations as positive-EV betting signals.
+
+**Future QB/OL research plan:** Build per-player as-of histories using the observation timestamps accumulated from now onward, verify depth chart/starting role as of that same time, compare injury availability changes to market movement, then freeze and test separate pregame predictions on unseen games. Data quality and temporal correctness must be established before the feature is added to any active probability model.
+
+New scripts are committed but require a fresh successful **Actions → Capture NFL pregame moneylines → Run workflow** execution for the first Model 13 and injury dashboard outputs.
