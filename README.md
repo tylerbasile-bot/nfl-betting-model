@@ -386,3 +386,40 @@ CSV, original historical sample work, threshold values, or live collection
 schedule. Automated regression tests cover stale/post-kickoff filtering,
 exact-sportsbook prices, and independently matched finals. Historical paper
 returns are not prospective results or evidence of verified positive EV.
+
+## Phase 2: prospective edge validation and market-data quality
+
+The live workflows now generate a **separate, selected-cohort research report**
+without changing Model 13's frozen rules or original picks:
+
+- `scripts/model13_phase2_validation.py`
+- `reports/model13_phase2_validation.md`
+- `reports/model13_phase2_candidates.csv`
+
+What it checks:
+1. **Sample accrual:** number of prospectively frozen picks versus a
+   **planning target of 100**, without modifying thresholds to force picks.
+   Reaching 100 is not itself statistically sufficient to prove an edge.
+2. **Market movement:** later five-book market observations, matching
+   sportsbook observations, and genuine within-3-hour *near-kickoff proxies*,
+   with missing observations explicitly counted.
+3. **Execution availability:** an *optional*, independently documented
+   manual check at `data/model13/execution_observations.csv`; see
+   [evidence instructions](docs/model13_execution_evidence.md). Feed prices
+   never automatically qualify as executable or fillable.
+4. **Selected-cohort calibration:** verified-outcome Brier score, log loss,
+   mean predicted selected-side probability, observed selected-side win rate,
+   and a calibration gap; probability bins are withheld until 30 outcomes.
+
+The evaluated probability is the **market consensus from OTHER sportsbooks**,
+not an independently trained or out-of-sample predictive model. Calibration
+in this *selected* cohort is diagnostic, not proof of positive expected value.
+
+The quota-aware near-kickoff gate now considers frozen **Model 13** events as
+well as Model 10 events; it still checks existing quotes and only triggers
+if a tracked game is approaching kickoff. Model 13 outcome and Phase 2
+reports can refresh even if the near-kickoff odds gate skips its API call.
+
+No real wagers, new odds API subscriptions, or artificial historical picks
+are created. Further records will depend on future NFL games and actually
+observed source quotes. The original selection logic remains frozen.
