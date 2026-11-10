@@ -54,7 +54,7 @@ def main(now=None):
             if len(content)>4_000_000:
                 print("Injury file exceeds safety limit; skipping.")
                 return
-            text=content.decode("utf8-sig")
+            text=content.decode("utf-8-sig")
         records=select_rows(text,now.isoformat(),url)
     except (HTTPError,URLError,TimeoutError,UnicodeDecodeError) as exc:
         print(f"Injury feed unavailable: {type(exc).__name__}; skipping without guesses.")
