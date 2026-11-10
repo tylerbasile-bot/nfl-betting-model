@@ -61,7 +61,7 @@ class Model10Tests(unittest.TestCase):
             writer=csv.DictWriter(stream,fieldnames=["event_id","status","winner"])
             writer.writeheader()
             writer.writerow({"event_id":"test-event-1","status":"final","winner":"Home Team"})
-        model10.main(self.now+timedelta(hours=3))
+        model10.main(self.kickoff+timedelta(hours=1))
         with open("reports/model10_evaluation.csv",newline="",encoding="utf-8") as stream:
             report=list(csv.DictReader(stream))
         self.assertEqual(report[0]["home_win"],"1")
