@@ -197,10 +197,14 @@ def summarize(quality,base_outcomes,strict,stats,loo):
              f"- Games with at least 5 allowlisted books: **{stats.get('games_with_5_books',0)}**",
              f"- Sportsbook-only historical candidate picks: **{len(strict)}**",
              f"- Matched verified final results: **{len(verified)}**"]
-    if strict_roi is not None:
+    unmatched=len(strict)-len(verified)
+    report.append(f"- Unmatched sportsbook-only selections: **{unmatched}**")
+    if strict_roi is not None and unmatched==0:
         wins=sum(int(r["won"]) for r in verified)
-        report.append(f"- Retrospective paper win rate: **{wins}/{len(verified)}**")
-        report.append(f"- Retrospective paper ROI on matched finals only: **{strict_roi:+.2%}**")
+        report.append(f"- Retrospective paper win rate (all outcomes verified): **{wins}/{len(verified)}**")
+        report.append(f"- Retrospective paper ROI (all outcomes verified): **{strict_roi:+.2%}**")
+    elif unmatched:
+        report.append("- Retrospective paper ROI: **NOT REPORTED**; original outcome file verifies only original picks, and a strict re-selection can include different games. Partial-match ROI would be misleading.")
     else:report.append("- Retrospective paper ROI: **unavailable** (no independently verified outcomes)")
     report+=["","## Original sample leave-one-out sensitivity",""]
     if loo:
