@@ -54,6 +54,13 @@ class Phase2Tests(unittest.TestCase):
         d=phase2.build([self.pick],[],[],[evidence])
         self.assertIn("PRICE_CHECK_OUTSIDE_15_MINUTES",d[0]["data_quality_warning"])
 
+    def test_confirmed_price_must_match_frozen_moneyline(self):
+        evidence={"event_id":"g","book_key":"draftkings","selected_side":"HOME",
+                  "execution_status":"PRICE_CONFIRMED","checked_utc":"2026-11-10T15:00:00Z",
+                  "offered_odds_checked":"350","evidence_reference":"private-check"}
+        d=phase2.build([self.pick],[],[],[evidence])
+        self.assertIn("MANUAL_PRICE_DOES_NOT_MATCH_FROZEN_OFFER",d[0]["data_quality_warning"])
+
     def test_negative_results_score_correctly(self):
         lost={**self.final,"winner":"Away"}
         d=phase2.build([self.pick],[self.v],[lost],[])
