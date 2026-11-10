@@ -196,3 +196,33 @@ Model 13's original frozen paper observations and selection thresholds remain **
 No account-specific odds availability or actual bet execution is recorded. Both the ordinary and near-kickoff workflows share one GitHub Actions concurrency group to avoid overlapping collectors, and a separate [research integrity workflow](.github/workflows/ci.yml) tests code changes without spending API credits.
 
 **To verify after deploying:** check the GitHub Actions **Research code integrity tests** workflow, then run **Capture NFL pregame moneylines** once to generate the new injury and Model 13 report columns. The near-kickoff workflow only makes an additional call when a tracked game is genuinely near kickoff, regardless of how often you manually dispatch it.
+
+## Free historical odds backtesting (no paid plan)
+
+**Sources verified from public documentation (November 2026):**
+
+1. **NFLverse** schedules, already in private Google Drive: one closing moneyline per team and final game results, generally not a per-book timestamped archive.
+2. **EndzoneAPI** [historical bookmaker prices](https://endzoneapi.com/docs/get-odds): a free account advertises 500 credits/month with no payment card. `get_odds` costs **10 credits per call** and can retrieve seasonal bookmaker **opening** or **closing** observations for 2020–2025, with bookmaker and `captured_at` timestamps. Opening means first captured price, not necessarily the true first listed sportsbook price. Provider records may be sparse or captured at different instants.
+3. **The Odds Gap** [sample free week](https://theoddsgap.com/data/answers/free-historical-odds-data): no-key CSV containing timestamped scans for one archived sample week. This is useful for testing import formats but NOT enough to establish a profitable historical NFL strategy. Their full archive is paid and is not enabled in this project.
+4. **The Odds API** live feed (already integrated) does NOT provide free historical queries; its historical endpoint requires a paid usage plan.
+
+### Download historical per-book opening and closing observations with the free EndzoneAPI allowance
+
+First sign up for a **free** account at https://endzoneapi.com/ and obtain an API key. No card should be needed according to its published terms. Keep the key off GitHub.
+
+In Colab:
+```python
+from google.colab import drive
+drive.mount("/content/drive")
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/download_free_historical_odds.py -o /content/download_free_historical_odds.py
+!python /content/download_free_historical_odds.py --dry-run
+!python /content/download_free_historical_odds.py --years 2022 2023 2024 2025
+```
+
+**Budget:** 2 requests × 4 seasons × 10 credits = **80 estimated credits**, out of the published 500-credit monthly free allowance. The script skips previously downloaded season/snapshot combinations and stores raw JSON plus the retrieval time in your **private Google Drive** at `NFL_Betting_Data/free_historical_odds/`.
+
+### Interpret historical data carefully
+
+The historical bookmaker opening and closing observations are **not** dense synchronized five-minute snapshots. Do not simply apply Model 13's existing 2%-EV screen to prices captured at widely different times: it could manufacture fake discrepancies. A valid historical study must check capture timestamps, sportsbook matchups, missing books, and only evaluate common observation windows. If insufficient simultaneous books exist, record **INSUFFICIENT DATA**, not a simulated win. Do not backfill these historical observations into Model 13's separate, already-frozen prospective data.
+
+Data provider schemas and historical access terms can change; inspect the first saved raw JSON before writing a normalized backtester. The free archive may only support opening/closing analysis, not the full intraday selection rule.
