@@ -52,6 +52,25 @@ class ProbabilitiesTests(unittest.TestCase):
         df=model.normalize_data(f,s)
         self.assertEqual(len(df),44)
 
+    def test_aliases_inside_standard_game_ids_are_joined(self):
+        f,s=self.sample()
+        f.loc[0,"game_id"]="2015_05_SD_OAK"
+        f.loc[0,"away_team"]="SD"
+        f.loc[0,"home_team"]="OAK"
+        s.loc[0,"game_id"]="2015_05_LAC_LV"
+        s.loc[0,"away_team"]="LAC"
+        s.loc[0,"home_team"]="LV"
+        df=model.normalize_data(f,s)
+        self.assertEqual(len(df),44)
+        self.assertIn("2015_05_SD_OAK",set(df.game_id))
+
+    def test_canonical_game_key_collision_is_rejected(self):
+        f,s=self.sample()
+        f.loc[0,"game_id"]="2015_05_SD_OAK"
+        f.loc[1,"game_id"]="2015_05_LAC_LV"
+        with self.assertRaisesRegex(ValueError,"Canonical game keys collide"):
+            model.normalize_data(f,s)
+
     def test_swapped_home_away_rejected_even_with_aliases(self):
         f,s=self.sample()
         f.loc[0,"home_team"]="OAK"
