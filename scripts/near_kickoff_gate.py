@@ -10,6 +10,7 @@ from datetime import datetime,timedelta,timezone
 from pathlib import Path
 
 LEDGER=Path("data/model10/prospective_forecasts.csv")
+MODEL13_LEDGER=Path("data/model13/frozen_price_candidates.csv")
 MIN_BEFORE=timedelta(minutes=10)
 MAX_BEFORE=timedelta(minutes=70)
 MIN_SINCE_PREVIOUS=timedelta(minutes=25)
@@ -40,7 +41,9 @@ def eligible(now,forecast_rows,quote_rows):
 
 def main():
     now=datetime.now(timezone.utc)
-    forecasts=read(LEDGER)
+    # Both independent prospective programs warrant optional near-kickoff checks.
+    # Exact event IDs are shared with the Odds API (no historical ID joins).
+    forecasts=read(LEDGER)+read(MODEL13_LEDGER)
     # Near-kickoff games can be on either side of midnight UTC.
     quotes=[]
     for day in (now.date(),(now-timedelta(days=1)).date()):
