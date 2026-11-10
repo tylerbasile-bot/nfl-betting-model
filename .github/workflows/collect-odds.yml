@@ -28,6 +28,8 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python scripts/collect_odds.py
+      - name: Record daily QB and OL injury observations
+        run: python scripts/collect_injuries.py
       - name: Match verified NFL final scores
         run: python scripts/collect_results.py
       - name: Build Model 9 market research dashboard
@@ -36,11 +38,15 @@ jobs:
         run: python scripts/model10.py
       - name: Build Model 11 independent research audit
         run: python scripts/model11.py
+      - name: Build Model 13 cross-book paper study
+        run: python scripts/model13.py
       - name: Commit snapshot if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/odds/ reports/
+          if [ -d data/injury_observations ]; then git add data/injury_observations/; fi
+          if [ -d data/model13 ]; then git add data/model13/; fi
           if [ -f data/results.csv ]; then git add data/results.csv; fi
           if [ -d data/model10 ]; then git add data/model10/; fi
           if [ -d data/model11 ]; then git add data/model11/; fi
