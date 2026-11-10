@@ -15,6 +15,31 @@ from urllib.error import HTTPError,URLError
 
 BASE="https://mcp.endzoneapi.com/v1/get_odds"
 
+
+def call_endzone(api_key, body):
+    """Safely report an HTTP status; never print API keys or raw errors."""
+    req=Request(BASE, data=json.dumps(body).encode("utf-8"), method="POST",
+                headers={"Content-Type":"application/json",
+                         "x-api-key":api_key,
+                         "User-Agent":"NFL-free-historical-research/1.0"})
+    try:
+        with urlopen(req,timeout=55) as response:
+            return json.loads(response.read(8_000_001).decode("utf-8"))
+    except HTTPError as exc:
+        explanation={
+            400:"Invalid request parameters.",
+            401:"Invalid or unverified EndzoneAPI key (The Odds API key is different).",
+            402:"Insufficient EndzoneAPI credits.",
+            403:"Endpoint not permitted for this account.",
+            404:"Endpoint missing or changed.",
+            429:"Rate limit reached; retry later.",
+            500:"Provider server error; retry later.",
+            503:"Provider temporarily unavailable."
+        }.get(exc.code,"Check account status and the provider documentation.")
+        raise RuntimeError(f"EndzoneAPI HTTP {exc.code}: {explanation}") from None
+    except (URLError,TimeoutError,ValueError) as exc:
+        raise RuntimeError(f"Provider network/response failure: {type(exc).__name__}") from None
+
 def run(api_key,season,outdir,dry_run=False):
     if not api_key and not dry_run:
         raise ValueError("ENDZONEAPI_API_KEY is missing")
@@ -28,17 +53,7 @@ def run(api_key,season,outdir,dry_run=False):
         if dry_run:
             print("Dry-run, 0 credits:",body)
             continue
-        payload=json.dumps(body).encode("utf-8")
-        request=Request(BASE,data=payload,method="POST",headers={
-            "Content-Type":"application/json","x-api-key":api_key,
-            "User-Agent":"NFL-free-historical-research/1.0"})
-        try:
-            with urlopen(request,timeout=55) as resp:
-                result=json.loads(resp.read(8_000_001).decode("utf-8"))
-        except (HTTPError,URLError,TimeoutError,ValueError) as exc:
-            raise RuntimeError(
-                f"Historical query unavailable for {season} {typ}: {type(exc).__name__}"
-            ) from None
+        result=call_endzone(api_key,body)
         if not isinstance(result,(list,dict)):
             raise RuntimeError(f"Unexpected response type for {season} {typ}")
         # Preserve the provider's original response and metadata for audit.
@@ -54,11 +69,22 @@ def main():
     parser.add_argument("--years",type=int,nargs="+",default=[2022,2023,2024,2025])
     parser.add_argument("--output-dir",default="/content/drive/MyDrive/NFL_Betting_Data/free_historical_odds")
     parser.add_argument("--dry-run",action="store_true")
+    parser.add_argument("--check-key",action="store_true",help="Check authentication at zero credits, then exit")
     args=parser.parse_args()
     key=os.environ.get("ENDZONEAPI_API_KEY","")
     if not key and not args.dry_run:
         from getpass import getpass
-        key=getpass("Paste your FREE EndzoneAPI key (hidden): ")
+        key=getpass("Paste your FREE EndzoneAPI key (hidden): ").strip()
+    if not args.dry_run:
+        if not key:
+            raise SystemExit("No key provided. Use an EndzoneAPI account key, not The Odds API key.")
+        print("Checking EndzoneAPI key using documented zero-credit estimate_only...")
+        response=call_endzone(key,{"season":2022,"snapshot_type":"opening",
+                                  "limit":500,"estimate_only":True})
+        print("Authentication/estimate request succeeded. No historical credits used for this check.")
+        if args.check_key:
+            print("Exiting without downloading historical data.")
+            return
     plans=sum(not (Path(args.output_dir)/f"endzone_{year}_{typ}.json").exists()
               for year in args.years for typ in ("opening","closing"))
     print(f"Planned queries: {plans}. Estimated free-tier credit consumption: {plans*10}.")
