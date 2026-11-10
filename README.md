@@ -308,3 +308,39 @@ books) are also excluded rather than silently treated as US sportsbooks.
 was stale or fillable. Captured scan timestamps do not prove book-specific
 quote update times. Post-hoc filtering is not independent validation. Historical
 results and the untouched prospective Model 13 should remain separate.
+
+## Fully verified strict sportsbook replay and kickoff-window sensitivity
+
+The earlier strict sportsbook-only replay found **8 picks**, but the evaluation
+in `audit_historical_price_reliability.py` reused only the **original
+13-pick outcome file** and could verify just 7/8. The independent
+`scripts/evaluate_historical_timing.py` now queries the free public ESPN NFL
+scoreboard for the **actual re-selected games**, checks exact team names,
+kickoff within six hours, and non-tie completed finals. It refuses to report
+scenario ROI unless **all picks in that scenario** can be verified.
+
+It also performs post-hoc **72/48/24-hour timing sensitivities**. For a
+72-hour window, it finds the first qualifying contemporaneous snapshot when
+kickoff is **12 to 72 hours away**; 48h uses 12–48h; 24h uses 12–24h.
+Each scenario independently applies 5-book minimum, leave-one-book-out median
+reference, and >=2% indicative value rule. These are overlapping windows,
+not predictions at precisely 72/48/24 hours.
+
+From Google Colab with Drive already mounted:
+```python
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/backtest_free_odds_gap.py -o /content/backtest_free_odds_gap.py
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/audit_historical_price_reliability.py -o /content/audit_historical_price_reliability.py
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/collect_results.py -o /content/collect_results.py
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/evaluate_free_historical_odds.py -o /content/evaluate_free_historical_odds.py
+!curl -fsSL https://raw.githubusercontent.com/tylerbasile-bot/nfl-betting-model/main/scripts/evaluate_historical_timing.py -o /content/evaluate_historical_timing.py
+!python /content/evaluate_historical_timing.py
+```
+
+Outputs in Drive `NFL_Betting_Data/free_historical_odds/model13_sample/`:
+- `historical_timing_report.md`
+- `historical_timing_summary.csv`
+- `historical_timing_scored_selections.csv`
+
+No change to original historical outcomes, Model 13's frozen prospective
+candidate file, its selection thresholds or the automatic live workflows.
+This is a small, retrospective convenience sample and not a validated edge.
