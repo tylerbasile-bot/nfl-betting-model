@@ -36,3 +36,28 @@ Historical data previously stored in Google Drive is not automatically migrated 
 ## Security
 
 The key is read only from the `ODDS_API_KEY` environment variable. This repository is currently public; **quote data and workflow files will be public** unless you change its visibility. Do not commit API keys, betting account details, or personal betting history.
+
+## Model 9 — Market Intelligence and Validation
+
+The collector now calls `python scripts/model9.py` after every successful odds fetch. The built-in standard-library analysis writes:
+
+- [Model 9 dashboard](reports/model9_dashboard.md): first observed market forecast, latest market probability, movement, and methodology
+- [Model 9 forecast ledger](reports/model9_forecasts.csv): one pregame forecast per game, with first-snapshot time and later reference movements
+
+**Key design choices:** only pregame moneylines updated within 30 minutes of capture are eligible; at least four sportsbooks must be present. First eligible snapshot is locked as the baseline. Median bookmaker no-vig probability is a *market-derived baseline*, not an independently calibrated edge. The dashboard does not recommend bets.
+
+### Optional actual-game scoring
+
+To evaluate the pregame predictions, create `data/results.csv` with the following columns:
+
+```csv
+event_id,status,winner
+```
+
+Use the exact Odds API event ID and full winning team name shown in the forecast ledger, with `status=final`. Enter only independently verified outcomes; ties, postponed, and incomplete games are excluded. The next workflow run computes Brier score, log loss, and winner accuracy for matched games.
+
+### What Model 9 does not yet do
+
+Model 9 is **not** an independent trained NFL predictive model. It does not infer game winners from the betting odds, does not have live injury/QB feeds, and does not assert positive expected value or ROI. Outcome data is not automatically fetched. A near-kickoff price within three hours is an *observed market proxy*, not a verified closing line. The pipeline is an auditable foundation for future out-of-sample model comparisons.
+
+**After this commit:** run **Actions → Capture NFL pregame moneylines → Run workflow** once to generate the first Model 9 report.
