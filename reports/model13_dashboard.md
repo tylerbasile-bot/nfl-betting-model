@@ -1,6 +1,6 @@
 # Model 13 — Prospective Cross-Book Pricing Study
 
-Updated: `2026-11-11T16:15:16.622293+00:00`
+Updated: `2026-11-11T22:49:08.263656+00:00`
 
 > **NO VERIFIED +EV. PAPER RESEARCH ONLY.** Differences between sportsbooks are not independent probabilities.
 
@@ -14,11 +14,11 @@ Updated: `2026-11-11T16:15:16.622293+00:00`
 
 At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff at least 12 hours ahead, and a minimum 2% *indicative* return using the median no-vig probability of OTHER books. One candidate per event; highest apparent discrepancy wins. No backfilled picks, no post-result selection.
 
-| Matchup | Side | Observed odds | Market reference | Indicative return | Market shift | Same-book shift | Status |
-|---|---|---|---:|---:|---:|---:|---|
-| Buffalo Bills @ New York Jets | HOME | DraftKings (+390) | 21.51% | +5.39% | — | — | PENDING |
-| Jacksonville Jaguars @ Tennessee Titans | HOME | BetRivers (+480) | 18.52% | +7.41% | — | — | PENDING |
-| Los Angeles Rams @ Arizona Cardinals | HOME | MyBookie.ag (+370) | 21.71% | +2.05% | — | — | PENDING |
+| Matchup | Side | Observed odds | Proportional ref. | Proportional indic. return | Power ref. | Power indic. return | Market shift | Same-book shift | Status |
+|---|---|---|---:|---:|---:|---:|---:|---:|---|
+| Buffalo Bills @ New York Jets | HOME | DraftKings (+390) | 21.51% | +5.39% | 19.57% | -4.10% | — | — | PENDING |
+| Jacksonville Jaguars @ Tennessee Titans | HOME | BetRivers (+480) | 18.52% | +7.41% | 16.62% | -3.58% | — | — | PENDING |
+| Los Angeles Rams @ Arizona Cardinals | HOME | MyBookie.ag (+370) | 21.71% | +2.05% | 19.88% | -6.55% | — | — | PENDING |
 
 ## Outcome evaluation
 
@@ -33,3 +33,5 @@ No settled paper candidates. No performance claim possible.
 - No money is wagered; all selections and wins/losses are hypothetical.
 - Results are matched against verified full-team identities and kickoff, not inferred from prices.
 - Injury information is recorded separately and is NOT an unvalidated betting signal.
+- POWER_V1 is a supplementary same-snapshot sensitivity using the exact frozen other-book set; the proportional method and original 2% threshold alone determine selections.
+- Neither vig-removal method is an independent probability model or proof of executable value.
