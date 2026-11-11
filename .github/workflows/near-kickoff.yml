@@ -48,12 +48,16 @@ jobs:
         if: steps.gate.outputs.collect == 'true'
         run: python scripts/model13.py
       - name: Verify prospective Model 13 final scores independently
+        if: steps.gate.outputs.collect == 'true'
         run: python scripts/collect_model13_results.py
       - name: Build Model 13 prospective market-validation dashboard
+        if: steps.gate.outputs.collect == 'true'
         run: python scripts/model13_market_validation.py
       - name: Build Phase 2 market coverage and calibration report
+        if: steps.gate.outputs.collect == 'true'
         run: python scripts/model13_phase2_validation.py
       - name: Commit observed snapshots, results, and reports
+        if: steps.gate.outputs.collect == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
