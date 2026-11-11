@@ -19,7 +19,8 @@ FIELDS=["event_id","kickoff_utc","home_team","away_team","selected_side","book",
         "apparent_ev","reference_books","research_status"]
 EXTRA=["near_kickoff_utc","near_kickoff_prob","market_shift_pp",
        "same_book_near_kickoff_odds","same_book_near_kickoff_utc",
-       "same_book_implied_shift_pp","result","paper_profit_per_unit","candidate_won"]
+       "same_book_implied_shift_pp","result","paper_profit_per_unit","candidate_won",
+       "power_reference_prob","power_apparent_ev","power_reference_books"]
 MIN_OTHER_BOOKS=4
 MIN_INDICATIVE_EV=.02
 MIN_LEAD=timedelta(hours=12)
@@ -38,6 +39,30 @@ def implied(odds):
 def profit_if_win(odds):
     x=float(odds)
     return x/100 if x>0 else 100/(-x)
+
+def power_novig(home_odds,away_odds):
+    """Return home probability using the two-way power margin method."""
+    qh,qa=implied(home_odds),implied(away_odds)
+    total=qh+qa
+    if abs(total-1.0)<1e-12:
+        return qh
+    if total>1:
+        lo,hi=1.0,2.0
+        while qh**hi+qa**hi>1.0 and hi<128.0:
+            hi*=2
+    else:
+        lo,hi=0.0,1.0
+    for _ in range(80):
+        mid=(lo+hi)/2
+        if qh**mid+qa**mid>1.0:
+            lo=mid
+        else:
+            hi=mid
+    exponent=(lo+hi)/2
+    probability=qh**exponent
+    if not 0<probability<1:
+        raise ValueError("Power no-vig probability outside 0-1")
+    return probability
 
 def choose_candidates(quotes,existing,now):
     frozen={r["event_id"] for r in existing}
@@ -112,6 +137,26 @@ def evaluate(locked,quotes,results,now):
         if winner not in (row["home_team"],row["away_team"]):winner=None
         won=(winner==row["home_team"] if side=="HOME" else winner==row["away_team"]) if winner else None
         profit=(profit_if_win(row["offered_odds"]) if won else -1) if won is not None else None
+
+        # Supplemental sensitivity only: apply POWER_V1 to the exact same
+        # frozen timestamp and other-book set. This never changes/reselects picks.
+        power_reference=None
+        power_ev=None
+        power_books=0
+        frozen_snapshot=next(
+            (item for item in qualified_snapshots(quotes.get(event,{})) if item[0]==frozen),
+            None
+        )
+        if frozen_snapshot and key in frozen_snapshot[2]:
+            other_power=[power_novig(q["home_odds"],q["away_odds"])
+                         for book_key,q in frozen_snapshot[2].items()
+                         if book_key!=key]
+            power_books=len(other_power)
+            if power_books>=MIN_OTHER_BOOKS:
+                power_home=statistics.median(other_power)
+                power_reference=power_home if side=="HOME" else 1-power_home
+                power_ev=power_reference*(1+profit_if_win(row["offered_odds"]))-1
+
         rows.append({**row,
             "near_kickoff_utc":close[0].isoformat() if close else "",
             "near_kickoff_prob":f"{p:.6f}" if p is not None else "",
@@ -121,7 +166,10 @@ def evaluate(locked,quotes,results,now):
             "same_book_implied_shift_pp":f"{implied_shift:+.3f}" if implied_shift is not None else "",
             "result":"VERIFIED_FINAL" if winner else "PENDING",
             "paper_profit_per_unit":f"{profit:.4f}" if profit is not None else "",
-            "candidate_won":int(won) if won is not None else ""})
+            "candidate_won":int(won) if won is not None else "",
+            "power_reference_prob":f"{power_reference:.8f}" if power_reference is not None else "",
+            "power_apparent_ev":f"{power_ev:.6f}" if power_ev is not None else "",
+            "power_reference_books":power_books})
     return sorted(rows,key=lambda r:(r["kickoff_utc"],r["event_id"]))
 
 def report(rows,new,now):
@@ -145,15 +193,27 @@ def report(rows,new,now):
         f"- With verified finals: **{len(settled)}**","",
         "## Precommitted selection rule","",
         "At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff at least 12 hours ahead, and a minimum 2% *indicative* return using the median no-vig probability of OTHER books. One candidate per event; highest apparent discrepancy wins. No backfilled picks, no post-result selection.","",
-        "| Matchup | Side | Observed odds | Market reference | Indicative return | Market shift | Same-book shift | Status |",
-        "|---|---|---|---:|---:|---:|---:|---|"
+        "| Matchup | Side | Observed odds | Proportional ref. | Proportional indic. return | Power ref. | Power indic. return | Market shift | Same-book shift | Status |",
+        "|---|---|---|---:|---:|---:|---:|---:|---:|---|"
     ]
     for r in rows:
         lines.append(
             f"| {r['away_team']} @ {r['home_team']} | {r['selected_side']} | "
             f"{r['book']} ({int(r['offered_odds']):+d}) | {100*float(r['reference_prob']):.2f}% | "
             f"{100*float(r['apparent_ev']):+.2f}% | "
-            f"{r['market_shift_pp']+' pp' if r['market_shift_pp'] else '—'} | "
+            f"{100*float(r['power_reference_prob']):.2f}%" if r["power_reference_prob"] else "—"
+        )
+        if r["power_apparent_ev"]:
+            lines[-1] += (
+                f" | {100*float(r['power_apparent_ev']):+.2f}% | "
+                f"{r['market_shift_pp']+' pp' if r['market_shift_pp'] else '—'} | "
+            )
+        else:
+            lines[-1] += (
+                f" | — | — | "
+                f"{r['market_shift_pp']+' pp' if r['market_shift_pp'] else '—'} | "
+            )
+        lines[-1] += 
             f"{r['same_book_implied_shift_pp']+' pp' if r['same_book_implied_shift_pp'] else '—'} | {r['result']} |"
         )
     if not rows:
@@ -172,7 +232,9 @@ def report(rows,new,now):
         "- Same-book shift compares implied break-even probability for the EXACT frozen bookmaker and side; a positive shift means the earlier offered price was better (not a guaranteed edge).",
         "- No money is wagered; all selections and wins/losses are hypothetical.",
         "- Results are matched against verified full-team identities and kickoff, not inferred from prices.",
-        "- Injury information is recorded separately and is NOT an unvalidated betting signal.",""])
+        "- Injury information is recorded separately and is NOT an unvalidated betting signal.",
+        "- POWER_V1 is a supplementary same-snapshot sensitivity using the exact frozen other-book set; the proportional method and original 2% threshold alone determine selections.",
+        "- Neither vig-removal method is an independent probability model or proof of executable value.",""])
     DASH.write_text("\n".join(lines),encoding="utf8")
     print(f"Model 13: {len(new)} new, {len(rows)} frozen, {len(settled)} settled; NO VERIFIED +EV")
 
