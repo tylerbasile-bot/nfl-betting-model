@@ -417,8 +417,12 @@ in this *selected* cohort is diagnostic, not proof of positive expected value.
 
 The quota-aware near-kickoff gate now considers frozen **Model 13** events as
 well as Model 10 events; it still checks existing quotes and only triggers
-if a tracked game is approaching kickoff. Model 13 outcome and Phase 2
-reports can refresh even if the near-kickoff odds gate skips its API call.
+if a tracked game is approaching kickoff. Near-kickoff result/report steps are
+also gated, so a skipped odds call does not create timestamp-only commits.
+The regular two-hour collector independently refreshes results and reports.
+The Model 13 audit adds a `POWER_V1` proportional-vig sensitivity for the exact
+frozen timestamp and other-book set; it is diagnostic only and never changes
+the original proportional-method selection rule.
 
 No real wagers, new odds API subscriptions, or artificial historical picks
 are created. Further records will depend on future NFL games and actually
