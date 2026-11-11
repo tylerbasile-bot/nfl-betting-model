@@ -54,7 +54,14 @@ def no_vig(home, away):
 
 def load_quotes():
     quotes = defaultdict(lambda: defaultdict(dict))
-    input_files = sorted(INPUT.glob("*.csv"))
+    input_files = []
+    for path in sorted(INPUT.glob("*.csv")):
+        try:
+            parsed = datetime.strptime(path.stem, "%Y-%m-%d")
+        except ValueError:
+            continue
+        if path.name == f"{parsed:%Y-%m-%d}.csv":
+            input_files.append(path)
     bad = 0
     for path in input_files:
         with path.open(newline="", encoding="utf-8") as file:
