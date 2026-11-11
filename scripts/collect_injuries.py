@@ -50,7 +50,9 @@ def main(now=None):
     if outfile.exists():
         print(f"Already captured QB/OL injury snapshot for {now:%Y-%m-%d}; no overwrite.")
         return
-    url=SOURCE.format(season=now.year)
+    # NFL injury releases are organized by season year, not calendar year.
+    season = now.year if now.month >= 9 else now.year - 1
+    url=SOURCE.format(season=season)
     try:
         req=Request(url,headers={"User-Agent":"nfl-research-injury-snapshot/1.0"})
         with urlopen(req,timeout=35) as response:
