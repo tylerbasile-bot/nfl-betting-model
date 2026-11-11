@@ -1,12 +1,12 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-11T01:28:02.341163+00:00`
+Updated: `2026-11-11T06:35:31.940297+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
 ## Tracking coverage
 
-- Frozen prospective selections: **2**
+- Frozen prospective selections: **3**
 - With any later five-book fresh market observation: **2**
 - With later selected-sportsbook observation: **2**
 - With five-book observation within 3h of kickoff: **0**
@@ -17,8 +17,9 @@ Updated: `2026-11-11T01:28:02.341163+00:00`
 
 | Game | Pick | Frozen offer | Last observed market shift | Near-kickoff market shift | Near-kickoff same-book shift | Verified outcome |
 |---|---|---:|---:|---:|---:|---|
-| Buffalo Bills @ New York Jets | HOME · DraftKings | 390 | +0.036 pp | — | — | PENDING |
+| Buffalo Bills @ New York Jets | HOME · DraftKings | 390 | +0.148 pp | — | — | PENDING |
 | Jacksonville Jaguars @ Tennessee Titans | HOME · BetRivers | 480 | -0.145 pp | — | — | PENDING |
+| Los Angeles Rams @ Arizona Cardinals | HOME · MyBookie.ag | 370 | — | — | — | PENDING |
 
 ## Descriptive paper outcomes
 

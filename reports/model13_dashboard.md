@@ -1,11 +1,11 @@
 # Model 13 — Prospective Cross-Book Pricing Study
 
-Updated: `2026-11-10T17:22:51.780142+00:00`
+Updated: `2026-11-11T06:35:31.801321+00:00`
 
 > **NO VERIFIED +EV. PAPER RESEARCH ONLY.** Differences between sportsbooks are not independent probabilities.
 
-- New frozen candidate observations: **0**
-- Total locked observations: **2**
+- New frozen candidate observations: **1**
+- Total locked observations: **3**
 - With near-kickoff reference: **0**
 - With same-book near-kickoff price: **0**
 - With verified finals: **0**
@@ -18,6 +18,7 @@ At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff a
 |---|---|---|---:|---:|---:|---:|---|
 | Buffalo Bills @ New York Jets | HOME | DraftKings (+390) | 21.51% | +5.39% | — | — | PENDING |
 | Jacksonville Jaguars @ Tennessee Titans | HOME | BetRivers (+480) | 18.52% | +7.41% | — | — | PENDING |
+| Los Angeles Rams @ Arizona Cardinals | HOME | MyBookie.ag (+370) | 21.71% | +2.05% | — | — | PENDING |
 
 ## Outcome evaluation
 

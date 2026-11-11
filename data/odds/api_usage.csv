@@ -1,0 +1,2 @@
+captured_utc,workflow_run_id,workflow_run_attempt,requests_used,requests_remaining,request_cost,event_count,quote_count
+2026-11-11T06:35:31.179068+00:00,42973464664,1,15,485,1,27,163
