@@ -420,7 +420,7 @@ well as Model 10 events; it still checks existing quotes and only triggers
 if a tracked game is approaching kickoff. Near-kickoff result/report steps are
 also gated, so a skipped odds call does not create timestamp-only commits.
 The regular two-hour collector independently refreshes results and reports.
-The Model 13 audit adds a `POWER_V1` proportional-vig sensitivity for the exact
+The Model 13 audit adds a `POWER_V1` power-method vig-removal sensitivity for the exact
 frozen timestamp and other-book set; it is diagnostic only and never changes
 the original proportional-method selection rule.
 
