@@ -197,27 +197,21 @@ def report(rows,new,now):
         "|---|---|---|---:|---:|---:|---:|---:|---:|---|"
     ]
     for r in rows:
+        power_ref=(f"{100*float(r['power_reference_prob']):.2f}%"
+                   if r["power_reference_prob"] else "—")
+        power_ev=(f"{100*float(r['power_apparent_ev']):+.2f}%"
+                  if r["power_apparent_ev"] else "—")
         lines.append(
             f"| {r['away_team']} @ {r['home_team']} | {r['selected_side']} | "
-            f"{r['book']} ({int(r['offered_odds']):+d}) | {100*float(r['reference_prob']):.2f}% | "
-            f"{100*float(r['apparent_ev']):+.2f}% | "
-            f"{100*float(r['power_reference_prob']):.2f}%" if r["power_reference_prob"] else "—"
-        )
-        if r["power_apparent_ev"]:
-            lines[-1] += (
-                f" | {100*float(r['power_apparent_ev']):+.2f}% | "
-                f"{r['market_shift_pp']+' pp' if r['market_shift_pp'] else '—'} | "
-            )
-        else:
-            lines[-1] += (
-                f" | — | — | "
-                f"{r['market_shift_pp']+' pp' if r['market_shift_pp'] else '—'} | "
-            )
-        lines[-1] += 
-            f"{r['same_book_implied_shift_pp']+' pp' if r['same_book_implied_shift_pp'] else '—'} | {r['result']} |"
+            f"{r['book']} ({int(r['offered_odds']):+d}) | "
+            f"{100*float(r['reference_prob']):.2f}% | "
+            f"{100*float(r['apparent_ev']):+.2f}% | {power_ref} | {power_ev} | "
+            f"{r['market_shift_pp']+' pp' if r['market_shift_pp'] else '—'} | "
+            f"{r['same_book_implied_shift_pp']+' pp' if r['same_book_implied_shift_pp'] else '—'} | "
+            f"{r['result']} |"
         )
     if not rows:
-        lines.append("| No pregame candidates yet | — | — | — | — | — | — | — |")
+        lines.append("| No pregame candidates yet | — | — | — | — | — | — | — | — | — |")
     lines.extend(["","## Outcome evaluation",""])
     if settled:
         roi=statistics.mean(float(r["paper_profit_per_unit"]) for r in settled)
