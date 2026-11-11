@@ -8,7 +8,7 @@ On any upstream failure, no partial final results are committed.
 import csv
 from datetime import datetime,timedelta,timezone
 from pathlib import Path
-from collect_results import get_scoreboard,match_finals,parse_time
+from collect_results import get_scoreboard,match_finals,parse_time,refresh_kickoff_times
 
 LEDGER=Path("data/model13/frozen_price_candidates.csv")
 RESULTS=Path("data/model13/verified_results.csv")
@@ -19,7 +19,7 @@ def read(path):
     with path.open(newline="",encoding="utf-8") as f:return list(csv.DictReader(f))
 
 def pending_candidates(candidates,existing,now):
-    done={r["event_id"] for r in existing if r.get("status")=="final"}
+    done={r["event_id"] for r in existing if r.get("status") in {"final","tie"}}
     return [{"event_id":r["event_id"],"kickoff_utc":r["kickoff_utc"],
              "home_team":r["home_team"],"away_team":r["away_team"]}
             for r in candidates
@@ -38,7 +38,7 @@ def collect(candidates,existing,now,fetch=get_scoreboard):
     return match_finals(pending,scoreboards,now)
 
 def main():
-    candidates=read(LEDGER)
+    candidates=refresh_kickoff_times(read(LEDGER))
     existing=read(RESULTS)
     now=datetime.now(timezone.utc)
     try:
