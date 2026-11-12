@@ -1,16 +1,16 @@
 # Observed QB / Offensive-Line Injury Changes
 
-Generated: `2026-11-11T22:49:07.947911+00:00`
+Generated: `2026-11-12T07:18:58.342964+00:00`
 
 > Observation-only. No prediction of availability or validated positive EV.
 
-- Dated observation files: **2**
-- Newly observed player-week entries: **0**
+- Dated observation files: **3**
+- Newly observed player-week entries: **54**
 - Changes to reported statuses/practice participation: **0**
 
 **Comparison scope:** only the two latest dated captures; no attempt to infer that a player recovered because a report row disappeared. Status dates supplied by the source are NOT proof of when bettors could have known the update.
 
-Previous source capture: `2026-11-10.csv`; latest: `2026-11-11.csv`.
+Previous source capture: `2026-11-11.csv`; latest: `2026-11-12.csv`.
 
 | Team | Player | Group | Prior report | New report | Prior practice | New practice |
 |---|---|---|---|---|---|---|
