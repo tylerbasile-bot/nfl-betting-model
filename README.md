@@ -506,3 +506,13 @@ not known at early-week selection time and cannot support a true live
 or historical *executable-bet* inference. A lower historical Brier
 or log loss does not establish an EV or ROI edge. No changes are made to
 frozen live prospective Model 13 selections.
+
+## Stats Model — Football efficiency + market odds
+
+The separate Stats Model experiment builds pregame ANY/A, turnover margin,
+explosive-play rate, red-zone TD rate, success rate and EPA/play from nflverse
+play-by-play, then compares a stats-only model with market-only and
+stats-plus-market probabilities. It keeps Model 13 and its frozen selections
+unchanged. The first version is offline historical research; it does not
+generate live picks or establish +EV. Setup, feature definitions and limits:
+[Stats Model instructions](docs/stats_model.md).
