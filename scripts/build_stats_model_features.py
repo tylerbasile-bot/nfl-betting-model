@@ -123,16 +123,15 @@ def make_game_stats(pbp):
         columns={"team": "opponent", "giveaways": "takeaways"})
     stats = stats.merge(opp, on=["season", "week", "game_id", "opponent"], how="left", validate="one_to_one")
     stats["turnover_margin"] = stats["takeaways"] - stats["giveaways"]
-    stats["def_allowed_any_a"] = stats.groupby(
-        ["season", "week", "game_id"])["any_a"].transform(lambda s: s.iloc[::-1].to_numpy())
-    stats["def_allowed_explosive_rate"] = stats.groupby(
-        ["season", "week", "game_id"])["explosive_rate"].transform(lambda s: s.iloc[::-1].to_numpy())
-    stats["def_allowed_redzone_td_rate"] = stats.groupby(
-        ["season", "week", "game_id"])["redzone_td_rate"].transform(lambda s: s.iloc[::-1].to_numpy())
-    stats["def_allowed_success_rate"] = stats.groupby(
-        ["season", "week", "game_id"])["success_rate"].transform(lambda s: s.iloc[::-1].to_numpy())
-    stats["def_allowed_epa_per_play"] = stats.groupby(
-        ["season", "week", "game_id"])["epa_per_play"].transform(lambda s: s.iloc[::-1].to_numpy())
+    allowed = stats[["season", "week", "game_id", "team", "any_a", "explosive_rate",
+                     "redzone_td_rate", "success_rate", "epa_per_play"]].rename(
+        columns={"team": "opponent", "any_a": "def_allowed_any_a",
+                 "explosive_rate": "def_allowed_explosive_rate",
+                 "redzone_td_rate": "def_allowed_redzone_td_rate",
+                 "success_rate": "def_allowed_success_rate",
+                 "epa_per_play": "def_allowed_epa_per_play"})
+    stats = stats.merge(allowed, on=["season", "week", "game_id", "opponent"],
+                        how="left", validate="one_to_one")
     return stats
 
 
