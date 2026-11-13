@@ -1,6 +1,6 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-13T16:30:07.236050+00:00`
+Updated: `2026-11-13T23:38:16.261901+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
@@ -19,7 +19,7 @@ Updated: `2026-11-13T16:30:07.236050+00:00`
 |---|---|---:|---:|---:|---:|---|
 | Buffalo Bills @ New York Jets | HOME · DraftKings | 390 | +0.148 pp | — | — | PENDING |
 | Jacksonville Jaguars @ Tennessee Titans | HOME · BetRivers | 480 | -0.663 pp | — | — | PENDING |
-| Los Angeles Rams @ Arizona Cardinals | HOME · MyBookie.ag | 370 | -0.539 pp | — | — | PENDING |
+| Los Angeles Rams @ Arizona Cardinals | HOME · MyBookie.ag | 370 | -0.545 pp | — | — | PENDING |
 
 ## Descriptive paper outcomes
 
