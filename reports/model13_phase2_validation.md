@@ -1,6 +1,6 @@
 # Model 13 — Phase 2 Prospective Validation
 
-Generated UTC: `2026-11-15T09:32:32.033174+00:00`
+Generated UTC: `2026-11-15T17:14:34.198693+00:00`
 
 > **NO VERIFIED POSITIVE EV. PAPER RESEARCH ONLY.** No bets are placed by this workflow.
 
@@ -15,11 +15,11 @@ Generated UTC: `2026-11-15T09:32:32.033174+00:00`
 
 - Later five-book market references: **3/3**.
 - Later selected-book quotes: **3/3**.
-- Near-kickoff (<=3h) five-book references: **0/3**.
-- Near-kickoff selected-book quotes: **0/3**.
+- Near-kickoff (<=3h) five-book references: **2/3**.
+- Near-kickoff selected-book quotes: **2/3**.
 - Matured games missing a near-kickoff market quote: **0/0**.
-- Observed near-kickoff market shift: **not yet measurable**.
-- Same-book near-kickoff shift: **not yet measurable**.
+- Observed near-kickoff market shift mean: **-0.994 percentage points** (n=2).
+- Observed same-book near-kickoff implied-price shift mean: **+1.337 percentage points** (n=2).
 - These measures are market-price movement proxies, **not** certified closing-line value.
 
 ## 3. Execution/availability evidence
@@ -53,7 +53,7 @@ personal financial data, or identifying screenshots in the repository.
 
 - Candidates with audit warnings: **0**.
 - Candidates awaiting verified finals: **3**.
-- Candidates missing near-kickoff market observations: **3**.
+- Candidates missing near-kickoff market observations: **1**.
 - Candidates without independent execution confirmation: **3**.
 
 The live Model 13 selection rule remains unchanged. Do not use this dashboard as a wagering signal.

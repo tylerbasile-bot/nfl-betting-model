@@ -1,6 +1,6 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-15T09:32:31.951502+00:00`
+Updated: `2026-11-15T17:14:34.141976+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
@@ -9,17 +9,17 @@ Updated: `2026-11-15T09:32:31.951502+00:00`
 - Frozen prospective selections: **3**
 - With any later five-book fresh market observation: **3**
 - With later selected-sportsbook observation: **3**
-- With five-book observation within 3h of kickoff: **0**
-- With selected-sportsbook observation within 3h of kickoff: **0**
+- With five-book observation within 3h of kickoff: **2**
+- With selected-sportsbook observation within 3h of kickoff: **2**
 - With independently verified final outcomes: **0**
 
 ## Frozen selections and follow-up
 
 | Game | Pick | Frozen offer | Last observed market shift | Near-kickoff market shift | Near-kickoff same-book shift | Verified outcome |
 |---|---|---:|---:|---:|---:|---|
-| Buffalo Bills @ New York Jets | HOME · DraftKings | 390 | -0.182 pp | — | — | PENDING |
-| Jacksonville Jaguars @ Tennessee Titans | HOME · BetRivers | 480 | -0.852 pp | — | — | PENDING |
-| Los Angeles Rams @ Arizona Cardinals | HOME · MyBookie.ag | 370 | -1.202 pp | — | — | PENDING |
+| Buffalo Bills @ New York Jets | HOME · DraftKings | 390 | -0.881 pp | -0.881 pp | +0.868 pp | PENDING |
+| Jacksonville Jaguars @ Tennessee Titans | HOME · BetRivers | 480 | -1.106 pp | -1.106 pp | +1.806 pp | PENDING |
+| Los Angeles Rams @ Arizona Cardinals | HOME · MyBookie.ag | 370 | -1.938 pp | — | — | PENDING |
 
 ## Descriptive paper outcomes
 
