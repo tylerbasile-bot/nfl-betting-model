@@ -1,6 +1,6 @@
 # Model 9 — NFL Market Intelligence
 
-Generated: `2026-11-15T17:14:33+00:00`
+Generated: `2026-11-15T20:32:14+00:00`
 
 > **Research only — NO VERIFIED EDGE.** Prices and market consensus are not independently validated win probabilities.
 
@@ -9,7 +9,7 @@ Generated: `2026-11-15T17:14:33+00:00`
 - Odds files read: **6**
 - Pregame games with at least 4 fresh books: **27**
 - Quotes rejected due to malformed fields or prices: **0**
-- Games with an observed quote within 3 hours of kickoff after the initial snapshot: **8**
+- Games with an observed quote within 3 hours of kickoff after the initial snapshot: **11**
 - Games with verified results supplied: **1**
 
 ## Pregame baseline and movement
@@ -25,9 +25,9 @@ Generated: `2026-11-15T17:14:33+00:00`
 | Miami Dolphins @ Indianapolis Colts | 2026-11-15T18:00 | 55.26% | 65.75% | +10.488 | BetOnline.ag (-133) | Bovada (+122) | YES |
 | Houston Texans @ Cleveland Browns | 2026-11-15T18:00 | 32.95% | 36.14% | +3.197 | BetUS (+195) | BetRivers (-205) | YES |
 | Carolina Panthers @ New Orleans Saints | 2026-11-15T18:00 | 51.71% | 49.67% | -2.039 | FanDuel (-112) | DraftKings (+100) | YES |
-| Seattle Seahawks @ Las Vegas Raiders | 2026-11-15T21:05 | 38.13% | 28.25% | -9.872 | Bovada (+158) | DraftKings (-175) | NO |
-| Los Angeles Rams @ Arizona Cardinals | 2026-11-15T21:05 | 20.99% | 19.78% | -1.217 | DraftKings (+360) | BetUS (-440) | NO |
-| San Francisco 49ers @ Dallas Cowboys | 2026-11-15T21:25 | 34.52% | 34.25% | -0.269 | FanDuel (+180) | DraftKings (-205) | NO |
+| Seattle Seahawks @ Las Vegas Raiders | 2026-11-15T21:05 | 38.13% | 28.25% | -9.872 | Bovada (+158) | DraftKings (-175) | YES |
+| Los Angeles Rams @ Arizona Cardinals | 2026-11-15T21:05 | 20.99% | 19.62% | -1.372 | DraftKings (+360) | BetUS (-440) | YES |
+| San Francisco 49ers @ Dallas Cowboys | 2026-11-15T21:25 | 34.52% | 34.93% | +0.408 | FanDuel (+180) | DraftKings (-205) | YES |
 | Pittsburgh Steelers @ Cincinnati Bengals | 2026-11-16T01:20 | 63.83% | 63.01% | -0.822 | DraftKings (-180) | LowVig.ag (+171) | NO |
 | Los Angeles Chargers @ Baltimore Ravens | 2026-11-17T01:15 | 67.42% | 66.36% | -1.056 | DraftKings (-225) | BetUS (+200) | NO |
 | Indianapolis Colts @ Houston Texans | 2026-11-20T01:15 | 80.20% | 80.20% | +0.000 | DraftKings (-455) | FanDuel (+410) | NO |
