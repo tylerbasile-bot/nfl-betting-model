@@ -1,6 +1,6 @@
 # Model 9 — NFL Market Intelligence
 
-Generated: `2026-11-15T20:32:14+00:00`
+Generated: `2026-11-15T22:54:25+00:00`
 
 > **Research only — NO VERIFIED EDGE.** Prices and market consensus are not independently validated win probabilities.
 
@@ -9,8 +9,8 @@ Generated: `2026-11-15T20:32:14+00:00`
 - Odds files read: **6**
 - Pregame games with at least 4 fresh books: **27**
 - Quotes rejected due to malformed fields or prices: **0**
-- Games with an observed quote within 3 hours of kickoff after the initial snapshot: **11**
-- Games with verified results supplied: **1**
+- Games with an observed quote within 3 hours of kickoff after the initial snapshot: **12**
+- Games with verified results supplied: **9**
 
 ## Pregame baseline and movement
 
@@ -28,7 +28,7 @@ Generated: `2026-11-15T20:32:14+00:00`
 | Seattle Seahawks @ Las Vegas Raiders | 2026-11-15T21:05 | 38.13% | 28.25% | -9.872 | Bovada (+158) | DraftKings (-175) | YES |
 | Los Angeles Rams @ Arizona Cardinals | 2026-11-15T21:05 | 20.99% | 19.62% | -1.372 | DraftKings (+360) | BetUS (-440) | YES |
 | San Francisco 49ers @ Dallas Cowboys | 2026-11-15T21:25 | 34.52% | 34.93% | +0.408 | FanDuel (+180) | DraftKings (-205) | YES |
-| Pittsburgh Steelers @ Cincinnati Bengals | 2026-11-16T01:20 | 63.83% | 63.01% | -0.822 | DraftKings (-180) | LowVig.ag (+171) | NO |
+| Pittsburgh Steelers @ Cincinnati Bengals | 2026-11-16T01:20 | 63.83% | 63.28% | -0.555 | DraftKings (-180) | LowVig.ag (+171) | YES |
 | Los Angeles Chargers @ Baltimore Ravens | 2026-11-17T01:15 | 67.42% | 66.36% | -1.056 | DraftKings (-225) | BetUS (+200) | NO |
 | Indianapolis Colts @ Houston Texans | 2026-11-20T01:15 | 80.20% | 80.20% | +0.000 | DraftKings (-455) | FanDuel (+410) | NO |
 | New Orleans Saints @ Chicago Bears | 2026-11-22T18:00 | 79.40% | 79.25% | -0.149 | DraftKings (-470) | FanDuel (+430) | NO |
@@ -46,10 +46,10 @@ Generated: `2026-11-15T20:32:14+00:00`
 
 ## Outcome validation
 
-- Evaluated games: **1**
-- Market baseline Brier score: **0.2893** (lower is better)
-- Market baseline log loss: **0.7719** (lower is better)
-- Market baseline winner accuracy: **0.0%**
+- Evaluated games: **9**
+- Market baseline Brier score: **0.2269** (lower is better)
+- Market baseline log loss: **0.6390** (lower is better)
+- Market baseline winner accuracy: **55.6%**
 
 This is a market baseline, **not** an independently trained predictive model.
 

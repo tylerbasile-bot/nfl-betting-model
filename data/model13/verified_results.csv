@@ -1,0 +1,3 @@
+event_id,status,winner,home_score,away_score,source,source_event_id,verified_utc
+28800df7e768ecec14f116454d560f9b,final,Jacksonville Jaguars,23,40,espn_scoreboard,401873057,2026-11-15T22:54:25.391976+00:00
+1057d50949844ddf483da9c8c20354be,final,Buffalo Bills,12,31,espn_scoreboard,401873054,2026-11-15T22:54:25.391976+00:00

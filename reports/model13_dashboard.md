@@ -1,6 +1,6 @@
 # Model 13 — Prospective Cross-Book Pricing Study
 
-Updated: `2026-11-15T20:32:14.909725+00:00`
+Updated: `2026-11-15T22:54:25.318582+00:00`
 
 > **NO VERIFIED +EV. PAPER RESEARCH ONLY.** Differences between sportsbooks are not independent probabilities.
 
@@ -8,7 +8,7 @@ Updated: `2026-11-15T20:32:14.909725+00:00`
 - Total locked observations: **3**
 - With near-kickoff reference: **3**
 - With same-book near-kickoff price: **3**
-- With verified finals: **0**
+- With verified finals: **2**
 
 ## Precommitted selection rule
 
@@ -16,13 +16,13 @@ At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff a
 
 | Matchup | Side | Observed odds | Proportional ref. | Proportional indic. return | Power ref. | Power indic. return | Market shift | Same-book shift | Status |
 |---|---|---|---:|---:|---:|---:|---:|---:|---|
-| Buffalo Bills @ New York Jets | HOME | DraftKings (+390) | 21.51% | +5.39% | 19.57% | -4.10% | -0.881 pp | +0.868 pp | PENDING |
-| Jacksonville Jaguars @ Tennessee Titans | HOME | BetRivers (+480) | 18.52% | +7.41% | 16.62% | -3.58% | -1.106 pp | +1.806 pp | PENDING |
+| Buffalo Bills @ New York Jets | HOME | DraftKings (+390) | 21.51% | +5.39% | 19.57% | -4.10% | -0.881 pp | +0.868 pp | VERIFIED_FINAL |
+| Jacksonville Jaguars @ Tennessee Titans | HOME | BetRivers (+480) | 18.52% | +7.41% | 16.62% | -3.58% | -1.106 pp | +1.806 pp | VERIFIED_FINAL |
 | Los Angeles Rams @ Arizona Cardinals | HOME | MyBookie.ag (+370) | 21.71% | +2.05% | 19.88% | -6.55% | -2.093 pp | -1.237 pp | PENDING |
 
 ## Outcome evaluation
 
-No settled paper candidates. No performance claim possible.
+- Hypothetical one-unit-per-selection ROI: **-100.00%** over 2 finalized selections (not actual executable returns).
 
 ## Interpretation and limitations
 
