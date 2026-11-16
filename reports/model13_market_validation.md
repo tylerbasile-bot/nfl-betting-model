@@ -1,17 +1,17 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-15T22:54:25.824505+00:00`
+Updated: `2026-11-16T00:21:16.974151+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
 ## Tracking coverage
 
-- Frozen prospective selections: **3**
+- Frozen prospective selections: **4**
 - With any later five-book fresh market observation: **3**
 - With later selected-sportsbook observation: **3**
 - With five-book observation within 3h of kickoff: **3**
 - With selected-sportsbook observation within 3h of kickoff: **3**
-- With independently verified final outcomes: **2**
+- With independently verified final outcomes: **3**
 
 ## Frozen selections and follow-up
 
@@ -19,12 +19,13 @@ Updated: `2026-11-15T22:54:25.824505+00:00`
 |---|---|---:|---:|---:|---:|---|
 | Buffalo Bills @ New York Jets | HOME · DraftKings | 390 | -0.881 pp | -0.881 pp | +0.868 pp | LOSS |
 | Jacksonville Jaguars @ Tennessee Titans | HOME · BetRivers | 480 | -1.106 pp | -1.106 pp | +1.806 pp | LOSS |
-| Los Angeles Rams @ Arizona Cardinals | HOME · MyBookie.ag | 370 | -2.093 pp | -2.093 pp | -1.237 pp | PENDING |
+| Los Angeles Rams @ Arizona Cardinals | HOME · MyBookie.ag | 370 | -2.093 pp | -2.093 pp | -1.237 pp | LOSS |
+| Arizona Cardinals @ Kansas City Chiefs | AWAY · BetRivers | 875 | — | — | — | PENDING |
 
 ## Descriptive paper outcomes
 
-- Settled selections: **2**, wins: **0**
-- Flat-one-unit hypothetical profit: **-2.000 units**
+- Settled selections: **3**, wins: **0**
+- Flat-one-unit hypothetical profit: **-3.000 units**
 - Flat-one-unit ROI on verified finals only: **-100.00%**
 
 ## Audit rules and limitations

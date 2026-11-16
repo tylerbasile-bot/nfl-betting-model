@@ -1,22 +1,22 @@
 # Model 13 — Phase 2 Prospective Validation
 
-Generated UTC: `2026-11-15T22:54:25.881135+00:00`
+Generated UTC: `2026-11-16T00:21:17.065833+00:00`
 
 > **NO VERIFIED POSITIVE EV. PAPER RESEARCH ONLY.** No bets are placed by this workflow.
 
 ## 1. Sample accrual (no forced picks)
 
-- Frozen prospective selections: **3/100** (planning target, not a sufficient statistical sample guarantee).
-- Independently verified results: **2**.
-- Games with kickoff reached: **3**; games not yet kicked off: **0**.
+- Frozen prospective selections: **4/100** (planning target, not a sufficient statistical sample guarantee).
+- Independently verified results: **3**.
+- Games with kickoff reached: **3**; games not yet kicked off: **1**.
 - The target is an observation milestone; do not adjust selection criteria to meet it.
 
 ## 2. Market validation coverage
 
-- Later five-book market references: **3/3**.
-- Later selected-book quotes: **3/3**.
-- Near-kickoff (<=3h) five-book references: **3/3**.
-- Near-kickoff selected-book quotes: **3/3**.
+- Later five-book market references: **3/4**.
+- Later selected-book quotes: **3/4**.
+- Near-kickoff (<=3h) five-book references: **3/4**.
+- Near-kickoff selected-book quotes: **3/4**.
 - Matured games missing a near-kickoff market quote: **0/3**.
 - Observed near-kickoff market shift mean: **-1.360 percentage points** (n=3).
 - Observed same-book near-kickoff implied-price shift mean: **+0.479 percentage points** (n=3).
@@ -30,7 +30,7 @@ Generated UTC: `2026-11-15T22:54:25.881135+00:00`
 - PRICE_UNAVAILABLE: **0**.
 - REGION_RESTRICTED: **0**.
 - UNKNOWN: **0**.
-- UNREVIEWED: **3**.
+- UNREVIEWED: **4**.
 
 Prices from the odds feed are **not proof of fillability**. The optional manual CSV
 `data/model13/execution_observations.csv` can document independently checked
@@ -39,11 +39,11 @@ personal financial data, or identifying screenshots in the repository.
 
 ## 4. Probability calibration, selected-side reference only
 
-- Mean predicted selected-side win probability (other-book no-vig median): **20.01%**.
+- Mean predicted selected-side win probability (other-book no-vig median): **20.58%**.
 - Actual selected-side win rate: **0.00%**.
-- Selected-side Brier score: **0.04028**.
-- Selected-side log loss: **0.22349**.
-- Calibration gap (actual minus reference mean): **-20.01%**.
+- Selected-side Brier score: **0.04257**.
+- Selected-side log loss: **0.23059**.
+- Calibration gap (actual minus reference mean): **-20.58%**.
 - **Insufficient observations for meaningful calibration reliability bins; do not infer model validity.**
 
 ### Interpretation requirements
@@ -58,7 +58,7 @@ personal financial data, or identifying screenshots in the repository.
 
 - Candidates with audit warnings: **0**.
 - Candidates awaiting verified finals: **1**.
-- Candidates missing near-kickoff market observations: **0**.
-- Candidates without independent execution confirmation: **3**.
+- Candidates missing near-kickoff market observations: **1**.
+- Candidates without independent execution confirmation: **4**.
 
 The live Model 13 selection rule remains unchanged. Do not use this dashboard as a wagering signal.
