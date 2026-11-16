@@ -1,11 +1,11 @@
 # QB & Offensive-Line Injury Watch
 
-Generated: `2026-11-15T22:54:24.388973+00:00`
+Generated: `2026-11-16T06:40:08.221148+00:00`
 
 > Observation-only. No starter classification, game-day availability prediction, or positive-EV signal.
 
-- Snapshot file: `data/injury_observations/2026-11-15.csv`
-- QB/OL injury-report rows recorded: **600**
+- Snapshot file: `data/injury_observations/2026-11-16.csv`
+- QB/OL injury-report rows recorded: **601**
 
 The source may include prior weeks; below is only the largest observed week in the dataset, not automatically the current week's confirmed report.
 
@@ -15,7 +15,7 @@ The source may include prior weeks; below is only the largest observed week in t
 |---|---:|---:|---:|---:|
 | ARI | 0 | 4 | 0 | 3 |
 | ATL | 0 | 2 | 0 | 0 |
-| BAL | 0 | 1 | 0 | 0 |
+| BAL | 0 | 2 | 0 | 0 |
 | BUF | 0 | 5 | 0 | 1 |
 | CAR | 0 | 3 | 0 | 1 |
 | CIN | 0 | 2 | 0 | 1 |
@@ -27,7 +27,7 @@ The source may include prior weeks; below is only the largest observed week in t
 | JAX | 0 | 2 | 0 | 1 |
 | KC | 2 | 1 | 0 | 1 |
 | LA | 1 | 1 | 0 | 1 |
-| LAC | 0 | 4 | 0 | 0 |
+| LAC | 0 | 4 | 0 | 3 |
 | LV | 0 | 1 | 0 | 0 |
 | MIA | 0 | 1 | 0 | 1 |
 | MIN | 2 | 1 | 1 | 0 |
