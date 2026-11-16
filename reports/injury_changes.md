@@ -1,6 +1,6 @@
 # Observed QB / Offensive-Line Injury Changes
 
-Generated: `2026-11-16T06:40:08.263975+00:00`
+Generated: `2026-11-16T18:39:10.254938+00:00`
 
 > Observation-only. No prediction of availability or validated positive EV.
 
