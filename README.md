@@ -516,3 +516,7 @@ stats-plus-market probabilities. It keeps Model 13 and its frozen selections
 unchanged. The first version is offline historical research; it does not
 generate live picks or establish +EV. Setup, feature definitions and limits:
 [Stats Model instructions](docs/stats_model.md).
+
+## Model 10B — Historical football stats + market challenger
+
+The separate [Model 10B runbook](docs/model10b.md) and [research script](scripts/model10b_historical.py) compare raw no-vig historical closing-market forecasts, calibrated market-only, football-only, and market-plus-football probabilities on the same chronologically held-out games. It uses the existing private Google Drive nflverse datasets and does **not** modify Model 10's original frozen predictions or Model 13. Historical closing prices are **not** Model 10's early-week prices, so these results cannot be called true live Model 10B predictions. No live Model 10B picks or verified edge are asserted.
