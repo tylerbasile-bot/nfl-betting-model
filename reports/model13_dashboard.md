@@ -1,11 +1,11 @@
 # Model 13 — Prospective Cross-Book Pricing Study
 
-Updated: `2026-11-16T18:39:10.592187+00:00`
+Updated: `2026-11-17T01:02:36.682968+00:00`
 
 > **NO VERIFIED +EV. PAPER RESEARCH ONLY.** Differences between sportsbooks are not independent probabilities.
 
 - New frozen candidate observations: **1**
-- Total locked observations: **9**
+- Total locked observations: **10**
 - With near-kickoff reference: **3**
 - With same-book near-kickoff price: **3**
 - With verified finals: **3**
@@ -24,6 +24,7 @@ At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff a
 | Arizona Cardinals @ Kansas City Chiefs | AWAY | BetRivers (+875) | 10.84% | +5.71% | 8.27% | -19.35% | — | — | PENDING |
 | Miami Dolphins @ Buffalo Bills | AWAY | BetRivers (+1050) | 9.60% | +10.45% | 6.82% | -21.52% | — | — | PENDING |
 | Tennessee Titans @ Dallas Cowboys | AWAY | FanDuel (+370) | 22.85% | +7.39% | 21.08% | -0.92% | — | — | PENDING |
+| New York Jets @ Los Angeles Chargers | AWAY | BetRivers (+150) | 40.98% | +2.45% | 40.36% | +0.91% | — | — | PENDING |
 | Las Vegas Raiders @ Denver Broncos | AWAY | FanDuel (+430) | 19.55% | +3.60% | 17.44% | -7.58% | — | — | PENDING |
 
 ## Outcome evaluation
