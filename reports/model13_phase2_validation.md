@@ -1,6 +1,6 @@
 # Model 13 — Phase 2 Prospective Validation
 
-Generated UTC: `2026-11-17T02:58:00.544575+00:00`
+Generated UTC: `2026-11-17T13:32:47.811553+00:00`
 
 > **NO VERIFIED POSITIVE EV. PAPER RESEARCH ONLY.** No bets are placed by this workflow.
 
@@ -13,8 +13,8 @@ Generated UTC: `2026-11-17T02:58:00.544575+00:00`
 
 ## 2. Market validation coverage
 
-- Later five-book market references: **9/10**.
-- Later selected-book quotes: **9/10**.
+- Later five-book market references: **10/10**.
+- Later selected-book quotes: **10/10**.
 - Near-kickoff (<=3h) five-book references: **3/10**.
 - Near-kickoff selected-book quotes: **3/10**.
 - Matured games missing a near-kickoff market quote: **0/3**.
