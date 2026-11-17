@@ -1,5 +1,1 @@
 previous_observed_utc,current_observed_utc,season,week,team,player_id,player_name,position,group,change_type,prior_report_status,current_report_status,prior_practice_status,current_practice_status,source_date_modified
-,2026-11-16T06:40:08.088031+00:00,2026,10,BAL,00-0032965,Ronnie Stanley,T,OL,FIRST_OBSERVED_IN_THIS_WEEK,,,,Did Not Participate In Practice,
-2026-11-15T01:58:05.155285+00:00,2026-11-16T06:40:08.088031+00:00,2026,10,LAC,00-0040212,Branson Taylor,G,OL,REPORTED_STATUS_CHANGED,,Out,Did Not Participate In Practice,Did Not Participate In Practice,
-2026-11-15T01:58:05.155285+00:00,2026-11-16T06:40:08.088031+00:00,2026,10,LAC,00-0036736,Kayode Awosika,G,OL,REPORTED_STATUS_CHANGED,,Questionable,Limited Participation in Practice,Full Participation in Practice,
-2026-11-15T01:58:05.155285+00:00,2026-11-16T06:40:08.088031+00:00,2026,10,LAC,00-0035688,Trey Pipkins,T,OL,REPORTED_STATUS_CHANGED,,Questionable,Did Not Participate In Practice,Limited Participation in Practice,
