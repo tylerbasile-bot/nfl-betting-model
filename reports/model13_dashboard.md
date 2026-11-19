@@ -1,11 +1,11 @@
 # Model 13 — Prospective Cross-Book Pricing Study
 
-Updated: `2026-11-19T00:28:28.719179+00:00`
+Updated: `2026-11-19T10:27:20.069598+00:00`
 
 > **NO VERIFIED +EV. PAPER RESEARCH ONLY.** Differences between sportsbooks are not independent probabilities.
 
-- New frozen candidate observations: **0**
-- Total locked observations: **10**
+- New frozen candidate observations: **1**
+- Total locked observations: **11**
 - With near-kickoff reference: **3**
 - With same-book near-kickoff price: **3**
 - With verified finals: **3**
@@ -22,6 +22,7 @@ At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff a
 | Indianapolis Colts @ Houston Texans | AWAY | BetRivers (+475) | 17.79% | +2.31% | 15.83% | -8.99% | — | — | PENDING |
 | New Orleans Saints @ Chicago Bears | AWAY | FanDuel (+450) | 19.87% | +9.27% | 17.56% | -3.45% | — | — | PENDING |
 | Arizona Cardinals @ Kansas City Chiefs | AWAY | BetRivers (+875) | 10.84% | +5.71% | 8.27% | -19.35% | — | — | PENDING |
+| Tampa Bay Buccaneers @ Detroit Lions | AWAY | FanDuel (+290) | 26.16% | +2.02% | 24.75% | -3.49% | — | — | PENDING |
 | Miami Dolphins @ Buffalo Bills | AWAY | BetRivers (+1050) | 9.60% | +10.45% | 6.82% | -21.52% | — | — | PENDING |
 | Tennessee Titans @ Dallas Cowboys | AWAY | FanDuel (+370) | 22.85% | +7.39% | 21.08% | -0.92% | — | — | PENDING |
 | New York Jets @ Los Angeles Chargers | AWAY | BetRivers (+150) | 40.98% | +2.45% | 40.36% | +0.91% | — | — | PENDING |

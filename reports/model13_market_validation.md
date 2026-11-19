@@ -1,12 +1,12 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-19T00:28:28.909567+00:00`
+Updated: `2026-11-19T10:27:20.254474+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
 ## Tracking coverage
 
-- Frozen prospective selections: **10**
+- Frozen prospective selections: **11**
 - With any later five-book fresh market observation: **10**
 - With later selected-sportsbook observation: **10**
 - With five-book observation within 3h of kickoff: **3**
@@ -23,9 +23,10 @@ Updated: `2026-11-19T00:28:28.909567+00:00`
 | Indianapolis Colts @ Houston Texans | AWAY · BetRivers | 475 | -2.444 pp | — | — | PENDING |
 | New Orleans Saints @ Chicago Bears | AWAY · FanDuel | 450 | -2.850 pp | — | — | PENDING |
 | Arizona Cardinals @ Kansas City Chiefs | AWAY · BetRivers | 875 | -0.935 pp | — | — | PENDING |
+| Tampa Bay Buccaneers @ Detroit Lions | AWAY · FanDuel | 290 | — | — | — | PENDING |
 | Miami Dolphins @ Buffalo Bills | AWAY · BetRivers | 1050 | -0.086 pp | — | — | PENDING |
-| Tennessee Titans @ Dallas Cowboys | AWAY · FanDuel | 370 | +0.258 pp | — | — | PENDING |
-| New York Jets @ Los Angeles Chargers | AWAY · BetRivers | 150 | -0.315 pp | — | — | PENDING |
+| Tennessee Titans @ Dallas Cowboys | AWAY · FanDuel | 370 | +0.256 pp | — | — | PENDING |
+| New York Jets @ Los Angeles Chargers | AWAY · BetRivers | 150 | -0.381 pp | — | — | PENDING |
 | Las Vegas Raiders @ Denver Broncos | AWAY · FanDuel | 430 | -0.816 pp | — | — | PENDING |
 
 ## Descriptive paper outcomes
