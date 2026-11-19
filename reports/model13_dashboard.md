@@ -1,10 +1,10 @@
 # Model 13 — Prospective Cross-Book Pricing Study
 
-Updated: `2026-11-19T10:27:20.069598+00:00`
+Updated: `2026-11-19T20:43:23.682666+00:00`
 
 > **NO VERIFIED +EV. PAPER RESEARCH ONLY.** Differences between sportsbooks are not independent probabilities.
 
-- New frozen candidate observations: **1**
+- New frozen candidate observations: **0**
 - Total locked observations: **11**
 - With near-kickoff reference: **3**
 - With same-book near-kickoff price: **3**
