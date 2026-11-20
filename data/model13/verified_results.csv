@@ -2,3 +2,4 @@ event_id,status,winner,home_score,away_score,source,source_event_id,verified_utc
 28800df7e768ecec14f116454d560f9b,final,Jacksonville Jaguars,23,40,espn_scoreboard,401873057,2026-11-15T22:54:25.391976+00:00
 1057d50949844ddf483da9c8c20354be,final,Buffalo Bills,12,31,espn_scoreboard,401873054,2026-11-15T22:54:25.391976+00:00
 6c932a965110f3f89ec4a5f1a6ac256e,final,Los Angeles Rams,6,34,espn_scoreboard,401873061,2026-11-16T00:21:16.563304+00:00
+66f9e83cf025d58acee12bce18661fb3,final,Houston Texans,26,3,espn_scoreboard,401873066,2026-11-20T13:00:31.524030+00:00

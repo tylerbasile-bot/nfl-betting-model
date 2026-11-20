@@ -1,13 +1,13 @@
 # Model 13 — Phase 2 Prospective Validation
 
-Generated UTC: `2026-11-20T03:26:05.356924+00:00`
+Generated UTC: `2026-11-20T13:00:32.207470+00:00`
 
 > **NO VERIFIED POSITIVE EV. PAPER RESEARCH ONLY.** No bets are placed by this workflow.
 
 ## 1. Sample accrual (no forced picks)
 
 - Frozen prospective selections: **11/100** (planning target, not a sufficient statistical sample guarantee).
-- Independently verified results: **3**.
+- Independently verified results: **4**.
 - Games with kickoff reached: **4**; games not yet kicked off: **7**.
 - The target is an observation milestone; do not adjust selection criteria to meet it.
 
@@ -39,11 +39,11 @@ personal financial data, or identifying screenshots in the repository.
 
 ## 4. Probability calibration, selected-side reference only
 
-- Mean predicted selected-side win probability (other-book no-vig median): **20.58%**.
+- Mean predicted selected-side win probability (other-book no-vig median): **19.88%**.
 - Actual selected-side win rate: **0.00%**.
-- Selected-side Brier score: **0.04257**.
-- Selected-side log loss: **0.23059**.
-- Calibration gap (actual minus reference mean): **-20.58%**.
+- Selected-side Brier score: **0.03984**.
+- Selected-side log loss: **0.22193**.
+- Calibration gap (actual minus reference mean): **-19.88%**.
 - **Insufficient observations for meaningful calibration reliability bins; do not infer model validity.**
 
 ### Interpretation requirements
@@ -57,7 +57,7 @@ personal financial data, or identifying screenshots in the repository.
 ## 5. Data-quality / pending work
 
 - Candidates with audit warnings: **0**.
-- Candidates awaiting verified finals: **8**.
+- Candidates awaiting verified finals: **7**.
 - Candidates missing near-kickoff market observations: **7**.
 - Candidates without independent execution confirmation: **11**.
 
