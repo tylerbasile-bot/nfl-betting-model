@@ -1,6 +1,6 @@
 # Model 10 — Prospective NFL Market Validation
 
-Updated: `2026-11-20T13:00:31.283320+00:00`
+Updated: `2026-11-20T21:51:26.593379+00:00`
 
 > **NO VERIFIED EDGE — RESEARCH ONLY.** This is a frozen market-derived baseline, not an independently validated predictive betting model.
 
@@ -33,18 +33,18 @@ Updated: `2026-11-20T13:00:31.283320+00:00`
 | Los Angeles Chargers @ Baltimore Ravens | 2026-11-17T01:15 | 2026-11-10T14:34 | 67.42% | DraftKings (-218) | BetUS (+200) | -1.532 | YES | VERIFIED_FINAL |
 | Indianapolis Colts @ Houston Texans | 2026-11-20T01:15 | 2026-11-12T07:18 | 80.20% | DraftKings (-455) | FanDuel (+410) | 4.494 | YES | VERIFIED_FINAL |
 | New Orleans Saints @ Chicago Bears | 2026-11-22T18:00 | 2026-11-12T16:51 | 79.40% | DraftKings (-470) | FanDuel (+430) | 3.426 | NO | AWAITING_VERIFIED_RESULT |
-| Arizona Cardinals @ Kansas City Chiefs | 2026-11-22T18:00 | 2026-11-12T16:51 | 88.00% | DraftKings (-1000) | FanDuel (+750) | 1.966 | NO | AWAITING_VERIFIED_RESULT |
-| Tampa Bay Buccaneers @ Detroit Lions | 2026-11-22T18:00 | 2026-11-12T16:51 | 61.40% | FanDuel (-172) | DraftKings (+150) | 8.162 | NO | AWAITING_VERIFIED_RESULT |
-| Baltimore Ravens @ Carolina Panthers | 2026-11-22T18:00 | 2026-11-12T16:51 | 52.85% | DraftKings (-122) | FanDuel (+108) | 4.617 | NO | AWAITING_VERIFIED_RESULT |
+| Arizona Cardinals @ Kansas City Chiefs | 2026-11-22T18:00 | 2026-11-12T16:51 | 88.00% | DraftKings (-1000) | FanDuel (+750) | 2.411 | NO | AWAITING_VERIFIED_RESULT |
+| Tampa Bay Buccaneers @ Detroit Lions | 2026-11-22T18:00 | 2026-11-12T16:51 | 61.40% | FanDuel (-172) | DraftKings (+150) | 6.520 | NO | AWAITING_VERIFIED_RESULT |
+| Baltimore Ravens @ Carolina Panthers | 2026-11-22T18:00 | 2026-11-12T16:51 | 52.85% | DraftKings (-122) | FanDuel (+108) | 4.852 | NO | AWAITING_VERIFIED_RESULT |
 | Miami Dolphins @ Buffalo Bills | 2026-11-22T18:00 | 2026-11-12T16:51 | 91.00% | MyBookie.ag (-1695) | DraftKings (+1000) | -0.521 | NO | AWAITING_VERIFIED_RESULT |
 | Tennessee Titans @ Dallas Cowboys | 2026-11-22T18:00 | 2026-11-12T16:51 | 78.51% | MyBookie.ag (-420) | FanDuel (+360) | -1.876 | NO | AWAITING_VERIFIED_RESULT |
-| Pittsburgh Steelers @ Philadelphia Eagles | 2026-11-22T18:00 | 2026-11-12T16:51 | 35.52% | FanDuel (+172) | DraftKings (-198) | -0.587 | NO | AWAITING_VERIFIED_RESULT |
-| New York Jets @ Los Angeles Chargers | 2026-11-22T21:05 | 2026-11-12T16:51 | 53.42% | BetRivers (-122) | FanDuel (+108) | 6.904 | NO | AWAITING_VERIFIED_RESULT |
-| Las Vegas Raiders @ Denver Broncos | 2026-11-22T21:25 | 2026-11-12T16:51 | 78.42% | BetRivers (-385) | FanDuel (+350) | 3.087 | NO | AWAITING_VERIFIED_RESULT |
-| Jacksonville Jaguars @ New York Giants | 2026-11-22T21:25 | 2026-11-12T16:51 | 31.38% | DraftKings (+215) | BetRivers (-245) | -1.497 | NO | AWAITING_VERIFIED_RESULT |
-| Minnesota Vikings @ San Francisco 49ers | 2026-11-23T01:20 | 2026-11-12T16:51 | 64.69% | DraftKings (-205) | FanDuel (+190) | -4.284 | NO | AWAITING_VERIFIED_RESULT |
-| Cincinnati Bengals @ Washington Commanders | 2026-11-24T01:15 | 2026-11-12T16:51 | 35.43% | FanDuel (+176) | DraftKings (-205) | -7.090 | NO | AWAITING_VERIFIED_RESULT |
-| Green Bay Packers @ Los Angeles Rams | 2026-11-26T01:00 | 2026-11-19T20:43 | 63.86% | DraftKings (-192) | FanDuel (+168) | -0.220 | NO | AWAITING_VERIFIED_RESULT |
+| Pittsburgh Steelers @ Philadelphia Eagles | 2026-11-22T18:00 | 2026-11-12T16:51 | 35.52% | FanDuel (+172) | DraftKings (-198) | -0.139 | NO | AWAITING_VERIFIED_RESULT |
+| New York Jets @ Los Angeles Chargers | 2026-11-22T21:05 | 2026-11-12T16:51 | 53.42% | BetRivers (-122) | FanDuel (+108) | 7.256 | NO | AWAITING_VERIFIED_RESULT |
+| Las Vegas Raiders @ Denver Broncos | 2026-11-22T21:25 | 2026-11-12T16:51 | 78.42% | BetRivers (-385) | FanDuel (+350) | 3.256 | NO | AWAITING_VERIFIED_RESULT |
+| Jacksonville Jaguars @ New York Giants | 2026-11-22T21:25 | 2026-11-12T16:51 | 31.38% | DraftKings (+215) | BetRivers (-245) | -0.843 | NO | AWAITING_VERIFIED_RESULT |
+| Minnesota Vikings @ San Francisco 49ers | 2026-11-23T01:20 | 2026-11-12T16:51 | 64.69% | DraftKings (-205) | FanDuel (+190) | -3.763 | NO | AWAITING_VERIFIED_RESULT |
+| Cincinnati Bengals @ Washington Commanders | 2026-11-24T01:15 | 2026-11-12T16:51 | 35.43% | FanDuel (+176) | DraftKings (-205) | -6.909 | NO | AWAITING_VERIFIED_RESULT |
+| Green Bay Packers @ Los Angeles Rams | 2026-11-26T01:00 | 2026-11-19T20:43 | 63.86% | DraftKings (-192) | FanDuel (+168) | -1.716 | NO | AWAITING_VERIFIED_RESULT |
 
 ## Future outcome scoring
 

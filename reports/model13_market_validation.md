@@ -1,6 +1,6 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-20T13:00:32.137488+00:00`
+Updated: `2026-11-20T21:51:26.975780+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
@@ -22,12 +22,12 @@ Updated: `2026-11-20T13:00:32.137488+00:00`
 | Los Angeles Rams @ Arizona Cardinals | HOME · MyBookie.ag | 370 | -2.093 pp | -2.093 pp | -1.237 pp | LOSS |
 | Indianapolis Colts @ Houston Texans | AWAY · BetRivers | 475 | -2.485 pp | -2.485 pp | -0.998 pp | LOSS |
 | New Orleans Saints @ Chicago Bears | AWAY · FanDuel | 450 | -2.692 pp | — | — | PENDING |
-| Arizona Cardinals @ Kansas City Chiefs | AWAY · BetRivers | 875 | -0.813 pp | — | — | PENDING |
-| Tampa Bay Buccaneers @ Detroit Lions | AWAY · FanDuel | 290 | +4.276 pp | — | — | PENDING |
+| Arizona Cardinals @ Kansas City Chiefs | AWAY · BetRivers | 875 | -1.258 pp | — | — | PENDING |
+| Tampa Bay Buccaneers @ Detroit Lions | AWAY · FanDuel | 290 | +5.918 pp | — | — | PENDING |
 | Miami Dolphins @ Buffalo Bills | AWAY · BetRivers | 1050 | -0.086 pp | — | — | PENDING |
 | Tennessee Titans @ Dallas Cowboys | AWAY · FanDuel | 370 | +0.515 pp | — | — | PENDING |
-| New York Jets @ Los Angeles Chargers | AWAY · BetRivers | 150 | -1.302 pp | — | — | PENDING |
-| Las Vegas Raiders @ Denver Broncos | AWAY · FanDuel | 430 | -1.049 pp | — | — | PENDING |
+| New York Jets @ Los Angeles Chargers | AWAY · BetRivers | 150 | -1.654 pp | — | — | PENDING |
+| Las Vegas Raiders @ Denver Broncos | AWAY · FanDuel | 430 | -1.218 pp | — | — | PENDING |
 
 ## Descriptive paper outcomes
 
