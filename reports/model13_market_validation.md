@@ -1,6 +1,6 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-19T20:43:23.898708+00:00`
+Updated: `2026-11-20T00:53:43.523252+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
@@ -9,8 +9,8 @@ Updated: `2026-11-19T20:43:23.898708+00:00`
 - Frozen prospective selections: **11**
 - With any later five-book fresh market observation: **11**
 - With later selected-sportsbook observation: **11**
-- With five-book observation within 3h of kickoff: **3**
-- With selected-sportsbook observation within 3h of kickoff: **3**
+- With five-book observation within 3h of kickoff: **4**
+- With selected-sportsbook observation within 3h of kickoff: **4**
 - With independently verified final outcomes: **3**
 
 ## Frozen selections and follow-up
@@ -20,12 +20,12 @@ Updated: `2026-11-19T20:43:23.898708+00:00`
 | Buffalo Bills @ New York Jets | HOME · DraftKings | 390 | -0.881 pp | -0.881 pp | +0.868 pp | LOSS |
 | Jacksonville Jaguars @ Tennessee Titans | HOME · BetRivers | 480 | -1.106 pp | -1.106 pp | +1.806 pp | LOSS |
 | Los Angeles Rams @ Arizona Cardinals | HOME · MyBookie.ag | 370 | -2.093 pp | -2.093 pp | -1.237 pp | LOSS |
-| Indianapolis Colts @ Houston Texans | AWAY · BetRivers | 475 | -2.335 pp | — | — | PENDING |
+| Indianapolis Colts @ Houston Texans | AWAY · BetRivers | 475 | -2.485 pp | -2.485 pp | -0.998 pp | PENDING |
 | New Orleans Saints @ Chicago Bears | AWAY · FanDuel | 450 | -2.548 pp | — | — | PENDING |
 | Arizona Cardinals @ Kansas City Chiefs | AWAY · BetRivers | 875 | -0.935 pp | — | — | PENDING |
 | Tampa Bay Buccaneers @ Detroit Lions | AWAY · FanDuel | 290 | +2.983 pp | — | — | PENDING |
 | Miami Dolphins @ Buffalo Bills | AWAY · BetRivers | 1050 | -0.000 pp | — | — | PENDING |
-| Tennessee Titans @ Dallas Cowboys | AWAY · FanDuel | 370 | +0.428 pp | — | — | PENDING |
+| Tennessee Titans @ Dallas Cowboys | AWAY · FanDuel | 370 | +0.515 pp | — | — | PENDING |
 | New York Jets @ Los Angeles Chargers | AWAY · BetRivers | 150 | -1.107 pp | — | — | PENDING |
 | Las Vegas Raiders @ Denver Broncos | AWAY · FanDuel | 430 | -0.882 pp | — | — | PENDING |
 
