@@ -1,6 +1,6 @@
 # Model 13 — Phase 2 Prospective Validation
 
-Generated UTC: `2026-11-20T00:53:43.643408+00:00`
+Generated UTC: `2026-11-20T03:26:05.356924+00:00`
 
 > **NO VERIFIED POSITIVE EV. PAPER RESEARCH ONLY.** No bets are placed by this workflow.
 
@@ -8,7 +8,7 @@ Generated UTC: `2026-11-20T00:53:43.643408+00:00`
 
 - Frozen prospective selections: **11/100** (planning target, not a sufficient statistical sample guarantee).
 - Independently verified results: **3**.
-- Games with kickoff reached: **3**; games not yet kicked off: **8**.
+- Games with kickoff reached: **4**; games not yet kicked off: **7**.
 - The target is an observation milestone; do not adjust selection criteria to meet it.
 
 ## 2. Market validation coverage
@@ -17,7 +17,7 @@ Generated UTC: `2026-11-20T00:53:43.643408+00:00`
 - Later selected-book quotes: **11/11**.
 - Near-kickoff (<=3h) five-book references: **4/11**.
 - Near-kickoff selected-book quotes: **4/11**.
-- Matured games missing a near-kickoff market quote: **0/3**.
+- Matured games missing a near-kickoff market quote: **0/4**.
 - Observed near-kickoff market shift mean: **-1.641 percentage points** (n=4).
 - Observed same-book near-kickoff implied-price shift mean: **+0.110 percentage points** (n=4).
 - These measures are market-price movement proxies, **not** certified closing-line value.
