@@ -1,6 +1,6 @@
 # Model 13 — Prospective Cross-Book Pricing Study
 
-Updated: `2026-11-21T12:44:36.073890+00:00`
+Updated: `2026-11-21T20:34:33.080651+00:00`
 
 > **NO VERIFIED +EV. PAPER RESEARCH ONLY.** Differences between sportsbooks are not independent probabilities.
 
