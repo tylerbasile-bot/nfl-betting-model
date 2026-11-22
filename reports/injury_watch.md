@@ -1,6 +1,6 @@
 # QB & Offensive-Line Injury Watch
 
-Generated: `2026-11-22T02:18:25.670073+00:00`
+Generated: `2026-11-22T12:39:20.666012+00:00`
 
 > Observation-only. No starter classification, game-day availability prediction, or positive-EV signal.
 
