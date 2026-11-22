@@ -1,6 +1,6 @@
 # Model 9 — NFL Market Intelligence
 
-Generated: `2026-11-22T12:39:20+00:00`
+Generated: `2026-11-22T20:45:16+00:00`
 
 > **Research only — NO VERIFIED EDGE.** Prices and market consensus are not independently validated win probabilities.
 
@@ -9,7 +9,7 @@ Generated: `2026-11-22T12:39:20+00:00`
 - Odds files read: **13**
 - Pregame games with at least 4 fresh books: **28**
 - Quotes rejected due to malformed fields or prices: **0**
-- Games with an observed quote within 3 hours of kickoff after the initial snapshot: **14**
+- Games with an observed quote within 3 hours of kickoff after the initial snapshot: **17**
 - Games with verified results supplied: **15**
 
 ## Pregame baseline and movement
@@ -38,11 +38,11 @@ Generated: `2026-11-22T12:39:20+00:00`
 | Miami Dolphins @ Buffalo Bills | 2026-11-22T18:00 | 91.00% | 90.65% | -0.355 | MyBookie.ag (-1695) | DraftKings (+1000) | NO |
 | Tennessee Titans @ Dallas Cowboys | 2026-11-22T18:00 | 78.51% | 75.48% | -3.028 | MyBookie.ag (-420) | FanDuel (+360) | NO |
 | Pittsburgh Steelers @ Philadelphia Eagles | 2026-11-22T18:00 | 35.52% | 35.71% | +0.198 | FanDuel (+172) | DraftKings (-198) | NO |
-| New York Jets @ Los Angeles Chargers | 2026-11-22T21:05 | 53.42% | 60.92% | +7.504 | BetRivers (-122) | FanDuel (+108) | NO |
-| Las Vegas Raiders @ Denver Broncos | 2026-11-22T21:25 | 78.42% | 82.50% | +4.084 | BetRivers (-385) | FanDuel (+350) | NO |
-| Jacksonville Jaguars @ New York Giants | 2026-11-22T21:25 | 31.38% | 29.88% | -1.497 | DraftKings (+215) | BetRivers (-245) | NO |
-| Minnesota Vikings @ San Francisco 49ers | 2026-11-23T01:20 | 64.69% | 60.97% | -3.714 | DraftKings (-205) | FanDuel (+190) | NO |
-| Cincinnati Bengals @ Washington Commanders | 2026-11-24T01:15 | 35.43% | 28.25% | -7.178 | FanDuel (+176) | DraftKings (-205) | NO |
+| New York Jets @ Los Angeles Chargers | 2026-11-22T21:05 | 53.42% | 61.06% | +7.636 | BetRivers (-122) | FanDuel (+108) | YES |
+| Las Vegas Raiders @ Denver Broncos | 2026-11-22T21:25 | 78.42% | 83.87% | +5.455 | BetRivers (-385) | FanDuel (+350) | YES |
+| Jacksonville Jaguars @ New York Giants | 2026-11-22T21:25 | 31.38% | 28.74% | -2.640 | DraftKings (+215) | BetRivers (-245) | YES |
+| Minnesota Vikings @ San Francisco 49ers | 2026-11-23T01:20 | 64.69% | 63.83% | -0.855 | DraftKings (-205) | FanDuel (+190) | NO |
+| Cincinnati Bengals @ Washington Commanders | 2026-11-24T01:15 | 35.43% | 28.37% | -7.066 | FanDuel (+176) | DraftKings (-205) | NO |
 | Green Bay Packers @ Los Angeles Rams | 2026-11-26T01:00 | 63.86% | 59.84% | -4.026 | DraftKings (-192) | FanDuel (+168) | NO |
 
 ## Outcome validation

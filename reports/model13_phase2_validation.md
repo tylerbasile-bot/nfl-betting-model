@@ -1,6 +1,6 @@
 # Model 13 — Phase 2 Prospective Validation
 
-Generated UTC: `2026-11-22T12:39:21.529355+00:00`
+Generated UTC: `2026-11-22T20:45:17.256731+00:00`
 
 > **NO VERIFIED POSITIVE EV. PAPER RESEARCH ONLY.** No bets are placed by this workflow.
 
@@ -8,18 +8,18 @@ Generated UTC: `2026-11-22T12:39:21.529355+00:00`
 
 - Frozen prospective selections: **11/100** (planning target, not a sufficient statistical sample guarantee).
 - Independently verified results: **4**.
-- Games with kickoff reached: **4**; games not yet kicked off: **7**.
+- Games with kickoff reached: **9**; games not yet kicked off: **2**.
 - The target is an observation milestone; do not adjust selection criteria to meet it.
 
 ## 2. Market validation coverage
 
 - Later five-book market references: **11/11**.
 - Later selected-book quotes: **11/11**.
-- Near-kickoff (<=3h) five-book references: **4/11**.
-- Near-kickoff selected-book quotes: **4/11**.
-- Matured games missing a near-kickoff market quote: **0/4**.
-- Observed near-kickoff market shift mean: **-1.641 percentage points** (n=4).
-- Observed same-book near-kickoff implied-price shift mean: **+0.110 percentage points** (n=4).
+- Near-kickoff (<=3h) five-book references: **6/11**.
+- Near-kickoff selected-book quotes: **6/11**.
+- Matured games missing a near-kickoff market quote: **5/9**.
+- Observed near-kickoff market shift mean: **-2.003 percentage points** (n=6).
+- Observed same-book near-kickoff implied-price shift mean: **+0.080 percentage points** (n=6).
 - These measures are market-price movement proxies, **not** certified closing-line value.
 
 ## 3. Execution/availability evidence
@@ -58,7 +58,7 @@ personal financial data, or identifying screenshots in the repository.
 
 - Candidates with audit warnings: **0**.
 - Candidates awaiting verified finals: **7**.
-- Candidates missing near-kickoff market observations: **7**.
+- Candidates missing near-kickoff market observations: **5**.
 - Candidates without independent execution confirmation: **11**.
 
 The live Model 13 selection rule remains unchanged. Do not use this dashboard as a wagering signal.

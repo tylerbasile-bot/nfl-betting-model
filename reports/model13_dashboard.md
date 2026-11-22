@@ -1,13 +1,13 @@
 # Model 13 — Prospective Cross-Book Pricing Study
 
-Updated: `2026-11-22T12:39:21.183748+00:00`
+Updated: `2026-11-22T20:45:16.443138+00:00`
 
 > **NO VERIFIED +EV. PAPER RESEARCH ONLY.** Differences between sportsbooks are not independent probabilities.
 
 - New frozen candidate observations: **0**
 - Total locked observations: **11**
-- With near-kickoff reference: **4**
-- With same-book near-kickoff price: **4**
+- With near-kickoff reference: **6**
+- With same-book near-kickoff price: **6**
 - With verified finals: **4**
 
 ## Precommitted selection rule
@@ -25,8 +25,8 @@ At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff a
 | Tampa Bay Buccaneers @ Detroit Lions | AWAY | FanDuel (+290) | 26.16% | +2.02% | 24.75% | -3.49% | — | — | PENDING |
 | Miami Dolphins @ Buffalo Bills | AWAY | BetRivers (+1050) | 9.60% | +10.45% | 6.82% | -21.52% | — | — | PENDING |
 | Tennessee Titans @ Dallas Cowboys | AWAY | FanDuel (+370) | 22.85% | +7.39% | 21.08% | -0.92% | — | — | PENDING |
-| New York Jets @ Los Angeles Chargers | AWAY | BetRivers (+150) | 40.98% | +2.45% | 40.36% | +0.91% | — | — | PENDING |
-| Las Vegas Raiders @ Denver Broncos | AWAY | FanDuel (+430) | 19.55% | +3.60% | 17.44% | -7.58% | — | — | PENDING |
+| New York Jets @ Los Angeles Chargers | AWAY | BetRivers (+150) | 40.98% | +2.45% | 40.36% | +0.91% | -2.034 pp | +1.667 pp | PENDING |
+| Las Vegas Raiders @ Denver Broncos | AWAY | FanDuel (+430) | 19.55% | +3.60% | 17.44% | -7.58% | -3.417 pp | -1.627 pp | PENDING |
 
 ## Outcome evaluation
 
