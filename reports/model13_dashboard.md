@@ -1,11 +1,11 @@
 # Model 13 — Prospective Cross-Book Pricing Study
 
-Updated: `2026-11-23T02:52:32.012042+00:00`
+Updated: `2026-11-23T14:47:04.798039+00:00`
 
 > **NO VERIFIED +EV. PAPER RESEARCH ONLY.** Differences between sportsbooks are not independent probabilities.
 
 - New frozen candidate observations: **1**
-- Total locked observations: **12**
+- Total locked observations: **13**
 - With near-kickoff reference: **6**
 - With same-book near-kickoff price: **6**
 - With verified finals: **11**
@@ -28,6 +28,7 @@ At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff a
 | New York Jets @ Los Angeles Chargers | AWAY | BetRivers (+150) | 40.98% | +2.45% | 40.36% | +0.91% | -2.034 pp | +1.667 pp | VERIFIED_FINAL |
 | Las Vegas Raiders @ Denver Broncos | AWAY | FanDuel (+430) | 19.55% | +3.60% | 17.44% | -7.58% | -3.417 pp | -1.627 pp | VERIFIED_FINAL |
 | Philadelphia Eagles @ Dallas Cowboys | AWAY | BetMGM (+375) | 22.28% | +5.82% | 20.39% | -3.17% | — | — | PENDING |
+| New York Giants @ Indianapolis Colts | HOME | FanDuel (+270) | 27.59% | +2.07% | 26.37% | -2.43% | — | — | PENDING |
 
 ## Outcome evaluation
 

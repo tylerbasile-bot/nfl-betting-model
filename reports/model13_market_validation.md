@@ -1,14 +1,14 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-23T02:52:32.487317+00:00`
+Updated: `2026-11-23T14:47:05.045399+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
 ## Tracking coverage
 
-- Frozen prospective selections: **12**
-- With any later five-book fresh market observation: **11**
-- With later selected-sportsbook observation: **11**
+- Frozen prospective selections: **13**
+- With any later five-book fresh market observation: **12**
+- With later selected-sportsbook observation: **12**
 - With five-book observation within 3h of kickoff: **6**
 - With selected-sportsbook observation within 3h of kickoff: **6**
 - With independently verified final outcomes: **11**
@@ -28,7 +28,8 @@ Updated: `2026-11-23T02:52:32.487317+00:00`
 | Tennessee Titans @ Dallas Cowboys | AWAY · FanDuel | 370 | +1.667 pp | — | — | LOSS |
 | New York Jets @ Los Angeles Chargers | AWAY · BetRivers | 150 | -2.034 pp | -2.034 pp | +1.667 pp | WIN |
 | Las Vegas Raiders @ Denver Broncos | AWAY · FanDuel | 430 | -3.417 pp | -3.417 pp | -1.627 pp | LOSS |
-| Philadelphia Eagles @ Dallas Cowboys | AWAY · BetMGM | 375 | — | — | — | PENDING |
+| Philadelphia Eagles @ Dallas Cowboys | AWAY · BetMGM | 375 | -0.378 pp | — | — | PENDING |
+| New York Giants @ Indianapolis Colts | HOME · FanDuel | 270 | — | — | — | PENDING |
 
 ## Descriptive paper outcomes
 
