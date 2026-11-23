@@ -1,16 +1,16 @@
 # Model 9 — NFL Market Intelligence
 
-Generated: `2026-11-22T20:45:16+00:00`
+Generated: `2026-11-23T02:52:31+00:00`
 
 > **Research only — NO VERIFIED EDGE.** Prices and market consensus are not independently validated win probabilities.
 
 ## Pipeline summary
 
-- Odds files read: **13**
-- Pregame games with at least 4 fresh books: **28**
+- Odds files read: **14**
+- Pregame games with at least 4 fresh books: **41**
 - Quotes rejected due to malformed fields or prices: **0**
 - Games with an observed quote within 3 hours of kickoff after the initial snapshot: **17**
-- Games with verified results supplied: **15**
+- Games with verified results supplied: **25**
 
 ## Pregame baseline and movement
 
@@ -43,14 +43,27 @@ Generated: `2026-11-22T20:45:16+00:00`
 | Jacksonville Jaguars @ New York Giants | 2026-11-22T21:25 | 31.38% | 28.74% | -2.640 | DraftKings (+215) | BetRivers (-245) | YES |
 | Minnesota Vikings @ San Francisco 49ers | 2026-11-23T01:20 | 64.69% | 63.83% | -0.855 | DraftKings (-205) | FanDuel (+190) | NO |
 | Cincinnati Bengals @ Washington Commanders | 2026-11-24T01:15 | 35.43% | 28.37% | -7.066 | FanDuel (+176) | DraftKings (-205) | NO |
-| Green Bay Packers @ Los Angeles Rams | 2026-11-26T01:00 | 63.86% | 59.84% | -4.026 | DraftKings (-192) | FanDuel (+168) | NO |
+| Green Bay Packers @ Los Angeles Rams | 2026-11-26T01:00 | 63.86% | 57.45% | -6.415 | DraftKings (-192) | FanDuel (+168) | NO |
+| Chicago Bears @ Detroit Lions | 2026-11-26T18:00 | 43.68% | 43.68% | +0.000 | Bovada (+125) | FanDuel (-134) | NO |
+| Philadelphia Eagles @ Dallas Cowboys | 2026-11-26T21:30 | 78.64% | 78.64% | +0.000 | DraftKings (-390) | BetMGM (+375) | NO |
+| Kansas City Chiefs @ Buffalo Bills | 2026-11-27T01:20 | 58.16% | 58.16% | +0.000 | DraftKings (-153) | Bovada (+132) | NO |
+| Denver Broncos @ Pittsburgh Steelers | 2026-11-27T20:00 | 42.49% | 42.49% | +0.000 | DraftKings (+128) | BetMGM (-145) | NO |
+| New York Jets @ Miami Dolphins | 2026-11-29T18:00 | 35.05% | 35.05% | +0.000 | FanDuel (+180) | DraftKings (-197) | NO |
+| Baltimore Ravens @ Houston Texans | 2026-11-29T18:00 | 71.83% | 71.83% | +0.000 | DraftKings (-283) | FanDuel (+250) | NO |
+| Tennessee Titans @ Jacksonville Jaguars | 2026-11-29T18:00 | 88.35% | 88.35% | +0.000 | BetMGM (-1000) | FanDuel (+730) | NO |
+| New York Giants @ Indianapolis Colts | 2026-11-29T18:00 | 25.82% | 25.82% | +0.000 | FanDuel (+290) | DraftKings (-302) | NO |
+| New Orleans Saints @ Cincinnati Bengals | 2026-11-29T18:00 | 82.41% | 82.41% | +0.000 | FanDuel (-590) | DraftKings (+463) | NO |
+| New England Patriots @ Los Angeles Chargers | 2026-11-29T21:05 | 52.48% | 52.48% | +0.000 | DraftKings (-119) | FanDuel (+106) | NO |
+| Washington Commanders @ Arizona Cardinals | 2026-11-29T21:25 | 25.41% | 25.41% | +0.000 | DraftKings (+283) | FanDuel (-350) | NO |
+| Las Vegas Raiders @ Cleveland Browns | 2026-11-30T01:20 | 66.09% | 66.09% | +0.000 | DraftKings (-212) | BetRivers (+188) | NO |
+| Carolina Panthers @ Tampa Bay Buccaneers | 2026-12-01T01:15 | 58.30% | 58.30% | +0.000 | BetRivers (-139) | Bovada (+138) | NO |
 
 ## Outcome validation
 
-- Evaluated games: **15**
-- Market baseline Brier score: **0.1983** (lower is better)
-- Market baseline log loss: **0.5787** (lower is better)
-- Market baseline winner accuracy: **66.7%**
+- Evaluated games: **25**
+- Market baseline Brier score: **0.1870** (lower is better)
+- Market baseline log loss: **0.5481** (lower is better)
+- Market baseline winner accuracy: **68.0%**
 
 This is a market baseline, **not** an independently trained predictive model.
 

@@ -3,3 +3,10 @@ event_id,status,winner,home_score,away_score,source,source_event_id,verified_utc
 1057d50949844ddf483da9c8c20354be,final,Buffalo Bills,12,31,espn_scoreboard,401873054,2026-11-15T22:54:25.391976+00:00
 6c932a965110f3f89ec4a5f1a6ac256e,final,Los Angeles Rams,6,34,espn_scoreboard,401873061,2026-11-16T00:21:16.563304+00:00
 66f9e83cf025d58acee12bce18661fb3,final,Houston Texans,26,3,espn_scoreboard,401873066,2026-11-20T13:00:31.524030+00:00
+403a88701352da05b0710a9e883b803e,final,Kansas City Chiefs,34,7,espn_scoreboard,401873067,2026-11-23T02:52:32.120672+00:00
+4c5b1c0843a260278e95eb93e7787576,final,Buffalo Bills,26,9,espn_scoreboard,401873070,2026-11-23T02:52:32.120672+00:00
+3ea90704fb576633bd1e2fa5aafd9ea3,final,Chicago Bears,21,13,espn_scoreboard,401873071,2026-11-23T02:52:32.120672+00:00
+5e63079b678f8c13419adc169fff02d3,final,Dallas Cowboys,51,30,espn_scoreboard,401873073,2026-11-23T02:52:32.120672+00:00
+1940706a79cbcbafacdcbf231069716b,final,Denver Broncos,38,24,espn_scoreboard,401873075,2026-11-23T02:52:32.120672+00:00
+4b20b742b6168aaca4f25d87f11b1526,final,New York Jets,24,27,espn_scoreboard,401873074,2026-11-23T02:52:32.120672+00:00
+41e2dd69bddd65d7e823d9ed61cc2afc,final,Detroit Lions,31,21,espn_scoreboard,401873072,2026-11-23T02:52:32.120672+00:00

@@ -1,17 +1,17 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-22T20:45:17.165150+00:00`
+Updated: `2026-11-23T02:52:32.487317+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
 ## Tracking coverage
 
-- Frozen prospective selections: **11**
+- Frozen prospective selections: **12**
 - With any later five-book fresh market observation: **11**
 - With later selected-sportsbook observation: **11**
 - With five-book observation within 3h of kickoff: **6**
 - With selected-sportsbook observation within 3h of kickoff: **6**
-- With independently verified final outcomes: **4**
+- With independently verified final outcomes: **11**
 
 ## Frozen selections and follow-up
 
@@ -21,19 +21,20 @@ Updated: `2026-11-22T20:45:17.165150+00:00`
 | Jacksonville Jaguars @ Tennessee Titans | HOME · BetRivers | 480 | -1.106 pp | -1.106 pp | +1.806 pp | LOSS |
 | Los Angeles Rams @ Arizona Cardinals | HOME · MyBookie.ag | 370 | -2.093 pp | -2.093 pp | -1.237 pp | LOSS |
 | Indianapolis Colts @ Houston Texans | AWAY · BetRivers | 475 | -2.485 pp | -2.485 pp | -0.998 pp | LOSS |
-| New Orleans Saints @ Chicago Bears | AWAY · FanDuel | 450 | -3.179 pp | — | — | PENDING |
-| Arizona Cardinals @ Kansas City Chiefs | AWAY · BetRivers | 875 | -1.258 pp | — | — | PENDING |
-| Tampa Bay Buccaneers @ Detroit Lions | AWAY · FanDuel | 290 | +9.061 pp | — | — | PENDING |
-| Miami Dolphins @ Buffalo Bills | AWAY · BetRivers | 1050 | -0.252 pp | — | — | PENDING |
-| Tennessee Titans @ Dallas Cowboys | AWAY · FanDuel | 370 | +1.667 pp | — | — | PENDING |
-| New York Jets @ Los Angeles Chargers | AWAY · BetRivers | 150 | -2.034 pp | -2.034 pp | +1.667 pp | PENDING |
-| Las Vegas Raiders @ Denver Broncos | AWAY · FanDuel | 430 | -3.417 pp | -3.417 pp | -1.627 pp | PENDING |
+| New Orleans Saints @ Chicago Bears | AWAY · FanDuel | 450 | -3.179 pp | — | — | LOSS |
+| Arizona Cardinals @ Kansas City Chiefs | AWAY · BetRivers | 875 | -1.258 pp | — | — | LOSS |
+| Tampa Bay Buccaneers @ Detroit Lions | AWAY · FanDuel | 290 | +9.061 pp | — | — | LOSS |
+| Miami Dolphins @ Buffalo Bills | AWAY · BetRivers | 1050 | -0.252 pp | — | — | LOSS |
+| Tennessee Titans @ Dallas Cowboys | AWAY · FanDuel | 370 | +1.667 pp | — | — | LOSS |
+| New York Jets @ Los Angeles Chargers | AWAY · BetRivers | 150 | -2.034 pp | -2.034 pp | +1.667 pp | WIN |
+| Las Vegas Raiders @ Denver Broncos | AWAY · FanDuel | 430 | -3.417 pp | -3.417 pp | -1.627 pp | LOSS |
+| Philadelphia Eagles @ Dallas Cowboys | AWAY · BetMGM | 375 | — | — | — | PENDING |
 
 ## Descriptive paper outcomes
 
-- Settled selections: **4**, wins: **0**
-- Flat-one-unit hypothetical profit: **-4.000 units**
-- Flat-one-unit ROI on verified finals only: **-100.00%**
+- Settled selections: **11**, wins: **1**
+- Flat-one-unit hypothetical profit: **-8.500 units**
+- Flat-one-unit ROI on verified finals only: **-77.27%**
 
 ## Audit rules and limitations
 
