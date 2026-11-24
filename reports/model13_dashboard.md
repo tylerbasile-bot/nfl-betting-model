@@ -1,11 +1,11 @@
 # Model 13 — Prospective Cross-Book Pricing Study
 
-Updated: `2026-11-24T02:55:58.379273+00:00`
+Updated: `2026-11-24T14:56:21.257497+00:00`
 
 > **NO VERIFIED +EV. PAPER RESEARCH ONLY.** Differences between sportsbooks are not independent probabilities.
 
 - New frozen candidate observations: **1**
-- Total locked observations: **14**
+- Total locked observations: **15**
 - With near-kickoff reference: **6**
 - With same-book near-kickoff price: **6**
 - With verified finals: **11**
@@ -30,6 +30,7 @@ At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff a
 | Philadelphia Eagles @ Dallas Cowboys | AWAY | BetMGM (+375) | 22.28% | +5.82% | 20.39% | -3.17% | — | — | PENDING |
 | Atlanta Falcons @ Minnesota Vikings | AWAY | DraftKings (+276) | 27.14% | +2.06% | 25.83% | -2.90% | — | — | PENDING |
 | New York Giants @ Indianapolis Colts | HOME | FanDuel (+270) | 27.59% | +2.07% | 26.37% | -2.43% | — | — | PENDING |
+| New Orleans Saints @ Cincinnati Bengals | AWAY | DraftKings (+472) | 18.03% | +3.15% | 15.95% | -8.79% | — | — | PENDING |
 
 ## Outcome evaluation
 
