@@ -1,5 +1,1 @@
 previous_observed_utc,current_observed_utc,season,week,team,player_id,player_name,position,group,change_type,prior_report_status,current_report_status,prior_practice_status,current_practice_status,source_date_modified
-2026-11-22T02:18:25.429672+00:00,2026-11-23T02:52:30.921220+00:00,2026,11,CIN,00-0041098,Brian Parker II,G,OL,REPORTED_STATUS_CHANGED,,Questionable,Full Participation in Practice,Full Participation in Practice,
-2026-11-22T02:18:25.429672+00:00,2026-11-23T02:52:30.921220+00:00,2026,11,CIN,00-0035702,Dalton Risner,G,OL,REPORTED_STATUS_CHANGED,,Out,Did Not Participate In Practice,Did Not Participate In Practice,
-2026-11-22T02:18:25.429672+00:00,2026-11-23T02:52:30.921220+00:00,2026,11,CIN,00-0040140,Dylan Fairchild,G,OL,REPORTED_STATUS_CHANGED,,Questionable,Limited Participation in Practice,Full Participation in Practice,
-2026-11-22T02:18:25.429672+00:00,2026-11-23T02:52:30.921220+00:00,2026,11,WAS,00-0033082,Lucas Patrick,C,OL,REPORTED_STATUS_CHANGED,,Questionable,Full Participation in Practice,Full Participation in Practice,

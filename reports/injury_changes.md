@@ -1,22 +1,19 @@
 # Observed QB / Offensive-Line Injury Changes
 
-Generated: `2026-11-23T14:47:04.020834+00:00`
+Generated: `2026-11-24T02:55:57.617832+00:00`
 
 > Observation-only. No prediction of availability or validated positive EV.
 
-- Dated observation files: **14**
+- Dated observation files: **15**
 - Newly observed player-week entries: **0**
-- Changes to reported statuses/practice participation: **4**
+- Changes to reported statuses/practice participation: **0**
 
 **Comparison scope:** only the two latest dated captures; no attempt to infer that a player recovered because a report row disappeared. Status dates supplied by the source are NOT proof of when bettors could have known the update.
 
-Previous source capture: `2026-11-22.csv`; latest: `2026-11-23.csv`.
+Previous source capture: `2026-11-23.csv`; latest: `2026-11-24.csv`.
 
 | Team | Player | Group | Prior report | New report | Prior practice | New practice |
 |---|---|---|---|---|---|---|
-| CIN | Brian Parker II | OL | — | Questionable | Full Participation in Practice | Full Participation in Practice |
-| CIN | Dalton Risner | OL | — | Out | Did Not Participate In Practice | Did Not Participate In Practice |
-| CIN | Dylan Fairchild | OL | — | Questionable | Limited Participation in Practice | Full Participation in Practice |
-| WAS | Lucas Patrick | OL | — | Questionable | Full Participation in Practice | Full Participation in Practice |
+| No comparable status changes observed | — | — | — | — | — | — |
 
 **Missing information is not a healthy designation; a report entry does not confirm starting status.**
