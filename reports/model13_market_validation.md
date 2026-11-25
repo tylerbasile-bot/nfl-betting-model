@@ -1,12 +1,12 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-25T00:50:03.657997+00:00`
+Updated: `2026-11-25T11:24:31.012783+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
 ## Tracking coverage
 
-- Frozen prospective selections: **15**
+- Frozen prospective selections: **16**
 - With any later five-book fresh market observation: **15**
 - With later selected-sportsbook observation: **15**
 - With five-book observation within 3h of kickoff: **6**
@@ -29,9 +29,10 @@ Updated: `2026-11-25T00:50:03.657997+00:00`
 | New York Jets @ Los Angeles Chargers | AWAY · BetRivers | 150 | -2.034 pp | -2.034 pp | +1.667 pp | WIN |
 | Las Vegas Raiders @ Denver Broncos | AWAY · FanDuel | 430 | -3.417 pp | -3.417 pp | -1.627 pp | LOSS |
 | Philadelphia Eagles @ Dallas Cowboys | AWAY · BetMGM | 375 | -0.919 pp | — | — | PENDING |
-| Atlanta Falcons @ Minnesota Vikings | AWAY · DraftKings | 276 | -0.579 pp | — | — | PENDING |
-| New York Giants @ Indianapolis Colts | HOME · FanDuel | 270 | -0.283 pp | — | — | PENDING |
-| New Orleans Saints @ Cincinnati Bengals | AWAY · DraftKings | 472 | +0.022 pp | — | — | PENDING |
+| Atlanta Falcons @ Minnesota Vikings | AWAY · DraftKings | 276 | -0.545 pp | — | — | PENDING |
+| Tennessee Titans @ Jacksonville Jaguars | AWAY · FanDuel | 750 | — | — | — | PENDING |
+| New York Giants @ Indianapolis Colts | HOME · FanDuel | 270 | -0.275 pp | — | — | PENDING |
+| New Orleans Saints @ Cincinnati Bengals | AWAY · DraftKings | 472 | +0.072 pp | — | — | PENDING |
 
 ## Descriptive paper outcomes
 
