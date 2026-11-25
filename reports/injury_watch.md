@@ -1,10 +1,10 @@
 # QB & Offensive-Line Injury Watch
 
-Generated: `2026-11-24T14:56:20.550313+00:00`
+Generated: `2026-11-25T00:50:03.133369+00:00`
 
 > Observation-only. No starter classification, game-day availability prediction, or positive-EV signal.
 
-- Snapshot file: `data/injury_observations/2026-11-24.csv`
+- Snapshot file: `data/injury_observations/2026-11-25.csv`
 - QB/OL injury-report rows recorded: **658**
 
 The source may include prior weeks; below is only the largest observed week in the dataset, not automatically the current week's confirmed report.
