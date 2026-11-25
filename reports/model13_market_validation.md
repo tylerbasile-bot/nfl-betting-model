@@ -1,14 +1,14 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-25T11:24:31.012783+00:00`
+Updated: `2026-11-25T21:47:06.433402+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
 ## Tracking coverage
 
 - Frozen prospective selections: **16**
-- With any later five-book fresh market observation: **15**
-- With later selected-sportsbook observation: **15**
+- With any later five-book fresh market observation: **16**
+- With later selected-sportsbook observation: **16**
 - With five-book observation within 3h of kickoff: **6**
 - With selected-sportsbook observation within 3h of kickoff: **6**
 - With independently verified final outcomes: **11**
@@ -28,11 +28,11 @@ Updated: `2026-11-25T11:24:31.012783+00:00`
 | Tennessee Titans @ Dallas Cowboys | AWAY · FanDuel | 370 | +1.667 pp | — | — | LOSS |
 | New York Jets @ Los Angeles Chargers | AWAY · BetRivers | 150 | -2.034 pp | -2.034 pp | +1.667 pp | WIN |
 | Las Vegas Raiders @ Denver Broncos | AWAY · FanDuel | 430 | -3.417 pp | -3.417 pp | -1.627 pp | LOSS |
-| Philadelphia Eagles @ Dallas Cowboys | AWAY · BetMGM | 375 | -0.919 pp | — | — | PENDING |
-| Atlanta Falcons @ Minnesota Vikings | AWAY · DraftKings | 276 | -0.545 pp | — | — | PENDING |
-| Tennessee Titans @ Jacksonville Jaguars | AWAY · FanDuel | 750 | — | — | — | PENDING |
-| New York Giants @ Indianapolis Colts | HOME · FanDuel | 270 | -0.275 pp | — | — | PENDING |
-| New Orleans Saints @ Cincinnati Bengals | AWAY · DraftKings | 472 | +0.072 pp | — | — | PENDING |
+| Philadelphia Eagles @ Dallas Cowboys | AWAY · BetMGM | 375 | -1.279 pp | — | — | PENDING |
+| Atlanta Falcons @ Minnesota Vikings | AWAY · DraftKings | 276 | -0.426 pp | — | — | PENDING |
+| Tennessee Titans @ Jacksonville Jaguars | AWAY · FanDuel | 750 | -0.206 pp | — | — | PENDING |
+| New York Giants @ Indianapolis Colts | HOME · FanDuel | 270 | -0.000 pp | — | — | PENDING |
+| New Orleans Saints @ Cincinnati Bengals | AWAY · DraftKings | 472 | +0.342 pp | — | — | PENDING |
 
 ## Descriptive paper outcomes
 
