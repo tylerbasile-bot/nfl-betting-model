@@ -1,23 +1,23 @@
 # Model 13 — Phase 2 Prospective Validation
 
-Generated UTC: `2026-11-26T13:58:13.154792+00:00`
+Generated UTC: `2026-11-26T23:02:28.081412+00:00`
 
 > **NO VERIFIED POSITIVE EV. PAPER RESEARCH ONLY.** No bets are placed by this workflow.
 
 ## 1. Sample accrual (no forced picks)
 
-- Frozen prospective selections: **16/100** (planning target, not a sufficient statistical sample guarantee).
+- Frozen prospective selections: **17/100** (planning target, not a sufficient statistical sample guarantee).
 - Independently verified results: **11**.
-- Games with kickoff reached: **11**; games not yet kicked off: **5**.
+- Games with kickoff reached: **12**; games not yet kicked off: **5**.
 - The target is an observation milestone; do not adjust selection criteria to meet it.
 
 ## 2. Market validation coverage
 
-- Later five-book market references: **16/16**.
-- Later selected-book quotes: **16/16**.
-- Near-kickoff (<=3h) five-book references: **6/16**.
-- Near-kickoff selected-book quotes: **6/16**.
-- Matured games missing a near-kickoff market quote: **5/11**.
+- Later five-book market references: **16/17**.
+- Later selected-book quotes: **16/17**.
+- Near-kickoff (<=3h) five-book references: **6/17**.
+- Near-kickoff selected-book quotes: **6/17**.
+- Matured games missing a near-kickoff market quote: **6/12**.
 - Observed near-kickoff market shift mean: **-2.003 percentage points** (n=6).
 - Observed same-book near-kickoff implied-price shift mean: **+0.080 percentage points** (n=6).
 - These measures are market-price movement proxies, **not** certified closing-line value.
@@ -30,7 +30,7 @@ Generated UTC: `2026-11-26T13:58:13.154792+00:00`
 - PRICE_UNAVAILABLE: **0**.
 - REGION_RESTRICTED: **0**.
 - UNKNOWN: **0**.
-- UNREVIEWED: **16**.
+- UNREVIEWED: **17**.
 
 Prices from the odds feed are **not proof of fillability**. The optional manual CSV
 `data/model13/execution_observations.csv` can document independently checked
@@ -57,8 +57,8 @@ personal financial data, or identifying screenshots in the repository.
 ## 5. Data-quality / pending work
 
 - Candidates with audit warnings: **0**.
-- Candidates awaiting verified finals: **5**.
-- Candidates missing near-kickoff market observations: **10**.
-- Candidates without independent execution confirmation: **16**.
+- Candidates awaiting verified finals: **6**.
+- Candidates missing near-kickoff market observations: **11**.
+- Candidates without independent execution confirmation: **17**.
 
 The live Model 13 selection rule remains unchanged. Do not use this dashboard as a wagering signal.
