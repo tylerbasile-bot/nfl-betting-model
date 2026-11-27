@@ -1,6 +1,6 @@
 # Model 11 — Independent Edge Validation
 
-Updated: `2026-11-26T23:02:26.989561+00:00`
+Updated: `2026-11-27T08:43:22.005902+00:00`
 
 > **NO VERIFIED POSITIVE EV. Research-only. No wagering recommendations.**
 

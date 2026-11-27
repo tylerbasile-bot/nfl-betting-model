@@ -1,17 +1,17 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-26T23:02:27.964241+00:00`
+Updated: `2026-11-27T08:43:22.552550+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
 ## Tracking coverage
 
 - Frozen prospective selections: **17**
-- With any later five-book fresh market observation: **16**
-- With later selected-sportsbook observation: **16**
+- With any later five-book fresh market observation: **17**
+- With later selected-sportsbook observation: **17**
 - With five-book observation within 3h of kickoff: **6**
 - With selected-sportsbook observation within 3h of kickoff: **6**
-- With independently verified final outcomes: **11**
+- With independently verified final outcomes: **12**
 
 ## Frozen selections and follow-up
 
@@ -28,8 +28,8 @@ Updated: `2026-11-26T23:02:27.964241+00:00`
 | Tennessee Titans @ Dallas Cowboys | AWAY · FanDuel | 370 | +1.667 pp | — | — | LOSS |
 | New York Jets @ Los Angeles Chargers | AWAY · BetRivers | 150 | -2.034 pp | -2.034 pp | +1.667 pp | WIN |
 | Las Vegas Raiders @ Denver Broncos | AWAY · FanDuel | 430 | -3.417 pp | -3.417 pp | -1.627 pp | LOSS |
-| Philadelphia Eagles @ Dallas Cowboys | AWAY · BetMGM | 375 | -0.919 pp | — | — | PENDING |
-| Baltimore Ravens @ Houston Texans | AWAY · BetRivers | 275 | — | — | — | PENDING |
+| Philadelphia Eagles @ Dallas Cowboys | AWAY · BetMGM | 375 | -0.919 pp | — | — | WIN |
+| Baltimore Ravens @ Houston Texans | AWAY · BetRivers | 275 | +0.000 pp | — | — | PENDING |
 | Atlanta Falcons @ Minnesota Vikings | AWAY · DraftKings | 276 | -0.426 pp | — | — | PENDING |
 | Tennessee Titans @ Jacksonville Jaguars | AWAY · FanDuel | 750 | -0.206 pp | — | — | PENDING |
 | New York Giants @ Indianapolis Colts | HOME · FanDuel | 270 | +1.459 pp | — | — | PENDING |
@@ -37,9 +37,9 @@ Updated: `2026-11-26T23:02:27.964241+00:00`
 
 ## Descriptive paper outcomes
 
-- Settled selections: **11**, wins: **1**
-- Flat-one-unit hypothetical profit: **-8.500 units**
-- Flat-one-unit ROI on verified finals only: **-77.27%**
+- Settled selections: **12**, wins: **2**
+- Flat-one-unit hypothetical profit: **-4.750 units**
+- Flat-one-unit ROI on verified finals only: **-39.58%**
 
 ## Audit rules and limitations
 

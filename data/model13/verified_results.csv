@@ -10,3 +10,4 @@ event_id,status,winner,home_score,away_score,source,source_event_id,verified_utc
 1940706a79cbcbafacdcbf231069716b,final,Denver Broncos,38,24,espn_scoreboard,401873075,2026-11-23T02:52:32.120672+00:00
 4b20b742b6168aaca4f25d87f11b1526,final,New York Jets,24,27,espn_scoreboard,401873074,2026-11-23T02:52:32.120672+00:00
 41e2dd69bddd65d7e823d9ed61cc2afc,final,Detroit Lions,31,21,espn_scoreboard,401873072,2026-11-23T02:52:32.120672+00:00
+ffaa06af56a7137d4b078c5c46c0b730,final,Philadelphia Eagles,38,39,espn_scoreboard,401873080,2026-11-27T08:43:22.314872+00:00

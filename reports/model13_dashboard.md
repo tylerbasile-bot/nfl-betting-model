@@ -1,14 +1,14 @@
 # Model 13 — Prospective Cross-Book Pricing Study
 
-Updated: `2026-11-26T23:02:27.478012+00:00`
+Updated: `2026-11-27T08:43:22.135978+00:00`
 
 > **NO VERIFIED +EV. PAPER RESEARCH ONLY.** Differences between sportsbooks are not independent probabilities.
 
-- New frozen candidate observations: **1**
+- New frozen candidate observations: **0**
 - Total locked observations: **17**
 - With near-kickoff reference: **6**
 - With same-book near-kickoff price: **6**
-- With verified finals: **11**
+- With verified finals: **12**
 
 ## Precommitted selection rule
 
@@ -27,7 +27,7 @@ At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff a
 | Tennessee Titans @ Dallas Cowboys | AWAY | FanDuel (+370) | 22.85% | +7.39% | 21.08% | -0.92% | — | — | VERIFIED_FINAL |
 | New York Jets @ Los Angeles Chargers | AWAY | BetRivers (+150) | 40.98% | +2.45% | 40.36% | +0.91% | -2.034 pp | +1.667 pp | VERIFIED_FINAL |
 | Las Vegas Raiders @ Denver Broncos | AWAY | FanDuel (+430) | 19.55% | +3.60% | 17.44% | -7.58% | -3.417 pp | -1.627 pp | VERIFIED_FINAL |
-| Philadelphia Eagles @ Dallas Cowboys | AWAY | BetMGM (+375) | 22.28% | +5.82% | 20.39% | -3.17% | — | — | PENDING |
+| Philadelphia Eagles @ Dallas Cowboys | AWAY | BetMGM (+375) | 22.28% | +5.82% | 20.39% | -3.17% | — | — | VERIFIED_FINAL |
 | Baltimore Ravens @ Houston Texans | AWAY | BetRivers (+275) | 27.56% | +3.36% | 26.20% | -1.74% | — | — | PENDING |
 | Atlanta Falcons @ Minnesota Vikings | AWAY | DraftKings (+276) | 27.14% | +2.06% | 25.83% | -2.90% | — | — | PENDING |
 | Tennessee Titans @ Jacksonville Jaguars | AWAY | FanDuel (+750) | 12.09% | +2.75% | 10.01% | -14.90% | — | — | PENDING |
@@ -36,7 +36,7 @@ At least five fresh bookmakers, a snapshot observed within 15 minutes, kickoff a
 
 ## Outcome evaluation
 
-- Hypothetical one-unit-per-selection ROI: **-77.27%** over 11 finalized selections (not actual executable returns).
+- Hypothetical one-unit-per-selection ROI: **-39.58%** over 12 finalized selections (not actual executable returns).
 
 ## Interpretation and limitations
 
