@@ -1,6 +1,6 @@
 # Model 9 — NFL Market Intelligence
 
-Generated: `2026-11-27T08:43:21+00:00`
+Generated: `2026-11-27T19:30:46+00:00`
 
 > **Research only — NO VERIFIED EDGE.** Prices and market consensus are not independently validated win probabilities.
 
@@ -9,7 +9,7 @@ Generated: `2026-11-27T08:43:21+00:00`
 - Odds files read: **18**
 - Pregame games with at least 4 fresh books: **44**
 - Quotes rejected due to malformed fields or prices: **0**
-- Games with an observed quote within 3 hours of kickoff after the initial snapshot: **18**
+- Games with an observed quote within 3 hours of kickoff after the initial snapshot: **19**
 - Games with verified results supplied: **31**
 
 ## Pregame baseline and movement
@@ -47,19 +47,19 @@ Generated: `2026-11-27T08:43:21+00:00`
 | Chicago Bears @ Detroit Lions | 2026-11-26T18:00 | 43.68% | 48.59% | +4.910 | Bovada (+125) | FanDuel (-134) | NO |
 | Philadelphia Eagles @ Dallas Cowboys | 2026-11-26T21:30 | 78.64% | 78.64% | +0.006 | DraftKings (-390) | BetMGM (+375) | NO |
 | Kansas City Chiefs @ Buffalo Bills | 2026-11-27T01:20 | 58.16% | 58.96% | +0.796 | DraftKings (-153) | Bovada (+132) | YES |
-| Denver Broncos @ Pittsburgh Steelers | 2026-11-27T20:00 | 42.49% | 32.21% | -10.283 | DraftKings (+128) | BetMGM (-145) | NO |
+| Denver Broncos @ Pittsburgh Steelers | 2026-11-27T20:00 | 42.49% | 31.73% | -10.766 | DraftKings (+128) | BetMGM (-145) | YES |
 | New York Jets @ Miami Dolphins | 2026-11-29T18:00 | 35.05% | 32.08% | -2.978 | FanDuel (+180) | DraftKings (-197) | NO |
-| Baltimore Ravens @ Houston Texans | 2026-11-29T18:00 | 71.83% | 72.44% | +0.609 | DraftKings (-283) | FanDuel (+250) | NO |
-| Atlanta Falcons @ Minnesota Vikings | 2026-11-29T18:00 | 72.41% | 73.28% | +0.869 | FanDuel (-300) | Bovada (+265) | NO |
-| Tennessee Titans @ Jacksonville Jaguars | 2026-11-29T18:00 | 88.35% | 88.12% | -0.230 | BetMGM (-1000) | FanDuel (+730) | NO |
-| New York Giants @ Indianapolis Colts | 2026-11-29T18:00 | 25.82% | 29.05% | +3.223 | FanDuel (+290) | DraftKings (-302) | NO |
-| New Orleans Saints @ Cincinnati Bengals | 2026-11-29T18:00 | 82.41% | 81.69% | -0.722 | FanDuel (-590) | DraftKings (+463) | NO |
+| Baltimore Ravens @ Houston Texans | 2026-11-29T18:00 | 71.83% | 72.69% | +0.859 | DraftKings (-283) | FanDuel (+250) | NO |
+| Atlanta Falcons @ Minnesota Vikings | 2026-11-29T18:00 | 72.41% | 73.30% | +0.883 | FanDuel (-300) | Bovada (+265) | NO |
+| Tennessee Titans @ Jacksonville Jaguars | 2026-11-29T18:00 | 88.35% | 87.37% | -0.976 | BetMGM (-1000) | FanDuel (+730) | NO |
+| New York Giants @ Indianapolis Colts | 2026-11-29T18:00 | 25.82% | 29.56% | +3.734 | FanDuel (+290) | DraftKings (-302) | NO |
+| New Orleans Saints @ Cincinnati Bengals | 2026-11-29T18:00 | 82.41% | 81.92% | -0.486 | FanDuel (-590) | DraftKings (+463) | NO |
 | New England Patriots @ Los Angeles Chargers | 2026-11-29T21:05 | 52.48% | 44.74% | -7.742 | DraftKings (-119) | FanDuel (+106) | NO |
-| Washington Commanders @ Arizona Cardinals | 2026-11-29T21:25 | 25.41% | 26.11% | +0.707 | DraftKings (+283) | FanDuel (-350) | NO |
-| Seattle Seahawks @ San Francisco 49ers | 2026-11-29T21:25 | 59.81% | 57.46% | -2.344 | LowVig.ag (-160) | DraftKings (+143) | NO |
-| Las Vegas Raiders @ Cleveland Browns | 2026-11-30T01:20 | 66.09% | 67.29% | +1.201 | DraftKings (-212) | BetRivers (+188) | NO |
+| Washington Commanders @ Arizona Cardinals | 2026-11-29T21:25 | 25.41% | 25.98% | +0.571 | DraftKings (+283) | FanDuel (-350) | NO |
+| Seattle Seahawks @ San Francisco 49ers | 2026-11-29T21:25 | 59.81% | 57.11% | -2.697 | LowVig.ag (-160) | DraftKings (+143) | NO |
+| Las Vegas Raiders @ Cleveland Browns | 2026-11-30T01:20 | 66.09% | 67.04% | +0.955 | DraftKings (-212) | BetRivers (+188) | NO |
 | Carolina Panthers @ Tampa Bay Buccaneers | 2026-12-01T01:15 | 58.30% | 59.40% | +1.103 | BetRivers (-139) | Bovada (+138) | NO |
-| Kansas City Chiefs @ Los Angeles Rams | 2026-12-04T01:15 | 49.19% | 49.19% | +0.000 | FanDuel (-102) | DraftKings (-108) | NO |
+| Kansas City Chiefs @ Los Angeles Rams | 2026-12-04T01:15 | 49.19% | 49.95% | +0.756 | FanDuel (-102) | DraftKings (-108) | NO |
 
 ## Outcome validation
 
