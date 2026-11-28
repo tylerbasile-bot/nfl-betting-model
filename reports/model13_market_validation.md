@@ -1,6 +1,6 @@
 # Model 13 — Prospective Market Validation
 
-Updated: `2026-11-27T19:30:47.275735+00:00`
+Updated: `2026-11-28T02:45:23.913727+00:00`
 
 > **PAPER RESEARCH ONLY. NO VERIFIED +EV.** Captured prices may not have been executable.
 
@@ -30,10 +30,10 @@ Updated: `2026-11-27T19:30:47.275735+00:00`
 | Las Vegas Raiders @ Denver Broncos | AWAY · FanDuel | 430 | -3.417 pp | -3.417 pp | -1.627 pp | LOSS |
 | Philadelphia Eagles @ Dallas Cowboys | AWAY · BetMGM | 375 | -0.919 pp | — | — | WIN |
 | Baltimore Ravens @ Houston Texans | AWAY · BetRivers | 275 | -0.250 pp | — | — | PENDING |
-| Atlanta Falcons @ Minnesota Vikings | AWAY · DraftKings | 276 | -0.440 pp | — | — | PENDING |
+| Atlanta Falcons @ Minnesota Vikings | AWAY · DraftKings | 276 | -0.426 pp | — | — | PENDING |
 | Tennessee Titans @ Jacksonville Jaguars | AWAY · FanDuel | 750 | +0.541 pp | — | — | PENDING |
-| New York Giants @ Indianapolis Colts | HOME · FanDuel | 270 | +1.970 pp | — | — | PENDING |
-| New Orleans Saints @ Cincinnati Bengals | AWAY · DraftKings | 472 | +0.044 pp | — | — | PENDING |
+| New York Giants @ Indianapolis Colts | HOME · FanDuel | 270 | +3.525 pp | — | — | PENDING |
+| New Orleans Saints @ Cincinnati Bengals | AWAY · DraftKings | 472 | +0.342 pp | — | — | PENDING |
 
 ## Descriptive paper outcomes
 
